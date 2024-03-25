@@ -1,0 +1,5 @@
+@import "./../../../mixins.scss";
+
+app-direcionar-plano{
+    @include modal_1;
+}

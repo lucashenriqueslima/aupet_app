@@ -1,0 +1,452 @@
+@import "./../../../../../mixins.scss";
+
+app-info-pet{
+    ion-content{
+        app-header-simples{ display: none; }
+        --background: #F3F3F3;
+    
+        .header{
+            width: 360px;
+            height: 270px;
+            display: block;
+            margin: 0 auto;
+            border-radius: 0 0 9.7vw 9.7vw;
+            background-position: center;
+            background-size: cover;
+            position: relative;
+            z-index: 1;
+    
+            &:before{
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                background: rgba(0, 0, 0, .2);
+                width: 100%;
+                height: 100%;
+                border-radius: 0 0 9.7vw 9.7vw;
+            }
+    
+            button.voltar{
+                position: absolute;
+                background: #772E8A;
+                width: 9.4vw;
+                height: 9.4vw;
+                border-radius: 50%;
+                @include flex-wrap;
+                justify-content: center;
+                align-items: center;
+                padding: 0 0.5vw 0 0;
+                left: 6.9vw;
+                top: 11.1vw;
+    
+                svg{
+                    width: 2.2vw;
+                    height: auto;
+                }
+            }
+            button.action{
+                position: absolute;
+                bottom: 0;
+                right: 25px;
+                background: white;
+                @include flex-wrap;
+                justify-content: center;
+                align-items: center;
+                padding: 0;
+                width: 46px;
+                height: 46px;
+                border-radius: 50%;
+                transform: translateY(50%);
+                box-shadow: 0px 1px 5.5vw rgba(0, 0, 0, 0.4);
+
+                &.editar{
+                    right: 78px;
+                }
+            }
+        }
+    
+        .info_content{
+            padding: 8vw 6.9vw 7vw;
+            background: white;
+            border-radius: 0 0 9.7vw 9.7vw;
+            position: relative;
+            box-shadow: 0px 1px 5.5vw rgba(0, 0, 0, 0.1);
+
+    
+            &:before{
+                content: '';
+                position: absolute;
+                width: 100%;
+                background: white;
+                left: 0;
+                height: 270px;
+                top: -270px;
+            }
+    
+            h1{
+                text-align: center;
+                color: #772E8A;
+                margin: 0 0 2.7vw;
+                font-size: 6.1vw;
+                font-weight: bold;
+            }
+            p.desc{
+                color: #757575;
+                margin: 0 0 5.5vw;
+                font-size: 3.6vw;
+                font-weight: 500;
+                text-align: center;
+            }
+            .dados{
+                color: #757575;
+                font-size: 3vw;
+                font-weight: 500;
+                @include flex-wrap;
+                justify-content: space-between;
+                align-items: center;
+                max-width: 450px;
+                margin: 0 auto;
+    
+                div{
+                    @include flex-wrap;
+                    align-items: center;
+    
+                    svg{
+                        margin-right: 1.4vw;
+                    }
+    
+                    &.sexo{
+                        svg{
+                            width: 3.9vw;
+                            height: auto;
+                        }
+                    }
+                    &.idade{
+                        svg{
+                            width: 3.3vw;
+                            height: auto;
+                        }
+                    }
+                    &.peso{
+                        svg{
+                            width: 2.7vw;
+                            height: auto;
+                        }
+                    }
+                    &.porte{
+                        svg{
+                            width: 2.7vw;
+                            height: auto;
+                        }
+                    }
+                }
+            }
+
+
+
+            .plano_content{
+                max-width: 360px;
+                margin: 0 auto;
+                padding: 38px 0 0;
+
+                h3{
+                    font-weight: bold;
+                    font-size: 18px;
+                    text-align: center;
+                    color: #212121;
+                    margin: 0 0 12px;
+
+                    &[alert="true"]:after{
+                        content: ' *';
+                        color: #C70000;
+                    }
+                }
+                >button{
+                    position: relative;
+                    width: 100%;
+                    height: 40px;
+                    background: #772E8A;
+                    border-radius: 50px;
+                    padding: 0 27px;
+                    font-weight: 500;
+                    font-size: 14px;
+                    text-align: left;
+                    color: white;
+                    margin: 0 0 15px;
+
+                    &.assine{
+                        background: #DC8400;
+                    }
+
+                    svg{
+                        position: absolute;
+                        right: 16px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        height: auto;
+                        width: 6px;
+                    }
+                }
+                .alert{
+                    position: relative;
+                    padding: 0 0 0 30px;
+
+                    svg{
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        width: 20px;
+                        height: auto;
+                    }
+                    h4{
+                        font-weight: 500;
+                        font-size: 12px;
+                        line-height: 14px;
+                        color: #000000;
+                        margin: 0;
+                    }
+                    p{
+                        font-size: 12px;
+                        line-height: 14px;
+                        color: #000000;
+                        margin: 0;
+                    }
+                }
+            }
+
+
+    
+            button.plano{
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                width: 85.3vw;
+                height: 11.1vw;
+                transform: translate(-50%, 50%);
+                background: white;
+                font-size: 3.6vw;
+                font-weight: 500;
+                color: #772E8A;
+                padding: 0 6.9vw;
+                text-align: left;
+                border-radius: 11.1vw;
+                box-shadow: 0px 1px 2.7vw rgba(0, 0, 0, 0.2);
+    
+                svg{
+                    position: absolute;
+                    right: 4.2vw;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+            }
+        }
+    
+        .menu_pet{
+            padding: 15.3vw 6.9vw 18vw;
+            max-width: 450px;
+            margin: 0 auto;
+
+            button{
+                display: block;
+                width: 100%;
+                height: 15.3vw;
+                padding: 0 8.3vw 0 18vw;
+                position: relative;
+                background: white;
+                color: #4D4D4D;
+                font-size: 3vw;
+                font-weight: 500;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                text-align: left;
+                border-radius: 2.7vw;
+                margin: 0 0 2.7vw;
+                box-shadow: 0px 1px 2.7vw rgba(0, 0, 0, 0.2);
+    
+                svg{
+                    &.icone{
+                        position: absolute;
+                        left: 5.5vw;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        height: auto;
+                    }
+                    &.arrow{
+                        position: absolute;
+                        right: 4.2vw;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        width: 1.7vw;
+                        height: auto;
+                    }
+                }
+        
+                &.carteirinha{
+                    svg.icone{ width: 8.9vw; }
+                }
+                &.exames{
+                    svg.icone{ width: 5.8vw; }
+                }
+                &.medicamentos{
+                    svg.icone{ width: 6.7vw; }
+                }
+                &.vermifugos{
+                    svg.icone{ width: 5.3vw; }
+                }
+                &.banho{
+                    svg.icone{ width: 8vw; }
+                }
+                &.vacinas{
+                    svg.icone{ width: 7.8vw; }
+                }
+                &.mensalidades{
+                    svg.icone{ width: 6.9vw; }
+                }
+            }
+        }
+    }
+
+    @media (min-width: 450px){
+        ion-content{
+            .header{
+                border-radius: 0 0 44px 44px;
+        
+                &:before{
+                    border-radius: 0 0 44px 44px;
+                }
+        
+                button.voltar{
+                    width: 42px;
+                    height: 42px;
+                    padding: 0 2px 0 0;
+                    left: 31px;
+                    top: 50px;
+        
+                    svg{
+                        width: 10px;
+                    }
+                }
+            }
+        
+            .info_content{
+                padding: 35px 31px 30px;
+                border-radius: 0 0 44px 44px;
+                box-shadow: 0px 1px 25px rgba(0, 0, 0, 0.1);
+        
+                h1{
+                    margin: 0 0 12px;
+                    font-size: 27px;
+                }
+                p.desc{
+                    margin: 0 0 25px;
+                    font-size: 16px;
+                }
+                .dados{
+                    font-size: 13px;
+        
+                    div{ 
+                        svg{ margin-right: 6px; }
+        
+                        &.sexo{ svg{ width: 17px; } }
+                        &.idade{ svg{ width: 15px; } }
+                        &.peso{ svg{ width: 12px; } }
+                        &.porte{ svg{ width: 12px; } }
+                    }
+                }
+        
+                button.plano{
+                    width: 384px;
+                    height: 50px;
+                    font-size: 16px;
+                    padding: 0 31px;
+                    border-radius: 50px;
+                    box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.2);
+        
+                    svg{
+                        right: 19px;
+                    }
+                }
+            }
+        
+            .menu_pet{
+                padding: 69px 31px 80px;
+        
+                button{
+                    height: 69px;
+                    padding: 0 37px 0 81px;
+                    font-size: 13px;
+                    border-radius: 12px;
+                    margin: 0 0 12px;
+                    box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.2);
+        
+                    svg{
+                        &.icone{
+                            left: 25px;
+                        }
+                        &.arrow{
+                            right: 19px;
+                            width: 8px;
+                        }
+                    }
+            
+                    &.carteirinha{
+                        svg.icone{ width: 40px; }
+                    }
+                    &.exames{
+                        svg.icone{ width: 26px; }
+                    }
+                    &.medicamentos{
+                        svg.icone{ width: 30px; }
+                    }
+                    &.vermifugos{
+                        svg.icone{ width: 24px; }
+                    }
+                    &.banho{
+                        svg.icone{ width: 36px; }
+                    }
+                    &.vacinas{
+                        svg.icone{ width: 35px; }
+                    }
+                    &.mensalidades{
+                        svg.icone{ width: 30px; }
+                    }
+                }
+            }
+        }
+    }
+
+    @media (min-width: 1000px){
+        ion-content{
+            border-bottom: 30px solid #772e8a;
+
+            app-header-simples{ display: block; }
+        
+            .header{
+                button.voltar{ display: none; }
+            }
+        
+            .info_content{
+                .dados{
+                    font-size: 15px;
+                }
+        
+                button.plano{
+                    width: 640px;
+                }
+            }
+        
+            .menu_pet{
+                max-width: 640px;
+                padding: 69px 0 60px;
+                @include flex-wrap;
+                justify-content: space-between;
+
+                button{
+                    width: 310px;
+                    font-size: 11px;
+                }
+            }
+        }
+    }
+}

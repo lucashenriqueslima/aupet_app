@@ -1,0 +1,82 @@
+@import "./../../mixins.scss";
+
+app-extrato{
+    ion-content{
+        --background: #F1F1F1;
+
+        app-header-simples{ display: none; }
+    
+        @include icon_name(18vw);
+    
+        .icon_name{
+            padding: 19.4vw 0 0;
+        }
+    
+        .list_item{
+            padding: 0 0 8.3vw;
+            max-width: 450px;
+            margin: 0 auto;
+            
+            .item{
+                padding: 3.3vw 6.9vw;
+                border-bottom: 1px solid #DEDEDE;
+    
+                p.data{
+                    color: #959595;
+                    margin: 0;
+                    font-size: 3.3vw;
+                    font-weight: 500;
+                }
+                p.valor{
+                    margin: 0;
+                    color: #000000;
+                    font-size: 3.9vw;
+                    font-weight: 500;
+    
+                    span{
+                        color: #00C656;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+
+    @media(min-width: 450px){
+        ion-content{
+            @include icon_name(81px);
+        
+            .icon_name{
+                padding: 87px 0 0;
+            }
+        
+            .list_item{
+                padding: 0 0 37px;
+                
+                .item{
+                    padding: 15px 31px;
+        
+                    p.data{
+                        font-size: 15px;
+                    }
+                    p.valor{
+                        font-size: 18px;
+                    }
+                }
+            }
+        }
+    }
+
+    @media(min-width: 1000px){
+        ion-content{
+            border-bottom: 30px solid #772e8a;
+            
+            app-header-simples{ display: block; }
+        
+            .list_item{
+                padding: 100px 0 37px;
+                max-width: 750px;
+            }
+        }
+    }
+}

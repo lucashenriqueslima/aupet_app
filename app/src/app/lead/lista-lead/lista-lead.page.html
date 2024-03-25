@@ -1,0 +1,24 @@
+<ion-content>
+    <div class="header_search">
+        <button class="voltar" (click)="backFunction()"><svg xmlns="http://www.w3.org/2000/svg" width="8.075" height="13.744" viewBox="0 0 8.075 13.744"> <g id="right-arrow" transform="translate(109.553 13.744) rotate(180)"> <g id="Grupo_3" data-name="Grupo 3" transform="translate(101.478)"> <path id="Caminho_2" data-name="Caminho 2" d="M109.333,6.336,103.217.22a.753.753,0,0,0-1.063,0l-.45.45a.753.753,0,0,0,0,1.063l5.136,5.136L101.7,12.011a.754.754,0,0,0,0,1.063l.45.45a.753.753,0,0,0,1.063,0L109.333,7.4a.759.759,0,0,0,0-1.067Z" transform="translate(-101.478)" fill="#fff"/> </g> </g> </svg> </button>
+        <h1>Meus leads</h1>
+        <app-button-search [(ngModel)]="termSearch" (keyUp)="searchTermStream.next(termSearch)" (closeInput)="close_search()"></app-button-search>
+        <button class="filtro" (click)="open_modal_filtrar()"><svg id="noun_filter_866532" xmlns="http://www.w3.org/2000/svg" width="18.695" height="15.203" viewBox="0 0 18.695 15.203"><path id="Caminho_20" data-name="Caminho 20" d="M26.774,17.861a.809.809,0,0,1,.8.8h0a.809.809,0,0,1-.8.8H25.29a.766.766,0,0,0-.662.365,2.243,2.243,0,0,1-1.94,1.1,2.272,2.272,0,0,1-1.94-1.1.8.8,0,0,0-.662-.365H9.7a.809.809,0,0,1-.8-.8h0a.809.809,0,0,1,.8-.8H20.108a.766.766,0,0,0,.662-.365,2.243,2.243,0,0,1,1.94-1.1,2.272,2.272,0,0,1,1.94,1.1.8.8,0,0,0,.662.365ZM22.71,27.083a2.272,2.272,0,0,0-1.94,1.1.8.8,0,0,1-.662.365H9.7a.809.809,0,0,0-.8.8h0a.809.809,0,0,0,.8.8H20.108a.766.766,0,0,1,.662.365,2.243,2.243,0,0,0,1.94,1.1,2.272,2.272,0,0,0,1.94-1.1.8.8,0,0,1,.662-.365H26.8a.809.809,0,0,0,.8-.8h0a.809.809,0,0,0-.8-.8H25.313a.766.766,0,0,1-.662-.365A2.272,2.272,0,0,0,22.71,27.083Zm-8.72-5.342a2.272,2.272,0,0,0-1.94,1.1.8.8,0,0,1-.662.365H9.7a.809.809,0,0,0-.8.8h0a.809.809,0,0,0,.8.8h1.689a.766.766,0,0,1,.662.365,2.243,2.243,0,0,0,1.94,1.1,2.272,2.272,0,0,0,1.94-1.1.8.8,0,0,1,.662-.365H26.8a.809.809,0,0,0,.8-.8h0a.809.809,0,0,0-.8-.8h-10.2a.766.766,0,0,1-.662-.365A2.272,2.272,0,0,0,13.99,21.742Z" transform="translate(-8.9 -16.4)" fill="#fff"/></svg></button>
+        <img src="assets/img/login/logo.svg" alt="" class="logo">
+    </div>
+
+    <div class="content">
+        <p class="resultado">{{data?.length}} resultados encontrados</p>
+        <ion-refresher slot="fixed" [disabled]="false" (ionRefresh)="doRefresh($event)">
+			<ion-refresher-content></ion-refresher-content>
+		</ion-refresher>
+        <div class="list_itens">
+            <div class="item" *ngFor="let item of data" status="3" routerLink="../../proposta/{{item.id}}" >
+                <p class="data">{{item.create_at  | date:'dd/MM/yyyy'}} às {{item.create_at  | date:'HH:mm'}}</p>
+                <h2>{{item.associado}}</h2>
+                <p class="proposta">Proposta: {{item.quantidade}} pets</p>
+                <svg xmlns="http://www.w3.org/2000/svg" width="5.679" height="9.667" viewBox="0 0 5.679 9.667"><g id="right-arrow" transform="translate(-101.478)"><g id="Grupo_3" data-name="Grupo 3" transform="translate(101.478)"><path id="Caminho_2" data-name="Caminho 2" d="M107,4.456l-4.3-4.3a.53.53,0,0,0-.748,0l-.317.317a.53.53,0,0,0,0,.748l3.613,3.613-3.617,3.617a.53.53,0,0,0,0,.748l.317.317a.53.53,0,0,0,.748,0L107,5.207a.534.534,0,0,0,0-.751Z" transform="translate(-101.478)" fill="#989898"/></g></g></svg>
+            </div>
+        </div>
+    </div>
+</ion-content>

@@ -1,0 +1,673 @@
+@import './../../../mixins.scss';
+
+
+app-interno-lead{
+    ion-content{
+        .content{
+            @include content;
+            min-height: calc(100% - 25vw);
+            padding: 9.2vw 6.9vw 9.7vw;
+    
+            .info_header{
+                position: relative;
+                padding: 0 8.3vw 4.2vw 11.1vw;
+    
+                svg.user{
+                    position: absolute;
+                    left: 0;
+                    top: 0.8vw;
+                    width: 7.5vw;
+                    height: auto;
+                }
+                p.data{
+                    margin: 0;
+                    color: #000000;
+                    font-size: 2.8vw;
+                    font-weight: 500;
+                }
+                h2{
+                    margin: 0;
+                    font-size: 3.9vw;
+                    font-weight: 500;
+                    color: #772E8A;
+                }
+                button.editar{
+                    padding: 0;
+                    width: 6.9vw;
+                    height: 6.9vw;
+                    position: absolute;
+                    right: 0;
+                    top: 0.8vw;
+                    background: transparent;
+    
+                    svg{
+                        width: 4.2vw;
+                        height: auto;
+                    }
+                }
+            }
+    
+            .dados_content{
+                padding: 1.4vw 0 0;
+    
+                .item{
+                    margin: 0 0 4.2vw;
+    
+                    h3{
+                        margin: 0;
+                        font-size: 3.6vw;
+                        font-weight: bold;
+                        color: #4A4A4A;
+                    }
+                    p{
+                        margin: 0;
+                        font-size: 3.6vw;
+                        font-weight: 500;
+                        color: #4A4A4A;
+                    }
+                }
+            }
+    
+            .contact_buttons{
+                @include flex-wrap;
+                justify-content: space-between;
+                padding: 1.4vw 0 4.2vw;
+    
+                button{
+                    width: calc((100% - 1.4vw)/2);
+                    height: 8.3vw;
+                    border: 1px solid #772E8A;
+                    @include flex-wrap;
+                    justify-content: center;
+                    align-items: center;
+                    text-transform: uppercase;
+                    font-size: 3vw;
+                    letter-spacing: .5px;
+                    color: #772E8A;
+                    font-weight: 500;
+                    background: transparent;
+                    border-radius: 1.4vw;
+                    
+                    &.whatsapp{
+                        svg{
+                            width: 2.2vw;
+                            height: auto;
+                            margin: 0 1.4vw 0 0;
+                        }
+                    }
+                }
+            }
+    
+            .dados_plano_pet{
+                margin: 5.6vw 0 0;
+    
+                h3{
+                    margin: 0;
+                    background: #772E8A;
+                    color: white;
+                    font-size: 3vw;
+                    font-weight: 500;
+                    letter-spacing: 1px;
+                    text-transform: uppercase;
+                    padding: 5.8vw 8.3vw 5.8vw 16.7vw;
+                    position: relative;
+                    border-radius: 2.8vw;
+    
+                    svg{
+                        position: absolute;
+                        width: 6.4vw;
+                        height: auto;
+                        left: 6.4vw;
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+                }
+    
+                .list_pet{
+                    background: #F2F2F2;
+                    border-radius: 2.8vw;
+                    padding: 2.8vw 0 5.6vw;
+
+                    .item_content{
+                        button.item{
+                            width: 100%;
+                            font-size: 3.3vw;
+                            font-weight: 500;
+                            color: #772E8A;
+                            text-align: left;
+                            padding: 0 11.1vw 0 4.2vw;
+                            height: 10vw;
+                            position: relative;
+                            background: transparent;
+        
+                            svg{
+                                position: absolute;
+                                right: 4.2vw;
+                                top: 50%;
+                                transform: translateY(-50%);
+                                width: 1.7vw;
+                                height: auto;
+                            }
+                        }
+                        .buttons{
+                            @include flex-wrap;
+                            justify-content: space-between;
+                            align-items: center;
+                            padding: 0 4.2vw;
+
+
+                            button{
+                                font-size: 3vw;
+                                font-weight: 500;
+                                color: white;
+                                text-align: left;
+                                background: #772E8A;
+                                padding: 2.3vw 2.5vw;
+                                border-radius: 2vw;
+                                width: 33.3vw;
+                                text-align: center
+                            }
+                        }
+                    }
+    
+                    .button_content{
+                        @include flex-wrap;
+                        justify-content: space-between;
+                        padding: 5.6vw 4.2vw 0;
+    
+                        button.compartilhar{
+                            padding: 0;
+                            width: 43vw;
+                            border: 1px solid #772E8A;
+                            height: 8.3vw;
+                            border-radius: 1.4vw;
+                            text-transform: uppercase;
+                            font-size: 3vw;
+                            color: #772E8A;
+                            font-weight: 500;
+                            letter-spacing: .5px;
+                        }
+                        button.adicionar_pet{
+                            background: transparent;
+                            padding: 0;
+                            border: 1px solid #772E8A;
+                            height: 8.3vw;
+                            border-radius: 1.4vw;
+                            text-transform: uppercase;
+                            font-size: 3vw;
+                            color: #772E8A;
+                            font-weight: 500;
+                            letter-spacing: .5px;
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+    
+            .page_info_content{
+                padding: 8.3vw 0 0;
+    
+                button{
+                    background: #772E8A;
+                    color: white;
+                    font-size: 3vw;
+                    font-weight: 500;
+                    letter-spacing: 1px;
+                    text-transform: uppercase;
+                    width: 100%;
+                    height: 15.3vw;
+                    text-align: left;
+                    padding: 0 8.3vw 0 16.7vw;
+                    margin: 0 0 2.8vw;
+                    position: relative;
+                    border-radius: 2.8vw;
+    
+                    svg{
+                        &.icon{
+                            position: absolute;
+                            width: 5.6vw;
+                            height: auto;
+                            left: 6.9vw;
+                            top: 50%;
+                            transform: translateY(-50%);
+                        }
+                        &.arrow{
+                            width: 1.7vw;
+                            height: auto;
+                            position: absolute;
+                            right: 4.2vw;
+                            top: 50%;
+                            transform: translateY(-50%);
+                        }
+                    }
+                }
+            }
+
+
+            .pets_lead{
+                padding: 20px 0 0;
+
+                .item{
+                    width: 100%;
+                    background: white;
+                    border-radius: 10px;
+                    overflow: hidden;
+                    box-shadow: 0 3px 15px rgba(0, 0, 0, .15);
+                    margin: 0 0 35px;
+
+                    .title{
+                        width: 100%;
+                        height: 45px;
+                        background: #772E8A;
+                        position: relative;
+
+
+                        h3{
+                            position: absolute;
+                            left: 0;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            padding: 0 100px 0 20px;
+                            margin: 0;
+                            font-weight: 500;
+                            font-size: 18px;
+                            line-height: 19px;
+                            color: white;
+                        }
+                        button{
+                            position: absolute;
+                            right: 0;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            padding: 0;
+                            background: transparent;
+                            border: none;
+                            width: 30px;
+                            height: 30px;
+
+                            &.share{
+                                right: 45px;
+                            }
+                            &.delete{
+                                right: 10px;
+                            }
+
+                            svg{
+                                width: 14px;
+                                height: auto;
+                            }
+                        }
+                    }
+                    .plano{
+                        padding: 25px 20px;
+                        margin: 0 0 15px;
+                        position: relative;
+
+                        h4{
+                            font-size: 14px;
+                            line-height: 14px;
+                            color: #2E2E2E;
+                            margin: 0;
+                            max-width: calc(100% - 140px);
+                        }
+                        p{
+                            font-weight: 500;
+                            font-size: 14px;
+                            line-height: 14px;
+                            color: #772E8A;
+                            margin: 0;
+                            max-width: calc(100% - 140px);
+                        }
+                        button.detalhes{
+                            padding: 0;
+                            position: absolute;
+                            right: 20px;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            width: 135px;
+                            height: 30px;
+                            background: #DC8400;
+                            color: white;
+                            border-radius: 5px;
+                            font-weight: 500;
+                            font-size: 11px;
+                            text-transform: uppercase;
+                            letter-spacing: 1px;
+                        }
+                    }
+                    .status{
+                        padding: 0 20px;
+
+                        h3{
+                            font-weight: bold;
+                            font-size: 16px;
+                            line-height: 18px;
+                            color: #3E3E3E;
+                            margin: 0 0 25px;
+                        }
+                        >div{
+                            position: relative;
+                            padding: 0 30px 35px 53px;
+
+                            &:last-child::after{
+                                display: none;
+                            }
+
+                            &::before{
+                                content: '';
+                                position: absolute;
+                                left: 10px;
+                                top: 0;
+                                width: 21px;
+                                height: 21px;
+                                border-radius: 50%;
+                                background: #772E8A;
+                                z-index: 1;
+                            }
+                            &:after{
+                                content: '';
+                                position: absolute;
+                                left: 20px;
+                                top: 5px;
+                                width: 1px;
+                                height: 100%;
+                                border-left: 1px dashed #772E8A;
+                            }
+
+                            &[active="true"]{
+                                &::before{
+                                    background: #00C656;
+                                }
+                                &:after{
+                                    border-color: #00C656;
+                                }
+                                h4{
+                                    color: #00C656;
+
+                                    &::before{
+                                        content: 'Concluída';
+                                    }
+                                }
+                                button{
+                                    display: none;
+                                }
+                                svg{ display: block; }
+                            }
+                            h4{
+                                position: relative;
+                                font-weight: bold;
+                                font-size: 14px;
+                                line-height: 18px;
+                                color: #772E8A;
+                                margin: 0;
+                                padding: 0 0 18px;
+
+                                &:before{
+                                    content: 'Aguardando';
+                                    position: absolute;
+                                    left: 0;
+                                    bottom: 0;
+                                    font-weight: normal;
+                                    font-size: 12px;
+                                    color: black;
+                                }
+                            }
+                            button{
+                                background: transparent;
+                                border: 1px solid #772E8A;
+                                text-transform: uppercase;
+                                color: #772E8A;
+                                font-weight: 500;
+                                font-size: 11px;
+                                letter-spacing: 1px;
+                                padding: 9px 11px;
+                                border-radius: 5px;
+                                margin: 5px 0 0;
+                            }
+                            svg{
+                                position: absolute;
+                                right: 0;
+                                top: 0;
+                                width: 18px;
+                                height: auto;
+                                display: none;
+                            }
+                        }
+                    }
+                }
+
+                button.adicionar_pet{
+                    position: relative;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                    font-size: 16px;
+                    color: #772E8A;
+                    background: transparent;
+                    display: block;
+                    margin: 0 auto;
+                    padding: 15px 40px 15px 50px;
+
+                    svg{
+                        position: absolute;
+                        left: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+                }
+            }
+        }
+    }
+
+    @media (min-width: 450px){
+        ion-content{
+            .content{
+                min-height: calc(100% - 112px);
+                padding: 41px 31px 44px;
+        
+                .info_header{
+                    padding: 0 37px 19px 50px;
+        
+                    svg.user{
+                        top: 4px;
+                        width: 34px;
+                    }
+                    p.data{
+                        font-size: 13px;
+                    }
+                    h2{
+                        font-size: 18px;
+                    }
+                    button.editar{
+                        width: 31px;
+                        height: 31px;
+                        top: 4px;
+        
+                        svg{
+                            width: 19px;
+                        }
+                    }
+                }
+        
+                .dados_content{
+                    padding: 6px 0 0;
+        
+                    .item{
+                        margin: 0 0 19px;
+        
+                        h3{
+                            font-size: 16px;
+                        }
+                        p{
+                            font-size: 16px;
+                        }
+                    }
+                }
+        
+                .contact_buttons{
+                    padding: 6px 0 19px;
+        
+                    button{
+                        width: calc((100% - 6px)/2);
+                        height: 37px;
+                        font-size: 13px;
+                        border-radius: 6px;
+                        
+                        &.whatsapp{
+                            svg{
+                                width: 10px;
+                                margin: 0 6px 0 0;
+                            }
+                        }
+                    }
+                }
+        
+                .dados_plano_pet{
+                    margin: 25px 0 0;
+        
+                    h3{
+                        font-size: 13px;
+                        padding: 26px 37px 26px 75px;
+                        border-radius: 13px;
+        
+                        svg{
+                            width: 29px;
+                            left: 29px;
+                        }
+                    }
+        
+                    .list_pet{
+                        border-radius: 13px;
+                        padding: 13px 0 25px;
+
+                        .item_content{
+                            button.item{
+                                font-size: 15px;
+                                padding: 0 50px 0 19px;
+                                height: 43px;
+            
+                                svg{
+                                    right: 19px;
+                                    width: 8px;
+                                }
+                            }
+
+                            .buttons{
+                                padding: 0 18px;
+    
+                                button{
+                                    font-size: 13px;
+                                    padding: 10px;
+                                    border-radius: 9px;
+                                    width: 150px;
+                                }
+                            }
+                        }
+        
+                        .button_content{
+                            padding: 25px 19px 0;
+        
+                            button.compartilhar{
+                                width: 193px;
+                                height: 37px;
+                                border-radius: 6px;
+                                font-size: 13px;
+                            }
+                            button.adicionar_pet{
+                                height: 37px;
+                                border-radius: 6px;
+                                font-size: 13px;
+                            }
+                        }
+                    }
+                }
+        
+                .page_info_content{
+                    padding: 37px 0 0;
+        
+                    button{
+                        font-size: 13px;
+                        height: 69px;
+                        padding: 0 37px 0 75px;
+                        margin: 0 0 13px;
+                        position: relative;
+                        border-radius: 13px;
+        
+                        svg{
+                            &.icon{
+                                width: 25px;
+                                left: 31px;
+                            }
+                            &.arrow{
+                                width: 8px;
+                                right: 19px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media (min-width: 1000px){
+        ion-content{
+            border-bottom: 30px solid #772e8a;
+            
+            .content{
+                min-height: initial;
+                max-width: 750px;
+                
+                .info_header{
+                    svg.user{}
+                    p.data{}
+                    h2{}
+                    button.editar{
+                        svg{}
+                    }
+                }
+        
+                .dados_content{
+                    .item{
+                        h3{}
+                        p{}
+                    }
+                }
+        
+                .contact_buttons{
+                    button{
+                        &.whatsapp{
+                            svg{}
+                        }
+                    }
+                }
+        
+                .dados_plano_pet{
+                    h3{
+                        svg{}
+                    }
+        
+                    .list_pet{
+                        .item_content{
+                            button.item{
+                                svg{}
+                            }
+                        }
+                
+                        .button_content{
+                            button.compartilhar{}
+                            button.adicionar_pet{}
+                        }
+                    }
+                }
+        
+                .page_info_content{
+                    button{
+                        svg{
+                            &.icon{}
+                            &.arrow{}
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,23 @@
+<div class="pop_up_content">
+    <div class="content">
+        <div class="header">
+            <button class="fechar" (click)="dismiss()"><svg xmlns="http://www.w3.org/2000/svg" width="16.159" height="16.159" viewBox="0 0 16.159 16.159"><path id="close" d="M9.56,8.216l6.292-6.292a1.047,1.047,0,0,0-1.48-1.48L8.079,6.735,1.787.443a1.047,1.047,0,0,0-1.48,1.48L6.6,8.216.307,14.508a1.047,1.047,0,1,0,1.48,1.48L8.079,9.7l6.292,6.292a1.047,1.047,0,1,0,1.48-1.48Zm0,0" transform="translate(0 -0.136)"/></svg></button>
+            <h2>Cancelar agendamento</h2>
+        </div>
+
+        <div class="item">
+            <div>
+                <select [attr.data-value]="data.id_motivo" name="motivo" [(ngModel)]="data.id_motivo">
+                    <option value="undefined"></option>
+                    <option *ngFor="let item of motivos" [ngValue]="item.id">{{item.motivo}}</option>
+                </select>
+                <label class="placeholder">Motivo do cancelamento</label>
+            </div>
+        </div>
+        <!-- <p class="text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam era.</p> -->
+        <div class="buttons">
+            <button class="cancelar" (click)="dismiss()">cancelar</button>
+            <button class="confirm" (click)="cancelar()">ok</button>
+        </div>
+    </div>
+</div>

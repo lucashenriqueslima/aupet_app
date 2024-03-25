@@ -1,0 +1,23 @@
+<div class="pop_up_content">
+    <div class="content" *ngIf="pets.length != 0">
+        <h2>Selecione o Pet :</h2>
+        <div class="item">
+            <select [attr.data-value]="id_pet" name="" [(ngModel)]="id_pet">
+                <option value="" hidden></option>
+                <option *ngFor="let item of pets" value="{{ item.id }}">{{ item.nome}}</option>
+            </select>
+            <label class="placeholder">Informe o Pet </label>
+        </div>
+        <div class="buttons">
+            <button class="cancelar" (click)="dismiss()">cancelar</button>
+            <button class="confirm" (click)="selecionar()">ok</button>
+        </div>
+    </div>
+    <div class="content" *ngIf="pets.length == 0">
+        <h2>Você não possiu nenhum pet cadastrado sem plano!</h2>
+        <div class="buttons">
+            <button class="cancelar" (click)="dismiss()">cancelar</button>
+            <button class="confirm"  (click)="createPet()" >Criar Pet</button>
+        </div>
+    </div>
+</div>

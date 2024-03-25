@@ -1,0 +1,114 @@
+@import './../../../mixins.scss';
+
+app-mobile-menu{
+    height: 13.9vw;
+
+    &.hide >div{
+        transform: translateY(100%);
+    }
+
+    >div{
+        @include flex-wrap;
+        justify-content: space-between;
+        height: 13.9vw;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        background: white;
+        box-shadow: 0 0 6px rgb(0 0 0 / 25%);
+        width: 100%;
+        transition: all .2s;
+        z-index: 10;
+
+        button{
+            width: calc(100% / 5);
+            position: relative;
+            padding: 7.5vw 0 0;
+            background: transparent;
+            border: none;
+
+            &.active{
+                span{
+                    font-size: 2.45vw;
+                    line-height: 2.78vw;
+                }
+
+                &:nth-child(1){
+                    svg *{ fill: #772E8A;} 
+                    span{ color: #772E8A; }
+                }
+                &:nth-child(2){
+                    svg *{ fill: #C70000; stroke: #C70000; } 
+                    span{ color: #C70000; }
+                }
+                &:nth-child(3){
+                    svg *{ fill: #772E8A; } 
+                    span{ color: #772E8A; }
+                }
+                &:nth-child(4){
+                    svg *{ fill: #00A4CE; } 
+                    span{ color: #00A4CE; }
+                }
+                &:nth-child(5){
+                    svg *{ fill: #DC8400; stroke: #DC8400; } 
+                    span{ color: #DC8400; }
+                }
+            }
+
+            &:nth-child(1) svg{ width: 6.39vw; }
+            &:nth-child(2) svg{ width: 6.11vw; }
+            &:nth-child(3) svg{ width: 6.94vw; }
+            &:nth-child(4) svg{ width: 5.55vw; }
+            &:nth-child(5) svg{ width: 5.83vw; }
+    
+            svg{
+                position: absolute;
+                bottom: 5.28vw;
+                left: 50%;
+                height: auto;
+                transform: translateX(-50%);
+            }
+            span{
+                width: 100%;
+                display: block;
+                font-size: 2.22vw;
+                line-height: 2.5vw;
+                text-align: center;
+                color: #929292;
+            }
+        }
+    }
+
+    @media (min-width: 450px){
+        height: 60px;
+
+        >div{
+            height: 60px;
+
+            button{
+                padding: 32px 0 0;
+
+                &.active{
+                    span{
+                        font-size: 11px;
+                        line-height: 12px;
+                    }
+                }
+
+                &:nth-child(1) svg{ width: 28px; }
+                &:nth-child(2) svg{ width: 26px; }
+                &:nth-child(3) svg{ width: 30px; }
+                &:nth-child(4) svg{ width: 24px; }
+                &:nth-child(5) svg{ width: 25px; }
+
+                svg{
+                    bottom: 23px;
+                }
+                span{
+                    font-size: 10px;
+                    line-height: 11px;
+                }
+            }
+        }
+    }
+}

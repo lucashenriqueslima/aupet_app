@@ -1,0 +1,36 @@
+<ion-content>
+    <app-header-simples title="Status {{pet?.nome}}"></app-header-simples>
+    <div class="content">
+        <div class="list_item">
+            <div *ngFor='let item of status; let i = index' class="item" [class.ativo]="item.id == pet.id_status && !pet.status_final" [class.finalizado]="item.id < pet.id_status || pet.status_final">
+                <span class="etapa">{{i+1}}</span>
+                <div class="icones">
+                    <svg class="finalizado" xmlns="http://www.w3.org/2000/svg" width="20.396" height="15.837" viewBox="0 0 20.396 15.837">
+                        <path id="check" d="M7.81,15.938a1.041,1.041,0,0,1-1.472,0L.458,10.057a1.561,1.561,0,0,1,0-2.209l.736-.736a1.562,1.562,0,0,1,2.209,0l3.671,3.671L16.993.864a1.562,1.562,0,0,1,2.209,0l.736.736a1.561,1.561,0,0,1,0,2.209Zm0,0" transform="translate(0 -0.406)" fill="#00c656" />
+                    </svg>
+                    <svg class="andamento" *ngIf="checkValidarDisabled(item)" id="alert_1_" data-name="alert (1)" xmlns="http://www.w3.org/2000/svg" width="20.425" height="20.425" viewBox="0 0 20.425 20.425"> <g id="Grupo_232" data-name="Grupo 232"> <g id="Grupo_231" data-name="Grupo 231"> <path id="Caminho_582" data-name="Caminho 582" d="M10.207,0A10.212,10.212,0,1,0,20.425,10.212,10.205,10.205,0,0,0,10.207,0Zm.005,18.382a8.17,8.17,0,1,1,8.17-8.17A8.168,8.168,0,0,1,10.212,18.382Z" fill="#e18e00" /> <rect id="Retângulo_74" data-name="Retângulo 74" width="2.043" height="2.043" transform="translate(9.191 13.276)" fill="#e18e00" /> <rect id="Retângulo_75" data-name="Retângulo 75" width="2.043" height="6.127" transform="translate(9.191 5.106)" fill="#e18e00" /> </g> </g> </svg>
+                </div>
+                <h2>{{ item.titulo }}</h2>
+                <div class="text">
+                    <p class="concluido">Etapa concluída</p>
+                    <p class="status">Em negociação</p>
+                </div>
+
+                <div class="buttons">
+                    <button [attr.active]="true" [attr.aprovada]="res.dadosOk" routerLink="dados-adicionais">  Dados do cliente <div></div></button>
+                    <button [attr.active]="true" [attr.aprovada]="statusVist.aprovado" [attr.analise]="statusVist.analise" [attr.reprovado]="statusVist.reprovado" (click)="vistoria()"> Vistoria <div></div></button>
+                    <button [attr.active]="true" [attr.aprovada]="statusTerm.aprovado" [attr.analise]="statusTerm.analise" [attr.reprovado]="statusTerm.reprovado" routerLink="termo/{{pet.id}}"> Termo <div></div></button>
+                    <button [attr.active]="true" [disabled]="checkValidarDisabled(item)" (click)="validaEtapa()"> validar etapa <div></div></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="buttons" *ngIf="appService.ambiente == 'associado' && pet?.status_final == 1 && pet?.classificacao == 'pendente' ">
+            <button routerLink="/associado/cartao-pagamento">Dados de Pagamentos</button>
+        </div>
+
+        <div class="buttons" *ngIf="appService.ambiente == 'consultor' && pet?.status_final == 1 && pet?.classificacao == 'pendente' ">
+            <button (click)="sendAccess()">Enviar acesso ao usuário!</button>
+        </div>
+    </div>
+</ion-content>

@@ -1,0 +1,5 @@
+@import "./../../../mixins.scss";
+
+app-adicionar-exame{
+    @include modal_1;
+}

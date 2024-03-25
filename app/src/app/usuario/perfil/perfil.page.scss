@@ -1,0 +1,79 @@
+@import "./../../../mixins.scss";
+
+app-perfil{
+    ion-content{
+        .header_simples{
+            button.logout{
+                @include flex-wrap;
+                flex-direction: column;
+                position: absolute;
+                right: 4.7vw;
+                top: 9.7vw;
+                background: transparent;
+                padding: 0;
+                justify-content: center;
+                align-items: center;
+                width: 11.1vw;
+                height: 11.1vw;
+    
+                &::after{
+                    content: "Logout";
+                    font-size: 2.5vw;
+                    width: 100%;
+                    font-weight: 500;
+                    text-align: center;
+                    color: #FFFFFF;
+                }
+                svg{
+                    margin: 0 0 0.6vw;
+                    width: 3.6vw;
+                    height: auto;
+                }
+            }
+        }
+
+        @include perfil_page;
+    }
+
+    @media (min-width: 450px){
+        ion-content{
+            .header_simples{
+                button.logout{
+                    right: 21px;
+                    top: 44px;
+                    width: 50px;
+                    height: 50px;
+        
+                    &::after{
+                        font-size: 11px;
+                    }
+                    svg{
+                        margin: 0 0 3px;
+                        width: 16px;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (min-width: 1000px){
+        ion-content{
+            border-bottom: 30px solid #772e8a;
+
+            .header_simples{
+                button.logout{
+                    top: 50%;
+                    right: 30px;
+                    transform: translateY(-50%);
+
+                    &::after{
+                        font-size: 12px;
+                    }
+                    svg{
+                        width: 21px;
+                    }
+                }
+            }
+        }
+    }
+}

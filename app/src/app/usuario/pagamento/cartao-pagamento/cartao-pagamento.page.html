@@ -1,0 +1,63 @@
+<ion-content>
+    <app-header-simples title="Pagamento"></app-header-simples>
+
+    <div class="content">
+        <img src="assets/img/pagamento/cartao.png" alt="">
+
+        <div class="input_list">
+            <div class="item">
+                <input type="text" mask="9999 9999 9999 9999" placeholder="Número do cartão" [(ngModel)]="dados.cardNumber" (change)="getPaymentMethod()">
+            </div>
+
+            <div class="item half_item">
+                <input type="text" mask="99" placeholder="Mês validade" [(ngModel)]="dados.cardExpirationMonth">
+                <button class="info">
+                    <svg id="information" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><g id="Grupo_8" data-name="Grupo 8"><g id="Grupo_7" data-name="Grupo 7"><circle id="Elipse_12" data-name="Elipse 12" cx="0.781" cy="0.781" r="0.781" transform="translate(7.219 11.047)" fill="#00d58d"/><path id="Caminho_5" data-name="Caminho 5" d="M8,0a8,8,0,1,0,8,8A8,8,0,0,0,8,0ZM8,14.75A6.75,6.75,0,1,1,14.75,8,6.746,6.746,0,0,1,8,14.75Z" fill="#00d58d"/><path id="Caminho_6" data-name="Caminho 6" d="M178.5,128.5A2.5,2.5,0,0,0,176,131a.625.625,0,0,0,1.25,0,1.25,1.25,0,1,1,1.25,1.25.625.625,0,0,0-.625.625v1.563a.625.625,0,0,0,1.25,0v-1.017a2.5,2.5,0,0,0-.625-4.921Z" transform="translate(-170.5 -124.484)" fill="#00d58d"/></g></g></svg>
+                    <div class="info_content">
+                       Mês de expiração do cartão.
+                    </div>
+                </button>
+            </div>
+
+            <div class="item half_item">
+                <input type="text" mask="99" placeholder="Ano validade" [(ngModel)]="dados.cardExpirationYear">
+                <button class="info">
+                    <svg id="information" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><g id="Grupo_8" data-name="Grupo 8"><g id="Grupo_7" data-name="Grupo 7"><circle id="Elipse_12" data-name="Elipse 12" cx="0.781" cy="0.781" r="0.781" transform="translate(7.219 11.047)" fill="#00d58d"/><path id="Caminho_5" data-name="Caminho 5" d="M8,0a8,8,0,1,0,8,8A8,8,0,0,0,8,0ZM8,14.75A6.75,6.75,0,1,1,14.75,8,6.746,6.746,0,0,1,8,14.75Z" fill="#00d58d"/><path id="Caminho_6" data-name="Caminho 6" d="M178.5,128.5A2.5,2.5,0,0,0,176,131a.625.625,0,0,0,1.25,0,1.25,1.25,0,1,1,1.25,1.25.625.625,0,0,0-.625.625v1.563a.625.625,0,0,0,1.25,0v-1.017a2.5,2.5,0,0,0-.625-4.921Z" transform="translate(-170.5 -124.484)" fill="#00d58d"/></g></g></svg>
+                    <div class="info_content">
+                        Ano de expiração do cartão.
+                    </div>
+                </button>
+            </div>
+
+            <div class="item half_item">
+                <input type="text" mask="9999" placeholder="CVV" [(ngModel)]="dados.securityCode">      
+                <button class="info">
+                    <svg id="information" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><g id="Grupo_8" data-name="Grupo 8"><g id="Grupo_7" data-name="Grupo 7"><circle id="Elipse_12" data-name="Elipse 12" cx="0.781" cy="0.781" r="0.781" transform="translate(7.219 11.047)" fill="#00d58d"/><path id="Caminho_5" data-name="Caminho 5" d="M8,0a8,8,0,1,0,8,8A8,8,0,0,0,8,0ZM8,14.75A6.75,6.75,0,1,1,14.75,8,6.746,6.746,0,0,1,8,14.75Z" fill="#00d58d"/><path id="Caminho_6" data-name="Caminho 6" d="M178.5,128.5A2.5,2.5,0,0,0,176,131a.625.625,0,0,0,1.25,0,1.25,1.25,0,1,1,1.25,1.25.625.625,0,0,0-.625.625v1.563a.625.625,0,0,0,1.25,0v-1.017a2.5,2.5,0,0,0-.625-4.921Z" transform="translate(-170.5 -124.484)" fill="#00d58d"/></g></g></svg>
+                    <div class="info_content">
+                        Código de verificação do cartão.
+                    </div>
+                </button>
+            </div>
+
+            <div class="item half_item">
+                <input mask="999.999.999-99" type="tel" placeholder="CPF" [(ngModel)]="dados.docNumber">
+            </div>
+
+            <div class="item" >
+                <input type="text" placeholder="Nome como está no cartão" [(ngModel)]="dados.cardholderName" (ngModelChange)="dados.cardholderName = $event.toUpperCase()">
+                <input type="hidden" id="deviceId">
+            </div>
+
+            <div class="termo">
+                <input type="checkbox" name="termo_cartao" id="termo_cartao" [(ngModel)]="dados.termo_cartao">
+                <label for="termo_cartao">Aceito os <span routerLink="/termo-de-filiacao-plano/{{route.snapshot.params.id_plano}}">Termos de Uso</span></label>
+            </div>
+
+        </div>
+        <button *ngIf="new == 1 && assinatura?.id_pet == route.snapshot.params.id_pet" class="finalizar_pagamento" (click)="createToken('alterarValor')">Assinar novo Plano</button>
+        <!-- <button *ngIf="new == 1" class="finalizar_pagamento" (click)="alterMod('alterar')">Alterar Cartão</button> -->
+        <button *ngIf="new == 0" class="finalizar_pagamento" (click)="createToken('novo')">Cadastrar Cartão</button>
+    </div>
+
+    <app-mobile-menu active_page="2"></app-mobile-menu>
+</ion-content>

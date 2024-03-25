@@ -1,0 +1,39 @@
+@import "./../../../mixins.scss";
+
+app-cancelar-agendamento{
+    @include modal_2;
+
+    .pop_up_content{
+        .content{
+            .item{
+                padding: 6.9vw 6.9vw 12.5vw;
+
+                div{
+                    @include input_1;
+                }
+            }
+            p.text{
+                padding: 0 6.9vw 27.8vw;
+                font-size: 3.6vw;
+                line-height: 5vw;
+                color: #4A4A4A;
+                margin: 0;
+            }
+        }
+    }
+
+    @media (min-width: 450px){
+        .pop_up_content{
+            .content{
+                .item{
+                    padding: 30px 30px 54px;
+                }
+                p.text{
+                    padding: 0 30px 121px;
+                    font-size: 16px;
+                    line-height: 22px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,25 @@
+<div class="pop_up_content">
+    <div class="content">
+        <div class="content_1">
+            <!-- ngIf -->
+            <h2>Finalizar o Atendimento</h2>
+            <p></p>
+            <div class="item" *ngIf="agendamento.id_especialidade == 4">
+                <input type="date" placeholder=" " [(ngModel)]="data.data_revacina">
+                <label class="placeholder">Data para revacinar</label>
+            </div>
+            <div class="item">
+                <input type="text" placeholder=" " [(ngModel)]="data.nome_medico">
+                <label class="placeholder">Nome do Veterinário</label>
+            </div>
+            <div class="item">
+                <input type="text" placeholder=" " [(ngModel)]="data.crv_medico">
+                <label class="placeholder">CRV do Veterinário</label>
+            </div>
+            <div class="buttons">
+                <button class="cancelar" (click)="dismiss()">cancelar</button>
+                <button class="confirm" (click)="salvar()">salvar</button>
+            </div>
+        </div>
+    </div>
+</div>

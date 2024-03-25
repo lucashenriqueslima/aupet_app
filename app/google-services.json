@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "19456155690",
+    "project_id": "aupet-122ff",
+    "storage_bucket": "aupet-122ff.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:19456155690:android:e4378ca019b019833fe353",
+        "android_client_info": {
+          "package_name": "hbrd.aupetheinsten"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "19456155690-fvnsh0o45i1kun3f74inpvt2en608l0o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCg2y1WlqAQ2fMUXBafxR_bQvdAXucrgf0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "19456155690-fvnsh0o45i1kun3f74inpvt2en608l0o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

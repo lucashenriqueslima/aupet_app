@@ -1,0 +1,28 @@
+<div class="pop_up_content">
+    <div class="content">
+
+        <div class="header">
+            <button class="fechar" (click)="dismiss()"><svg xmlns="http://www.w3.org/2000/svg" width="16.159" height="16.159" viewBox="0 0 16.159 16.159"><path id="close" d="M9.56,8.216l6.292-6.292a1.047,1.047,0,0,0-1.48-1.48L8.079,6.735,1.787.443a1.047,1.047,0,0,0-1.48,1.48L6.6,8.216.307,14.508a1.047,1.047,0,1,0,1.48,1.48L8.079,9.7l6.292,6.292a1.047,1.047,0,1,0,1.48-1.48Zm0,0" transform="translate(0 -0.136)"/></svg></button>
+            <h2>Filtrar resultados</h2>
+            <button class="limpar" (click)="limparSair()">Limpar</button>
+        </div>
+
+        <div class="ordernar_por">
+            <p> Status :</p>
+            <select [attr.data-value]="status" [(ngModel)]="status">
+              <option value="">Todos </option>
+              <option value="Pendente"> Agendado</option>
+              <option value="Concluido">Concluido</option>
+              <option value="Cancelado">Cancelado</option>
+            </select>
+        </div>
+
+        <div class="checkbox_content">
+        </div>
+
+        <div class="buttons">
+            <button class="cancelar" (click)="dismiss()">cancelar</button>
+            <button class="confirm" (click)="filtrar_leads()">ok</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,5 @@
+@import "./../../../mixins.scss";
+
+app-adicionar-medicamento{
+    @include modal_1;
+}

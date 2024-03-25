@@ -1,0 +1,28 @@
+<div class="pop_up_content">
+  <div class="content">
+    
+    <div class="alert_content">
+        <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44"><g transform="translate(-233.373 -320.499)"><g transform="translate(233.373 320.601)"><circle cx="22" cy="22" r="22" transform="translate(0 -0.102)" fill="#e18e00"/></g><g transform="translate(254.166 332.153)"><g transform="translate(0 0)"><rect width="3.982" height="3.982" transform="translate(0 15.927)" fill="#fff"/><rect width="3.982" height="11.945" fill="#fff"/></g></g></g></svg>
+        <!-- <h2>Verificamos que já existe um usuário cadastrado com esse email. Deseja continuar?</h2> -->
+        <p>
+          Verificamos que já existe um usuário cadastrado com esse email:
+          <br>
+          <b>{{ navParams?.data?.associado?.email || 'gabrielemail@teste.com' }}</b>
+          <br>
+          Está cadastrado para o usuário:
+          <br>
+          <b>{{ navParams?.data?.associado?.nome || 'Gabriel Alves' }}.</b>
+          <br>
+          <br>
+          Ao clicar em continuar os dados do cadastro serão atualizados pelos dados informados!
+        </p>
+    </div>
+
+    <div class="buttons">
+        <button class="cancelar" (click)="dismiss()">cancelar</button>
+        <button class="confirm" (click)="continuar()">continuar</button>
+    </div>
+  </div>
+</div>
+
+

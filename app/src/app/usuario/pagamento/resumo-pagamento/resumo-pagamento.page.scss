@@ -1,0 +1,253 @@
+@import "./../../../../mixins.scss";
+
+app-resumo-pagamento{
+    ion-content{
+        .plano_content{
+            @include content;
+            min-height: calc(100% - 25vw);
+    
+            &.bronze{ .header{ p.valor{ color: #00A4CE; } } }
+            &.prata{ .header{ p.valor{ color: #F09700; } } }
+            &.ouro{ .header{ p.valor{ color: #00D55C; } } }
+            &.platina{ .header{ p.valor{ color: #D50079; } } }
+    
+            .header{
+                height: 20.8vw;
+                @include flex-wrap;
+                align-items: center;
+                justify-content: space-between;
+                padding: 1.7vw 6.9vw 0;
+    
+                p{
+                    &.nome{
+                        margin: 0;
+                        color: #4D4D4D;
+                        font-family: opensans;
+                        font-weight: bold;
+                        font-size: 5vw;
+                    }
+                    &.valor{
+                        margin: 0;
+                        color: #4D4D4D;
+                        font-family: opensans;
+                        font-weight: bold;
+                        font-size: 6.7vw;
+                    }
+                }
+            }
+            .beneficios_content{
+                padding: 5vw 6.9vw 5.5vw;
+                border-bottom: 1px solid #D8D8D8;
+    
+                h2{
+                    margin: 0 0 2.8vw;
+                    font-size: 4.4vw;
+                    font-weight: bold;
+                    color: #772E8A;
+                }
+                p.item{
+                    &:before{
+                        content: '- ';
+                    }
+    
+                    margin: 0 0 2.2vw;
+                    color: #4D4D4D;
+                    font-size: 3.9vw;
+                    font-weight: 500;
+                }
+            }
+
+            .escolha_pet{
+                padding: 9.72vw 6.94vw;
+                margin: 0 0 8.33vw;
+                border-bottom: 1px solid #D8D8D8;
+            
+                h3{
+                    font-weight: bold;
+                    font-size: 5vw;
+                    line-height: 6.11vw;
+                    color: #1D1D1D;
+                    margin: 0 0 5.28vw;
+                    padding: 0 5.56vw 0 0;
+                }
+                .select{
+                    @include input_1;
+                    margin: 0 0 8.33vw;
+                }
+                .novo{
+                    p{
+                        font-size: 4.44vw;
+                        color: #1D1D1D;
+                        margin: 0;
+                    }
+                    button{
+                        border: none;
+                        background: transparent;
+                        padding: 0;
+                        color: #772E8A;
+                        text-transform: uppercase;
+                        font-size: 3.89vw;
+                        font-weight: bold;
+                        color: #772E8A;
+                        text-decoration: underline;
+                        letter-spacing: 0.5px;
+                    }
+                }
+            }
+
+            .descricao{
+                padding: 8.3vw 6.9vw;
+                color: #4D4D4D;
+                font-size: 3.6vw;
+                font-weight: 500;
+            }
+
+            .termo{
+                @include termo_label;
+                padding: 2.8vw 6.9vw 5vw;
+            }
+    
+            .button_content{
+                padding: 5.5vw 6.9vw 22vw;
+
+    
+                button.ir_pagamento{
+                    @include button_1;
+                }
+            }
+        }
+    }
+
+    @media (min-width: 450px){
+        ion-content{
+            .plano_content{
+                min-height: calc(100% - 112px);
+        
+                .header{
+                    height: 91px;
+                    padding: 7px 30px 0;
+        
+                    p{
+                        &.nome{
+                            font-size: 22px;
+                        }
+                        &.valor{
+                            font-size: 29px;
+                        }
+                    }
+                }
+                .beneficios_content{
+                    padding: 22px 30px 24px;
+        
+                    h2{
+                        margin: 0 0 12px;
+                        font-size: 19px;
+                    }
+                    p.item{
+                        margin: 0 0 10px;
+                        font-size: 17px;
+                    }
+                }
+
+                .escolha_pet{
+                    padding: 42px 30px;
+                    margin: 0 0 36px;
+                
+                    h3{
+                        font-size: 22px;
+                        line-height: 26px;
+                        margin: 0 0 23px;
+                        padding: 0 24px 0 0;
+                    }
+                    .select{
+                        margin: 0 0 36px;
+                    }
+                    .novo{
+                        p{
+                            font-size: 19px;
+                        }
+                        button{
+                            font-size: 17px;
+                        }
+                    }
+                }
+
+                .descricao{
+                    padding: 36px 30px;
+                    font-size: 16px;
+                }
+
+                .termo{
+                    padding: 12px 30px 15px;
+                }
+
+                .button_content{
+                    padding: 24px 30px 110px;
+                }
+            }
+        }
+    }
+    @media (min-width: 1000px){
+        ion-content{
+            border-bottom: 30px solid #772e8a;
+
+            .plano_content{
+                max-width: 662px;
+                padding: 88px 0 0;
+
+                .header{
+                    padding: 0;
+                    height: 55px;
+
+
+                    p{
+                        &.nome{
+                            font-size: 18px;
+                        }
+                        &.valor{
+                            font-size: 24px;
+                        }
+                    }
+                }
+                .beneficios_content{
+                    padding: 22px 0 11px;
+    
+                    h2{
+                        font-size: 16px;
+                    }
+                    p.item{
+                        font-size: 14px;
+                    }
+                }
+
+                .escolha_pet{
+                    padding: 35px 0;
+                    margin: 0 0 30px;
+                
+                    h3{
+                        font-size: 18px;
+                        line-height: 22px;
+                        margin: 0 0 20px;
+                    }
+                    .select{
+                        max-width: 350px;
+                        margin: 0 0 25px;
+                    }
+                }
+
+                .descricao{
+                    font-size: 13px;
+                    padding: 30px 0;
+                }
+
+                .termo{
+                    padding: 12px 0 0;
+                }
+        
+                .button_content{
+                    padding: 40px 0 65px;
+                }
+            }
+        }
+    }
+}

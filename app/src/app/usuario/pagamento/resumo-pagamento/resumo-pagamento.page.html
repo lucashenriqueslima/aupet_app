@@ -1,0 +1,43 @@
+<ion-content>
+    <app-header-simples title="Resumo da compra"></app-header-simples>
+
+    <div class="plano_content {{ plano.titulo | lowercase }}">
+        <div class="header">
+            <p class="nome">Plano {{ plano?.titulo }}</p>
+            <p class="valor">{{ plano?.valor | currency:'BRL':true:'1.2-2' }}</p>
+        </div>
+        <div class="beneficios_content">
+            <h2>Benefícios:</h2>
+            <p class="item" *ngFor="let beneficio of plano?.beneficios;">{{ beneficio?.nome}}</p>
+        </div>
+
+        <div class="escolha_pet">
+            <h3 *ngIf="pets?.length != 0">Escolha o Pet que você quer esse plano</h3>
+            <h3 *ngIf="pets?.length == 0">Você não possui nenhum pet cadastrado sem plano!</h3>
+
+            <div class="select" *ngIf="pets?.length != 0">
+                <select [attr.data-value]="id_pet" [ngModelOptions]="{standalone: true}" [(ngModel)]="id_pet" (change)="changePet(id_pet)" >
+                    <option value="" hidden></option>
+                    <option *ngFor="let pet of pets" value="{{pet.id}}">{{pet.nome}}</option>
+                </select>
+                <label class="placeholder">Selecionar</label>
+            </div>
+
+            <div class="novo">
+                <p>Deseja cadastrar um novo pet?</p>
+                <button (click)="cadastrarPet()">cadastrar  pet</button>
+            </div>
+        </div>
+        <div class="descricao">
+            {{ plano?.descricao }}
+        </div>
+        <div class="termo">
+            <input type="checkbox" name="termo_resumo" id="termo_resumo"  name="termo_resumo" [(ngModel)]="termo_resumo" (change)="changePet(id_pet)">
+            <label for="termo_resumo">Li e aceito o <span routerLink="/termo-de-filiacao-plano/{{plano?.id}}">Termos de Filiação</span></label>
+        </div>
+        <div class="button_content" >
+            <button class="ir_pagamento" [disabled]="validate" (click)="pagamento()">IR PARA PAGAMENTO</button>
+        </div>
+        <app-mobile-menu active_page="2"></app-mobile-menu>
+    </div>
+</ion-content>

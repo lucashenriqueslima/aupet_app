@@ -1,0 +1,28 @@
+<ion-split-pane contentId="menu-clinica">
+    <ion-menu contentId="menu-clinica" type="overlay">
+        <ion-content>
+            <div class="header_menu">
+                <div class="image"><span style="background-image: url('{{ appService.user.clinica?.logo }}')"></span></div>
+                <div class="text">
+                    <h2>{{appService.user?.nome}}</h2>
+                    <button class="editar" (click)="menu.close()" routerLink="/clinica/perfil">Editar cadastro</button>
+                </div>
+            </div>
+            <div class="content_menu">
+                <div class="paginas">
+                    <button class="item" (click)="menu.close()" routerLink="/clinica">Inicio</button>
+                    <button class="item" (click)="menu.close()" routerLink="/clinica/agendamentos">Agendamentos</button>
+                    <button class="item" (click)="menu.close()" routerLink="/clinica/criar-proposta">Criar proposta</button>
+                    <button class="item" (click)="menu.close()" routerLink="/clinica/doacao">Faça uma doação</button>
+                    <button class="item" (click)="menu.close()" routerLink="/clinica/propostas">Leads</button>
+                </div>
+                <button class="sair" (click)="menu.close()" routerLink="/login">
+          <svg xmlns="http://www.w3.org/2000/svg" width="19.583" height="17.266" viewBox="0 0 19.583 17.266"> <g id="Grupo_34" data-name="Grupo 34" transform="translate(19.583 17.266) rotate(180)"> <path id="Caminho_16" data-name="Caminho 16" d="M12.08,10.794a.871.871,0,0,0-.866.866v2.453H8.534V3.125h2.659V5.578a.866.866,0,1,0,1.732,0V2.239a.871.871,0,0,0-.866-.866H8.534V.878A.87.87,0,0,0,8.2.2.921.921,0,0,0,7.483.012L.7,1.394a.866.866,0,0,0-.7.866v12.76a.882.882,0,0,0,.7.866l6.782,1.361a.512.512,0,0,0,.165.021A.813.813,0,0,0,8.2,17.06a.87.87,0,0,0,.33-.68v-.495h3.525a.871.871,0,0,0,.866-.866V11.68A.846.846,0,0,0,12.08,10.794ZM5.9,9.557a.928.928,0,1,1,.928-.928A.924.924,0,0,1,5.9,9.557Z" transform="translate(0 0)" fill="#dc8400" /> <path id="Caminho_17" data-name="Caminho 17" d="M9.3,2.819,6.741.263A.859.859,0,0,0,5.5.263.859.859,0,0,0,5.5,1.5L6.555,2.551H.866a.866.866,0,1,0,0,1.732H6.555L5.5,5.334a.859.859,0,0,0,0,1.237.9.9,0,0,0,1.237,0L9.3,4.056A.9.9,0,0,0,9.3,2.819Z" transform="translate(10.039 5.192)" fill="#dc8400" /> </g> </svg>
+          Sair
+        </button>
+            </div>
+
+        </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="menu-clinica"></ion-router-outlet>
+</ion-split-pane>

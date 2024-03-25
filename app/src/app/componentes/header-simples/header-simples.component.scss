@@ -1,0 +1,94 @@
+app-header-simples{
+    .header_simples_component{
+        max-width: 450px;
+        margin: 0 auto;
+        height: 25vw;
+        background-image: url(./../../../assets/img/bg_header.png);
+        background-repeat: no-repeat;
+        background-position: right top;
+        background-size: 44vw;
+        position: relative;
+
+        button.voltar{
+            position: absolute;
+            background: transparent;
+            padding: 0;
+            width: 14vw;
+            height: 14vw;
+            top: 9vw;
+            left: 2vw;
+
+            svg{
+                width: 2vw;
+                height: auto;
+            }
+        }
+        h1{
+            margin: 0;
+            text-align: center;
+            font-family: opensans;
+            font-size: 5vw;
+            font-weight: 500;
+            color: white;
+            padding: 13vw 0 0;
+        }
+
+        img.logo{ display: none; }
+    }
+
+    @media(min-width: 450px){
+        .header_simples_component{
+            height: 112px;
+            background-size: 198px;
+            background-image: none;
+    
+            button.voltar{
+                width: 63px;
+                height: 63px;
+                top: 40px;
+                left: 9px;
+    
+                svg{
+                    width: 9px;
+                }
+            }
+            h1{
+                font-size: 22px;
+                padding: 58px 0 0;
+            }
+        }
+    }
+
+    @media (min-width: 1000px){
+        .header_simples_component{
+            width: 100%;
+            height: 100px;
+            max-width: initial;
+            background: #772E8A;
+
+            button.voltar{
+                left: 15px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            h1{
+                padding: 0;
+                position: absolute;
+                left: 95px;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 21px;
+            }
+    
+            img.logo{ 
+                display: block; 
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                width: 115px;
+                height: 65px;
+                transform: translate(-50%, -50%);
+            }
+        }
+    }
+}

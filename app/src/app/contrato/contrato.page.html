@@ -1,0 +1,34 @@
+<ion-content>
+    <app-header-simples title="Proposta de filiação"></app-header-simples>
+    <div class="content">
+        <div class="dados_termo">
+            <div class="item">
+                <select [attr.data-value]="contrato_tipo" [disabled]="indicacao?.status == 'aprovada'" [(ngModel)]="contrato_tipo" (change)="changeTipo()">
+					<option value="" hidden></option>
+					<option value="Manuscrito">Manuscrito</option>
+					<option value="Digital">Digital</option>
+				</select>
+                <label class="placeholder">Termo</label>
+            </div>
+
+            <div class="item" *ngIf="btnSaveTipoShow == false && indicacao?.contrato_tipo == 'Digital'">
+                <select [attr.data-value]="id_contrato" name="" id="" [(ngModel)]="id_contrato" [disabled]="contratoDisabled()">
+                    <option value="" hidden></option>
+                    <option *ngFor="let row of templates" [ngValue]="row.id">{{row.titulo}}</option>
+                </select>
+                <label class="placeholder">Modelo</label>
+            </div>
+            <div class="botoes" *ngIf="btnSaveTipoShow == false && indicacao?.contrato_tipo == 'Digital'">
+                <button [disabled]="contratoDisabled()" (click)="salvar()">Selecionar proposta</button>
+                <button *ngIf="perguntas.length != 0" [disabled]="infoContratoDisabled()" (click)="infoContrato()">Informações adicionais</button>
+                <button [disabled]="infoAssinarDisabled()" (click)="assinar()">Assinar</button>
+                <button [disabled]="compartilhamentoDisabled()" (click)="share()">Compartilhar proposta</button>
+            </div>
+
+            <div class="item" *ngIf="btnSaveTipoShow">
+                <button (click)="selecionarTipo()">Salvar</button>
+            </div>
+
+        </div>
+    </div>
+</ion-content>

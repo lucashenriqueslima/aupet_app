@@ -1,0 +1,83 @@
+@import "./../../../mixins.scss";
+
+app-filtro-mapa{
+    @include modal_2;
+    
+    .pop_up_content{
+        .content{
+            .list_item{
+                padding: 8.3vw 6.9vw 0;
+
+                .item{
+                    width: 100%;
+                    margin: 0 0 5vw;
+                    @include input_1;
+                }
+            }
+            .lista_especialidade{
+                padding: 0 6.9vw 5.6vw;
+
+                .item{
+                    width: 100%;
+                    position: relative;
+                    padding: 1.5vw 10vw 1.5vw 5vw;
+                    background: #fef2e0;
+
+                    span{
+                        color: #772E8A;
+                        font-weight: 500;
+                        font-size: 4vw;
+                        width: 100%;
+                        display: block;
+                    }
+                    button.delete{
+                        position: absolute;
+                        right: 2vw;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        width: 5.2vw;
+                        border: none;
+                        background: transparent;
+                        padding: 0;
+
+                        svg{
+                            width: 100%;
+                            height: auto;
+
+                            *{ fill: #772E8A; }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media (min-width: 450px){
+        .pop_up_content{
+            .content{
+                .list_item{
+                    padding: 36px 30px 0;
+        
+                    .item{
+                        margin: 0 0 30px;
+                    }
+                }
+                .lista_especialidade{
+                    padding: 0 30px 24px;
+    
+                    .item{
+                        padding: 6px 43px 6px 22px;
+    
+                        span{
+                            font-size: 17px;
+                        }
+                        button.delete{
+                            right: 9px;
+                            width: 23px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

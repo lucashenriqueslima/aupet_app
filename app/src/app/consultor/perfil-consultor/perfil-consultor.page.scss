@@ -1,0 +1,7 @@
+@import "./../../../mixins.scss";
+
+app-perfil-consultor{
+    ion-content{
+        @include perfil_page;
+    }
+}

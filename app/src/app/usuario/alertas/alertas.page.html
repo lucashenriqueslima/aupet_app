@@ -1,0 +1,209 @@
+<ion-content>
+    <app-header-simples title="Alertas"></app-header-simples>
+
+    <div class="content" *ngIf="terminou">
+        <p class="resultado" *ngIf="vacinas == 0 
+				&& exames == 0 
+				&& medicamentos == 0 
+				&& vermifungos == 0 
+				&& banhos == 0 
+				&& consultas == 0 
+				&& cirurgias == 0 
+				&& cirurgias == 0 
+				&& internacoes == 0">
+            Nenhum resultado encontrado
+        </p>
+        <div class="item_content" *ngIf="vacinas !== 0">
+            <label for="">Vacinas</label>
+            <div class="item_list" *ngFor="let pet of pets | keyvalue; index as i">
+                <div class="item" *ngFor="let vacina of pets[i].vacinas | keyvalue; index as x">
+                    <div class="left">
+                        <h2>{{ pets[i].nome }}</h2>
+                        <p>Nome: <span>{{ pets[i].vacinas[x].nome_vacina }}</span></p>
+                        <p>{{ pets[i].vacinas[x].status == 'Pendente' ? 'Data' : 'Realizado'}}:: <span>{{ pets[i].vacinas[x].data_vacina | date : 'dd/MM/yyyy' }}</span></p>
+                        <p *ngIf="pets[i].vacinas[x].data_revacina">Revacinar em: <span>{{ pets[i].vacinas[x]?.data_revacina | date : 'dd/MM/yyyy' }}</span></p>
+                    </div>
+                    <div class="right" *ngIf="pets[i].vacinas[x].status == 'Concluido' || pets[i].vacinas[x].status == 'Cancelado'" status="finalizado">
+                        <svg class="relogio" xmlns="http://www.w3.org/2000/svg" width="19.898" height="21.585" viewBox="0 0 19.898 21.585"> <g id="stopwatch" transform="translate(-20)"> <g id="Grupo_21" data-name="Grupo 21" transform="translate(20)"> <g id="Grupo_20" data-name="Grupo 20" transform="translate(0)"> <path id="Caminho_13" data-name="Caminho 13" d="M384.951,15l2.289,1.909a.843.843,0,1,0,1.08-1.3L386.031,13.7a.843.843,0,1,0-1.08,1.3Z" transform="translate(-369.275 -12.94)" fill="#dc8400"/> <path id="Caminho_14" data-name="Caminho 14" d="M33.889,17.105a.84.84,0,0,0,.54-.2L36.718,15a.843.843,0,1,0-1.08-1.3l-2.289,1.909a.843.843,0,0,0,.54,1.491Z" transform="translate(-32.495 -12.94)" fill="#dc8400"/> <path id="Caminho_15" data-name="Caminho 15" d="M36.984,4.6a9.874,9.874,0,0,0-6.192-2.878V.843a.843.843,0,1,0-1.686,0v.879a9.949,9.949,0,0,0-6.192,16.949,9.95,9.95,0,0,0,12.931.979.843.843,0,1,0-1-1.358,8.252,8.252,0,1,1,2.348-2.679.843.843,0,1,0,1.477.813A9.954,9.954,0,0,0,36.984,4.6Z" transform="translate(-20)" fill="#dc8400"/> <path id="Caminho_16" data-name="Caminho 16" d="M221.794,151.335a.843.843,0,0,0-1.186.125l-2.659,3.285a1.688,1.688,0,1,0,1.311,1.061l2.659-3.285A.843.843,0,0,0,221.794,151.335Z" transform="translate(-207.737 -144.775)" fill="#dc8400"/> </g> </g> </g> </svg>
+                        <svg class="concluido" xmlns="http://www.w3.org/2000/svg" width="20.396" height="15.837" viewBox="0 0 20.396 15.837"> <path id="check" d="M7.81,15.938a1.041,1.041,0,0,1-1.472,0L.458,10.057a1.561,1.561,0,0,1,0-2.209l.736-.736a1.562,1.562,0,0,1,2.209,0l3.671,3.671L16.993.864a1.562,1.562,0,0,1,2.209,0l.736.736a1.561,1.561,0,0,1,0,2.209Zm0,0" transform="translate(0 -0.406)" fill="#00d58d"/> </svg>
+                    </div>
+                    <div class="right" *ngIf="pets[i].vacinas[x].status == 'Pendente' " status="pendente">
+                        <svg class="relogio" xmlns="http://www.w3.org/2000/svg" width="19.898" height="21.585" viewBox="0 0 19.898 21.585"> <g id="stopwatch" transform="translate(-20)"> <g id="Grupo_21" data-name="Grupo 21" transform="translate(20)"> <g id="Grupo_20" data-name="Grupo 20" transform="translate(0)"> <path id="Caminho_13" data-name="Caminho 13" d="M384.951,15l2.289,1.909a.843.843,0,1,0,1.08-1.3L386.031,13.7a.843.843,0,1,0-1.08,1.3Z" transform="translate(-369.275 -12.94)" fill="#dc8400"/> <path id="Caminho_14" data-name="Caminho 14" d="M33.889,17.105a.84.84,0,0,0,.54-.2L36.718,15a.843.843,0,1,0-1.08-1.3l-2.289,1.909a.843.843,0,0,0,.54,1.491Z" transform="translate(-32.495 -12.94)" fill="#dc8400"/> <path id="Caminho_15" data-name="Caminho 15" d="M36.984,4.6a9.874,9.874,0,0,0-6.192-2.878V.843a.843.843,0,1,0-1.686,0v.879a9.949,9.949,0,0,0-6.192,16.949,9.95,9.95,0,0,0,12.931.979.843.843,0,1,0-1-1.358,8.252,8.252,0,1,1,2.348-2.679.843.843,0,1,0,1.477.813A9.954,9.954,0,0,0,36.984,4.6Z" transform="translate(-20)" fill="#dc8400"/> <path id="Caminho_16" data-name="Caminho 16" d="M221.794,151.335a.843.843,0,0,0-1.186.125l-2.659,3.285a1.688,1.688,0,1,0,1.311,1.061l2.659-3.285A.843.843,0,0,0,221.794,151.335Z" transform="translate(-207.737 -144.775)" fill="#dc8400"/> </g> </g> </g> </svg>
+                        <svg class="concluido" xmlns="http://www.w3.org/2000/svg" width="20.396" height="15.837" viewBox="0 0 20.396 15.837"> <path id="check" d="M7.81,15.938a1.041,1.041,0,0,1-1.472,0L.458,10.057a1.561,1.561,0,0,1,0-2.209l.736-.736a1.562,1.562,0,0,1,2.209,0l3.671,3.671L16.993.864a1.562,1.562,0,0,1,2.209,0l.736.736a1.561,1.561,0,0,1,0,2.209Zm0,0" transform="translate(0 -0.406)" fill="#00d58d"/> </svg>
+                    </div>
+                    <div class="right" *ngIf="pets[i].vacinas[x].status == 'Agendado'" status="agendado">
+                        <svg class="relogio" xmlns="http://www.w3.org/2000/svg" width="19.898" height="21.585" viewBox="0 0 19.898 21.585"> <g id="stopwatch" transform="translate(-20)"> <g id="Grupo_21" data-name="Grupo 21" transform="translate(20)"> <g id="Grupo_20" data-name="Grupo 20" transform="translate(0)"> <path id="Caminho_13" data-name="Caminho 13" d="M384.951,15l2.289,1.909a.843.843,0,1,0,1.08-1.3L386.031,13.7a.843.843,0,1,0-1.08,1.3Z" transform="translate(-369.275 -12.94)" fill="#dc8400"/> <path id="Caminho_14" data-name="Caminho 14" d="M33.889,17.105a.84.84,0,0,0,.54-.2L36.718,15a.843.843,0,1,0-1.08-1.3l-2.289,1.909a.843.843,0,0,0,.54,1.491Z" transform="translate(-32.495 -12.94)" fill="#dc8400"/> <path id="Caminho_15" data-name="Caminho 15" d="M36.984,4.6a9.874,9.874,0,0,0-6.192-2.878V.843a.843.843,0,1,0-1.686,0v.879a9.949,9.949,0,0,0-6.192,16.949,9.95,9.95,0,0,0,12.931.979.843.843,0,1,0-1-1.358,8.252,8.252,0,1,1,2.348-2.679.843.843,0,1,0,1.477.813A9.954,9.954,0,0,0,36.984,4.6Z" transform="translate(-20)" fill="#dc8400"/> <path id="Caminho_16" data-name="Caminho 16" d="M221.794,151.335a.843.843,0,0,0-1.186.125l-2.659,3.285a1.688,1.688,0,1,0,1.311,1.061l2.659-3.285A.843.843,0,0,0,221.794,151.335Z" transform="translate(-207.737 -144.775)" fill="#dc8400"/> </g> </g> </g> </svg>
+                        <svg class="concluido" xmlns="http://www.w3.org/2000/svg" width="20.396" height="15.837" viewBox="0 0 20.396 15.837"> <path id="check" d="M7.81,15.938a1.041,1.041,0,0,1-1.472,0L.458,10.057a1.561,1.561,0,0,1,0-2.209l.736-.736a1.562,1.562,0,0,1,2.209,0l3.671,3.671L16.993.864a1.562,1.562,0,0,1,2.209,0l.736.736a1.561,1.561,0,0,1,0,2.209Zm0,0" transform="translate(0 -0.406)" fill="#00d58d"/> </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="item_content" *ngIf="exames !== 0">
+            <label for="">Exames</label>
+            <div class="item_list" *ngFor="let pet of pets | keyvalue; index as i">
+                <div class="item" *ngFor="let exame of pets[i].exames | keyvalue; index as x">
+                    <div class="left">
+                        <h2>{{ pets[i].nome }}</h2>
+                        <p>Nome: <span>{{ pets[i].exames[x].nome }}</span></p>
+                        <p>{{ pets[i].exames[x].status == 'Pendente' ? 'Data' : 'Realizado'}}: <span>{{ pets[i].exames[x].data | date : 'dd/MM/yyyy' }}</span></p>
+                        <p>Local: <span>{{ pets[i].exames[x].clinica }}</span></p>
+                    </div>
+                    <div class="right" *ngIf="pets[i].exames[x].status == 'Concluido' || pets[i].exames[x].status == 'Cancelado'" status="finalizado">
+                        <svg class="relogio" xmlns="http://www.w3.org/2000/svg" width="19.898" height="21.585" viewBox="0 0 19.898 21.585"> <g id="stopwatch" transform="translate(-20)"> <g id="Grupo_21" data-name="Grupo 21" transform="translate(20)"> <g id="Grupo_20" data-name="Grupo 20" transform="translate(0)"> <path id="Caminho_13" data-name="Caminho 13" d="M384.951,15l2.289,1.909a.843.843,0,1,0,1.08-1.3L386.031,13.7a.843.843,0,1,0-1.08,1.3Z" transform="translate(-369.275 -12.94)" fill="#dc8400"/> <path id="Caminho_14" data-name="Caminho 14" d="M33.889,17.105a.84.84,0,0,0,.54-.2L36.718,15a.843.843,0,1,0-1.08-1.3l-2.289,1.909a.843.843,0,0,0,.54,1.491Z" transform="translate(-32.495 -12.94)" fill="#dc8400"/> <path id="Caminho_15" data-name="Caminho 15" d="M36.984,4.6a9.874,9.874,0,0,0-6.192-2.878V.843a.843.843,0,1,0-1.686,0v.879a9.949,9.949,0,0,0-6.192,16.949,9.95,9.95,0,0,0,12.931.979.843.843,0,1,0-1-1.358,8.252,8.252,0,1,1,2.348-2.679.843.843,0,1,0,1.477.813A9.954,9.954,0,0,0,36.984,4.6Z" transform="translate(-20)" fill="#dc8400"/> <path id="Caminho_16" data-name="Caminho 16" d="M221.794,151.335a.843.843,0,0,0-1.186.125l-2.659,3.285a1.688,1.688,0,1,0,1.311,1.061l2.659-3.285A.843.843,0,0,0,221.794,151.335Z" transform="translate(-207.737 -144.775)" fill="#dc8400"/> </g> </g> </g> </svg>
+                        <svg class="concluido" xmlns="http://www.w3.org/2000/svg" width="20.396" height="15.837" viewBox="0 0 20.396 15.837"> <path id="check" d="M7.81,15.938a1.041,1.041,0,0,1-1.472,0L.458,10.057a1.561,1.561,0,0,1,0-2.209l.736-.736a1.562,1.562,0,0,1,2.209,0l3.671,3.671L16.993.864a1.562,1.562,0,0,1,2.209,0l.736.736a1.561,1.561,0,0,1,0,2.209Zm0,0" transform="translate(0 -0.406)" fill="#00d58d"/> </svg>
+                    </div>
+                    <div class="right" *ngIf="pets[i].exames[x].status == 'Pendente' " status="pendente">
+                        <svg class="relogio" xmlns="http://www.w3.org/2000/svg" width="19.898" height="21.585" viewBox="0 0 19.898 21.585"> <g id="stopwatch" transform="translate(-20)"> <g id="Grupo_21" data-name="Grupo 21" transform="translate(20)"> <g id="Grupo_20" data-name="Grupo 20" transform="translate(0)"> <path id="Caminho_13" data-name="Caminho 13" d="M384.951,15l2.289,1.909a.843.843,0,1,0,1.08-1.3L386.031,13.7a.843.843,0,1,0-1.08,1.3Z" transform="translate(-369.275 -12.94)" fill="#dc8400"/> <path id="Caminho_14" data-name="Caminho 14" d="M33.889,17.105a.84.84,0,0,0,.54-.2L36.718,15a.843.843,0,1,0-1.08-1.3l-2.289,1.909a.843.843,0,0,0,.54,1.491Z" transform="translate(-32.495 -12.94)" fill="#dc8400"/> <path id="Caminho_15" data-name="Caminho 15" d="M36.984,4.6a9.874,9.874,0,0,0-6.192-2.878V.843a.843.843,0,1,0-1.686,0v.879a9.949,9.949,0,0,0-6.192,16.949,9.95,9.95,0,0,0,12.931.979.843.843,0,1,0-1-1.358,8.252,8.252,0,1,1,2.348-2.679.843.843,0,1,0,1.477.813A9.954,9.954,0,0,0,36.984,4.6Z" transform="translate(-20)" fill="#dc8400"/> <path id="Caminho_16" data-name="Caminho 16" d="M221.794,151.335a.843.843,0,0,0-1.186.125l-2.659,3.285a1.688,1.688,0,1,0,1.311,1.061l2.659-3.285A.843.843,0,0,0,221.794,151.335Z" transform="translate(-207.737 -144.775)" fill="#dc8400"/> </g> </g> </g> </svg>
+                        <svg class="concluido" xmlns="http://www.w3.org/2000/svg" width="20.396" height="15.837" viewBox="0 0 20.396 15.837"> <path id="check" d="M7.81,15.938a1.041,1.041,0,0,1-1.472,0L.458,10.057a1.561,1.561,0,0,1,0-2.209l.736-.736a1.562,1.562,0,0,1,2.209,0l3.671,3.671L16.993.864a1.562,1.562,0,0,1,2.209,0l.736.736a1.561,1.561,0,0,1,0,2.209Zm0,0" transform="translate(0 -0.406)" fill="#00d58d"/> </svg>
+                    </div>
+                    <div class="right" *ngIf="pets[i].exames[x].status == 'Agendado'" status="agendado">
+                        <svg class="relogio" xmlns="http://www.w3.org/2000/svg" width="19.898" height="21.585" viewBox="0 0 19.898 21.585"> <g id="stopwatch" transform="translate(-20)"> <g id="Grupo_21" data-name="Grupo 21" transform="translate(20)"> <g id="Grupo_20" data-name="Grupo 20" transform="translate(0)"> <path id="Caminho_13" data-name="Caminho 13" d="M384.951,15l2.289,1.909a.843.843,0,1,0,1.08-1.3L386.031,13.7a.843.843,0,1,0-1.08,1.3Z" transform="translate(-369.275 -12.94)" fill="#dc8400"/> <path id="Caminho_14" data-name="Caminho 14" d="M33.889,17.105a.84.84,0,0,0,.54-.2L36.718,15a.843.843,0,1,0-1.08-1.3l-2.289,1.909a.843.843,0,0,0,.54,1.491Z" transform="translate(-32.495 -12.94)" fill="#dc8400"/> <path id="Caminho_15" data-name="Caminho 15" d="M36.984,4.6a9.874,9.874,0,0,0-6.192-2.878V.843a.843.843,0,1,0-1.686,0v.879a9.949,9.949,0,0,0-6.192,16.949,9.95,9.95,0,0,0,12.931.979.843.843,0,1,0-1-1.358,8.252,8.252,0,1,1,2.348-2.679.843.843,0,1,0,1.477.813A9.954,9.954,0,0,0,36.984,4.6Z" transform="translate(-20)" fill="#dc8400"/> <path id="Caminho_16" data-name="Caminho 16" d="M221.794,151.335a.843.843,0,0,0-1.186.125l-2.659,3.285a1.688,1.688,0,1,0,1.311,1.061l2.659-3.285A.843.843,0,0,0,221.794,151.335Z" transform="translate(-207.737 -144.775)" fill="#dc8400"/> </g> </g> </g> </svg>
+                        <svg class="concluido" xmlns="http://www.w3.org/2000/svg" width="20.396" height="15.837" viewBox="0 0 20.396 15.837"> <path id="check" d="M7.81,15.938a1.041,1.041,0,0,1-1.472,0L.458,10.057a1.561,1.561,0,0,1,0-2.209l.736-.736a1.562,1.562,0,0,1,2.209,0l3.671,3.671L16.993.864a1.562,1.562,0,0,1,2.209,0l.736.736a1.561,1.561,0,0,1,0,2.209Zm0,0" transform="translate(0 -0.406)" fill="#00d58d"/> </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="item_content" *ngIf="medicamentos !== 0">
+            <label for="">Medicamentos</label>
+            <div class="item_list" *ngFor="let pet of pets | keyvalue; index as i">
+                <div class="item" *ngFor="let medicamento of pets[i].medicamentos | keyvalue; index as x">
+                    <div class="left">
+                        <h2>{{ pets[i].nome }}</h2>
+                        <p>Nome: <span>{{ pets[i].medicamentos[x].nome }}</span></p>
+                        <p><b>Uso temporário</b></p>
+                        <p><span>{{ pets[i].medicamentos[x].frequencia }}</span></p>
+                    </div>
+                    <div class="right" status="finalizado">
+                        <svg class="relogio" xmlns="http://www.w3.org/2000/svg" width="19.898" height="21.585" viewBox="0 0 19.898 21.585"> <g id="stopwatch" transform="translate(-20)"> <g id="Grupo_21" data-name="Grupo 21" transform="translate(20)"> <g id="Grupo_20" data-name="Grupo 20" transform="translate(0)"> <path id="Caminho_13" data-name="Caminho 13" d="M384.951,15l2.289,1.909a.843.843,0,1,0,1.08-1.3L386.031,13.7a.843.843,0,1,0-1.08,1.3Z" transform="translate(-369.275 -12.94)" fill="#dc8400"/> <path id="Caminho_14" data-name="Caminho 14" d="M33.889,17.105a.84.84,0,0,0,.54-.2L36.718,15a.843.843,0,1,0-1.08-1.3l-2.289,1.909a.843.843,0,0,0,.54,1.491Z" transform="translate(-32.495 -12.94)" fill="#dc8400"/> <path id="Caminho_15" data-name="Caminho 15" d="M36.984,4.6a9.874,9.874,0,0,0-6.192-2.878V.843a.843.843,0,1,0-1.686,0v.879a9.949,9.949,0,0,0-6.192,16.949,9.95,9.95,0,0,0,12.931.979.843.843,0,1,0-1-1.358,8.252,8.252,0,1,1,2.348-2.679.843.843,0,1,0,1.477.813A9.954,9.954,0,0,0,36.984,4.6Z" transform="translate(-20)" fill="#dc8400"/> <path id="Caminho_16" data-name="Caminho 16" d="M221.794,151.335a.843.843,0,0,0-1.186.125l-2.659,3.285a1.688,1.688,0,1,0,1.311,1.061l2.659-3.285A.843.843,0,0,0,221.794,151.335Z" transform="translate(-207.737 -144.775)" fill="#dc8400"/> </g> </g> </g> </svg>
+                        <svg class="concluido" xmlns="http://www.w3.org/2000/svg" width="20.396" height="15.837" viewBox="0 0 20.396 15.837"> <path id="check" d="M7.81,15.938a1.041,1.041,0,0,1-1.472,0L.458,10.057a1.561,1.561,0,0,1,0-2.209l.736-.736a1.562,1.562,0,0,1,2.209,0l3.671,3.671L16.993.864a1.562,1.562,0,0,1,2.209,0l.736.736a1.561,1.561,0,0,1,0,2.209Zm0,0" transform="translate(0 -0.406)" fill="#00d58d"/> </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="item_content" *ngIf="vermifungos !== 0">
+            <label for="">Vermifungos</label>
+            <div class="item_list" *ngFor="let pet of pets | keyvalue; index as i">
+                <div class="item" *ngFor="let vermigungo of pets[i].vermifungos | keyvalue; index as x">
+                    <div class="left">
+                        <h2>{{ pets[i].nome }}</h2>
+                        <p>Nome: <span>{{  pets[i].vermifungos[x].nome_vermifungo }}</span></p>
+                        <p>Aplicado: <span>{{ pets[i].vermifungos[x].data_vermifungo | date : 'dd/MM/yyyy' }}</span></p>
+                        <p>Reaplicar em: <span>{{ pets[i].vermifungos[x].proxima_data | date : 'dd/MM/yyyy' }}</span></p>
+                    </div>
+                    <div class="right" status="finalizado">
+                        <svg class="relogio" xmlns="http://www.w3.org/2000/svg" width="19.898" height="21.585" viewBox="0 0 19.898 21.585"> <g id="stopwatch" transform="translate(-20)"> <g id="Grupo_21" data-name="Grupo 21" transform="translate(20)"> <g id="Grupo_20" data-name="Grupo 20" transform="translate(0)"> <path id="Caminho_13" data-name="Caminho 13" d="M384.951,15l2.289,1.909a.843.843,0,1,0,1.08-1.3L386.031,13.7a.843.843,0,1,0-1.08,1.3Z" transform="translate(-369.275 -12.94)" fill="#dc8400"/> <path id="Caminho_14" data-name="Caminho 14" d="M33.889,17.105a.84.84,0,0,0,.54-.2L36.718,15a.843.843,0,1,0-1.08-1.3l-2.289,1.909a.843.843,0,0,0,.54,1.491Z" transform="translate(-32.495 -12.94)" fill="#dc8400"/> <path id="Caminho_15" data-name="Caminho 15" d="M36.984,4.6a9.874,9.874,0,0,0-6.192-2.878V.843a.843.843,0,1,0-1.686,0v.879a9.949,9.949,0,0,0-6.192,16.949,9.95,9.95,0,0,0,12.931.979.843.843,0,1,0-1-1.358,8.252,8.252,0,1,1,2.348-2.679.843.843,0,1,0,1.477.813A9.954,9.954,0,0,0,36.984,4.6Z" transform="translate(-20)" fill="#dc8400"/> <path id="Caminho_16" data-name="Caminho 16" d="M221.794,151.335a.843.843,0,0,0-1.186.125l-2.659,3.285a1.688,1.688,0,1,0,1.311,1.061l2.659-3.285A.843.843,0,0,0,221.794,151.335Z" transform="translate(-207.737 -144.775)" fill="#dc8400"/> </g> </g> </g> </svg>
+                        <svg class="concluido" xmlns="http://www.w3.org/2000/svg" width="20.396" height="15.837" viewBox="0 0 20.396 15.837"> <path id="check" d="M7.81,15.938a1.041,1.041,0,0,1-1.472,0L.458,10.057a1.561,1.561,0,0,1,0-2.209l.736-.736a1.562,1.562,0,0,1,2.209,0l3.671,3.671L16.993.864a1.562,1.562,0,0,1,2.209,0l.736.736a1.561,1.561,0,0,1,0,2.209Zm0,0" transform="translate(0 -0.406)" fill="#00d58d"/> </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="item_content" *ngIf="banhos !== 0">
+            <label for="">Banhos</label>
+            <div class="item_list" *ngFor="let pet of pets | keyvalue; index as i">
+                <div class="item" *ngFor="let banho of pets[i].banhos | keyvalue; index as x">
+                    <div class="left">
+                        <h2>{{ pets[i].nome }}</h2>
+                        <p><b>{{ pets[i].banhos[x].frequencia }}</b></p>
+                        <p>Realizado: <span>{{ pets[i].banhos[x].data_banho | date : 'dd/MM/yyyy' }}</span></p>
+                        <p>Local: <span>{{ pets[i].banhos[x].clinica }}</span></p>
+                        <p><span>{{ pets[i].banhos[x].observacao }}</span></p>
+                    </div>
+                    <div class="right" status="finalizado">
+                        <svg class="relogio" xmlns="http://www.w3.org/2000/svg" width="19.898" height="21.585" viewBox="0 0 19.898 21.585"> <g id="stopwatch" transform="translate(-20)"> <g id="Grupo_21" data-name="Grupo 21" transform="translate(20)"> <g id="Grupo_20" data-name="Grupo 20" transform="translate(0)"> <path id="Caminho_13" data-name="Caminho 13" d="M384.951,15l2.289,1.909a.843.843,0,1,0,1.08-1.3L386.031,13.7a.843.843,0,1,0-1.08,1.3Z" transform="translate(-369.275 -12.94)" fill="#dc8400"/> <path id="Caminho_14" data-name="Caminho 14" d="M33.889,17.105a.84.84,0,0,0,.54-.2L36.718,15a.843.843,0,1,0-1.08-1.3l-2.289,1.909a.843.843,0,0,0,.54,1.491Z" transform="translate(-32.495 -12.94)" fill="#dc8400"/> <path id="Caminho_15" data-name="Caminho 15" d="M36.984,4.6a9.874,9.874,0,0,0-6.192-2.878V.843a.843.843,0,1,0-1.686,0v.879a9.949,9.949,0,0,0-6.192,16.949,9.95,9.95,0,0,0,12.931.979.843.843,0,1,0-1-1.358,8.252,8.252,0,1,1,2.348-2.679.843.843,0,1,0,1.477.813A9.954,9.954,0,0,0,36.984,4.6Z" transform="translate(-20)" fill="#dc8400"/> <path id="Caminho_16" data-name="Caminho 16" d="M221.794,151.335a.843.843,0,0,0-1.186.125l-2.659,3.285a1.688,1.688,0,1,0,1.311,1.061l2.659-3.285A.843.843,0,0,0,221.794,151.335Z" transform="translate(-207.737 -144.775)" fill="#dc8400"/> </g> </g> </g> </svg>
+                        <svg class="concluido" xmlns="http://www.w3.org/2000/svg" width="20.396" height="15.837" viewBox="0 0 20.396 15.837"> <path id="check" d="M7.81,15.938a1.041,1.041,0,0,1-1.472,0L.458,10.057a1.561,1.561,0,0,1,0-2.209l.736-.736a1.562,1.562,0,0,1,2.209,0l3.671,3.671L16.993.864a1.562,1.562,0,0,1,2.209,0l.736.736a1.561,1.561,0,0,1,0,2.209Zm0,0" transform="translate(0 -0.406)" fill="#00d58d"/> </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="item_content" *ngIf="consultas !== 0">
+            <label for="">Consultas</label>
+            <div class="item_list" *ngFor="let pet of pets | keyvalue; index as i">
+                <div class="item" *ngFor="let consulta of pets[i].consultas | keyvalue; index as x">
+                    <div class="left">
+                        <h2>{{ pets[i].nome }}</h2>
+                        <p><b>{{ pets[i].consultas[x].frequencia }}</b></p>
+                        <p>Data: <span>{{ pets[i].consultas[x].data_hora | date : 'dd/MM/yyyy HH:mm' }}</span></p>
+                        <p>Local: <span>{{ pets[i].consultas[x].clinica }}</span></p>
+                        <p><span>{{ pets[i].consultas[x].descricao }}</span></p>
+                    </div>
+                    <div class="right" *ngIf="pets[i].consultas[x].status == 'Concluido' || pets[i].consultas[x].status == 'Cancelado'" status="finalizado">
+                        <svg class="relogio" xmlns="http://www.w3.org/2000/svg" width="19.898" height="21.585" viewBox="0 0 19.898 21.585"> <g id="stopwatch" transform="translate(-20)"> <g id="Grupo_21" data-name="Grupo 21" transform="translate(20)"> <g id="Grupo_20" data-name="Grupo 20" transform="translate(0)"> <path id="Caminho_13" data-name="Caminho 13" d="M384.951,15l2.289,1.909a.843.843,0,1,0,1.08-1.3L386.031,13.7a.843.843,0,1,0-1.08,1.3Z" transform="translate(-369.275 -12.94)" fill="#dc8400"/> <path id="Caminho_14" data-name="Caminho 14" d="M33.889,17.105a.84.84,0,0,0,.54-.2L36.718,15a.843.843,0,1,0-1.08-1.3l-2.289,1.909a.843.843,0,0,0,.54,1.491Z" transform="translate(-32.495 -12.94)" fill="#dc8400"/> <path id="Caminho_15" data-name="Caminho 15" d="M36.984,4.6a9.874,9.874,0,0,0-6.192-2.878V.843a.843.843,0,1,0-1.686,0v.879a9.949,9.949,0,0,0-6.192,16.949,9.95,9.95,0,0,0,12.931.979.843.843,0,1,0-1-1.358,8.252,8.252,0,1,1,2.348-2.679.843.843,0,1,0,1.477.813A9.954,9.954,0,0,0,36.984,4.6Z" transform="translate(-20)" fill="#dc8400"/> <path id="Caminho_16" data-name="Caminho 16" d="M221.794,151.335a.843.843,0,0,0-1.186.125l-2.659,3.285a1.688,1.688,0,1,0,1.311,1.061l2.659-3.285A.843.843,0,0,0,221.794,151.335Z" transform="translate(-207.737 -144.775)" fill="#dc8400"/> </g> </g> </g> </svg>
+                        <svg class="concluido" xmlns="http://www.w3.org/2000/svg" width="20.396" height="15.837" viewBox="0 0 20.396 15.837"> <path id="check" d="M7.81,15.938a1.041,1.041,0,0,1-1.472,0L.458,10.057a1.561,1.561,0,0,1,0-2.209l.736-.736a1.562,1.562,0,0,1,2.209,0l3.671,3.671L16.993.864a1.562,1.562,0,0,1,2.209,0l.736.736a1.561,1.561,0,0,1,0,2.209Zm0,0" transform="translate(0 -0.406)" fill="#00d58d"/> </svg>
+                    </div>
+                    <div class="right" *ngIf="pets[i].consultas[x].status == 'Pendente' " status="pendente">
+                        <svg class="relogio" xmlns="http://www.w3.org/2000/svg" width="19.898" height="21.585" viewBox="0 0 19.898 21.585"> <g id="stopwatch" transform="translate(-20)"> <g id="Grupo_21" data-name="Grupo 21" transform="translate(20)"> <g id="Grupo_20" data-name="Grupo 20" transform="translate(0)"> <path id="Caminho_13" data-name="Caminho 13" d="M384.951,15l2.289,1.909a.843.843,0,1,0,1.08-1.3L386.031,13.7a.843.843,0,1,0-1.08,1.3Z" transform="translate(-369.275 -12.94)" fill="#dc8400"/> <path id="Caminho_14" data-name="Caminho 14" d="M33.889,17.105a.84.84,0,0,0,.54-.2L36.718,15a.843.843,0,1,0-1.08-1.3l-2.289,1.909a.843.843,0,0,0,.54,1.491Z" transform="translate(-32.495 -12.94)" fill="#dc8400"/> <path id="Caminho_15" data-name="Caminho 15" d="M36.984,4.6a9.874,9.874,0,0,0-6.192-2.878V.843a.843.843,0,1,0-1.686,0v.879a9.949,9.949,0,0,0-6.192,16.949,9.95,9.95,0,0,0,12.931.979.843.843,0,1,0-1-1.358,8.252,8.252,0,1,1,2.348-2.679.843.843,0,1,0,1.477.813A9.954,9.954,0,0,0,36.984,4.6Z" transform="translate(-20)" fill="#dc8400"/> <path id="Caminho_16" data-name="Caminho 16" d="M221.794,151.335a.843.843,0,0,0-1.186.125l-2.659,3.285a1.688,1.688,0,1,0,1.311,1.061l2.659-3.285A.843.843,0,0,0,221.794,151.335Z" transform="translate(-207.737 -144.775)" fill="#dc8400"/> </g> </g> </g> </svg>
+                        <svg class="concluido" xmlns="http://www.w3.org/2000/svg" width="20.396" height="15.837" viewBox="0 0 20.396 15.837"> <path id="check" d="M7.81,15.938a1.041,1.041,0,0,1-1.472,0L.458,10.057a1.561,1.561,0,0,1,0-2.209l.736-.736a1.562,1.562,0,0,1,2.209,0l3.671,3.671L16.993.864a1.562,1.562,0,0,1,2.209,0l.736.736a1.561,1.561,0,0,1,0,2.209Zm0,0" transform="translate(0 -0.406)" fill="#00d58d"/> </svg>
+                    </div>
+                    <div class="right" *ngIf="pets[i].consultas[x].status == 'Agendado'" status="agendado">
+                        <svg class="relogio" xmlns="http://www.w3.org/2000/svg" width="19.898" height="21.585" viewBox="0 0 19.898 21.585"> <g id="stopwatch" transform="translate(-20)"> <g id="Grupo_21" data-name="Grupo 21" transform="translate(20)"> <g id="Grupo_20" data-name="Grupo 20" transform="translate(0)"> <path id="Caminho_13" data-name="Caminho 13" d="M384.951,15l2.289,1.909a.843.843,0,1,0,1.08-1.3L386.031,13.7a.843.843,0,1,0-1.08,1.3Z" transform="translate(-369.275 -12.94)" fill="#dc8400"/> <path id="Caminho_14" data-name="Caminho 14" d="M33.889,17.105a.84.84,0,0,0,.54-.2L36.718,15a.843.843,0,1,0-1.08-1.3l-2.289,1.909a.843.843,0,0,0,.54,1.491Z" transform="translate(-32.495 -12.94)" fill="#dc8400"/> <path id="Caminho_15" data-name="Caminho 15" d="M36.984,4.6a9.874,9.874,0,0,0-6.192-2.878V.843a.843.843,0,1,0-1.686,0v.879a9.949,9.949,0,0,0-6.192,16.949,9.95,9.95,0,0,0,12.931.979.843.843,0,1,0-1-1.358,8.252,8.252,0,1,1,2.348-2.679.843.843,0,1,0,1.477.813A9.954,9.954,0,0,0,36.984,4.6Z" transform="translate(-20)" fill="#dc8400"/> <path id="Caminho_16" data-name="Caminho 16" d="M221.794,151.335a.843.843,0,0,0-1.186.125l-2.659,3.285a1.688,1.688,0,1,0,1.311,1.061l2.659-3.285A.843.843,0,0,0,221.794,151.335Z" transform="translate(-207.737 -144.775)" fill="#dc8400"/> </g> </g> </g> </svg>
+                        <svg class="concluido" xmlns="http://www.w3.org/2000/svg" width="20.396" height="15.837" viewBox="0 0 20.396 15.837"> <path id="check" d="M7.81,15.938a1.041,1.041,0,0,1-1.472,0L.458,10.057a1.561,1.561,0,0,1,0-2.209l.736-.736a1.562,1.562,0,0,1,2.209,0l3.671,3.671L16.993.864a1.562,1.562,0,0,1,2.209,0l.736.736a1.561,1.561,0,0,1,0,2.209Zm0,0" transform="translate(0 -0.406)" fill="#00d58d"/> </svg>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="item_content" *ngIf="cirurgias !== 0">
+            <label for="">Cirurgias</label>
+            <div class="item_list" *ngFor="let pet of pets | keyvalue; index as i">
+                <div class="item" *ngFor="let cirurgia of pets[i].cirurgias | keyvalue; index as x">
+                    <div class="left">
+                        <h2>{{ pets[i].nome }}</h2>
+                        <p><b>{{ pets[i].cirurgias[x].frequencia }}</b></p>
+                        <p>Data: <span>{{ pets[i].cirurgias[x].data_hora | date : 'dd/MM/yyyy HH:mm' }}</span></p>
+                        <p>Local: <span>{{ pets[i].cirurgias[x].clinica }}</span></p>
+                        <p><span>{{ pets[i].cirurgias[x].descricao }}</span></p>
+                        <p><span>{{ pets[i].cirurgias[x]?.observacao }}</span></p>
+                    </div>
+                    <div class="right" *ngIf="pets[i].cirurgias[x].status == 'Concluido' || pets[i].cirurgias[x].status == 'Cancelado'" status="finalizado">
+                        <svg class="relogio" xmlns="http://www.w3.org/2000/svg" width="19.898" height="21.585" viewBox="0 0 19.898 21.585"> <g id="stopwatch" transform="translate(-20)"> <g id="Grupo_21" data-name="Grupo 21" transform="translate(20)"> <g id="Grupo_20" data-name="Grupo 20" transform="translate(0)"> <path id="Caminho_13" data-name="Caminho 13" d="M384.951,15l2.289,1.909a.843.843,0,1,0,1.08-1.3L386.031,13.7a.843.843,0,1,0-1.08,1.3Z" transform="translate(-369.275 -12.94)" fill="#dc8400"/> <path id="Caminho_14" data-name="Caminho 14" d="M33.889,17.105a.84.84,0,0,0,.54-.2L36.718,15a.843.843,0,1,0-1.08-1.3l-2.289,1.909a.843.843,0,0,0,.54,1.491Z" transform="translate(-32.495 -12.94)" fill="#dc8400"/> <path id="Caminho_15" data-name="Caminho 15" d="M36.984,4.6a9.874,9.874,0,0,0-6.192-2.878V.843a.843.843,0,1,0-1.686,0v.879a9.949,9.949,0,0,0-6.192,16.949,9.95,9.95,0,0,0,12.931.979.843.843,0,1,0-1-1.358,8.252,8.252,0,1,1,2.348-2.679.843.843,0,1,0,1.477.813A9.954,9.954,0,0,0,36.984,4.6Z" transform="translate(-20)" fill="#dc8400"/> <path id="Caminho_16" data-name="Caminho 16" d="M221.794,151.335a.843.843,0,0,0-1.186.125l-2.659,3.285a1.688,1.688,0,1,0,1.311,1.061l2.659-3.285A.843.843,0,0,0,221.794,151.335Z" transform="translate(-207.737 -144.775)" fill="#dc8400"/> </g> </g> </g> </svg>
+                        <svg class="concluido" xmlns="http://www.w3.org/2000/svg" width="20.396" height="15.837" viewBox="0 0 20.396 15.837"> <path id="check" d="M7.81,15.938a1.041,1.041,0,0,1-1.472,0L.458,10.057a1.561,1.561,0,0,1,0-2.209l.736-.736a1.562,1.562,0,0,1,2.209,0l3.671,3.671L16.993.864a1.562,1.562,0,0,1,2.209,0l.736.736a1.561,1.561,0,0,1,0,2.209Zm0,0" transform="translate(0 -0.406)" fill="#00d58d"/> </svg>
+                    </div>
+                    <div class="right" *ngIf="pets[i].cirurgias[x].status == 'Pendente' " status="pendente">
+                        <svg class="relogio" xmlns="http://www.w3.org/2000/svg" width="19.898" height="21.585" viewBox="0 0 19.898 21.585"> <g id="stopwatch" transform="translate(-20)"> <g id="Grupo_21" data-name="Grupo 21" transform="translate(20)"> <g id="Grupo_20" data-name="Grupo 20" transform="translate(0)"> <path id="Caminho_13" data-name="Caminho 13" d="M384.951,15l2.289,1.909a.843.843,0,1,0,1.08-1.3L386.031,13.7a.843.843,0,1,0-1.08,1.3Z" transform="translate(-369.275 -12.94)" fill="#dc8400"/> <path id="Caminho_14" data-name="Caminho 14" d="M33.889,17.105a.84.84,0,0,0,.54-.2L36.718,15a.843.843,0,1,0-1.08-1.3l-2.289,1.909a.843.843,0,0,0,.54,1.491Z" transform="translate(-32.495 -12.94)" fill="#dc8400"/> <path id="Caminho_15" data-name="Caminho 15" d="M36.984,4.6a9.874,9.874,0,0,0-6.192-2.878V.843a.843.843,0,1,0-1.686,0v.879a9.949,9.949,0,0,0-6.192,16.949,9.95,9.95,0,0,0,12.931.979.843.843,0,1,0-1-1.358,8.252,8.252,0,1,1,2.348-2.679.843.843,0,1,0,1.477.813A9.954,9.954,0,0,0,36.984,4.6Z" transform="translate(-20)" fill="#dc8400"/> <path id="Caminho_16" data-name="Caminho 16" d="M221.794,151.335a.843.843,0,0,0-1.186.125l-2.659,3.285a1.688,1.688,0,1,0,1.311,1.061l2.659-3.285A.843.843,0,0,0,221.794,151.335Z" transform="translate(-207.737 -144.775)" fill="#dc8400"/> </g> </g> </g> </svg>
+                        <svg class="concluido" xmlns="http://www.w3.org/2000/svg" width="20.396" height="15.837" viewBox="0 0 20.396 15.837"> <path id="check" d="M7.81,15.938a1.041,1.041,0,0,1-1.472,0L.458,10.057a1.561,1.561,0,0,1,0-2.209l.736-.736a1.562,1.562,0,0,1,2.209,0l3.671,3.671L16.993.864a1.562,1.562,0,0,1,2.209,0l.736.736a1.561,1.561,0,0,1,0,2.209Zm0,0" transform="translate(0 -0.406)" fill="#00d58d"/> </svg>
+                    </div>
+                    <div class="right" *ngIf="pets[i].cirurgias[x].status == 'Agendado'" status="agendado">
+                        <svg class="relogio" xmlns="http://www.w3.org/2000/svg" width="19.898" height="21.585" viewBox="0 0 19.898 21.585"> <g id="stopwatch" transform="translate(-20)"> <g id="Grupo_21" data-name="Grupo 21" transform="translate(20)"> <g id="Grupo_20" data-name="Grupo 20" transform="translate(0)"> <path id="Caminho_13" data-name="Caminho 13" d="M384.951,15l2.289,1.909a.843.843,0,1,0,1.08-1.3L386.031,13.7a.843.843,0,1,0-1.08,1.3Z" transform="translate(-369.275 -12.94)" fill="#dc8400"/> <path id="Caminho_14" data-name="Caminho 14" d="M33.889,17.105a.84.84,0,0,0,.54-.2L36.718,15a.843.843,0,1,0-1.08-1.3l-2.289,1.909a.843.843,0,0,0,.54,1.491Z" transform="translate(-32.495 -12.94)" fill="#dc8400"/> <path id="Caminho_15" data-name="Caminho 15" d="M36.984,4.6a9.874,9.874,0,0,0-6.192-2.878V.843a.843.843,0,1,0-1.686,0v.879a9.949,9.949,0,0,0-6.192,16.949,9.95,9.95,0,0,0,12.931.979.843.843,0,1,0-1-1.358,8.252,8.252,0,1,1,2.348-2.679.843.843,0,1,0,1.477.813A9.954,9.954,0,0,0,36.984,4.6Z" transform="translate(-20)" fill="#dc8400"/> <path id="Caminho_16" data-name="Caminho 16" d="M221.794,151.335a.843.843,0,0,0-1.186.125l-2.659,3.285a1.688,1.688,0,1,0,1.311,1.061l2.659-3.285A.843.843,0,0,0,221.794,151.335Z" transform="translate(-207.737 -144.775)" fill="#dc8400"/> </g> </g> </g> </svg>
+                        <svg class="concluido" xmlns="http://www.w3.org/2000/svg" width="20.396" height="15.837" viewBox="0 0 20.396 15.837"> <path id="check" d="M7.81,15.938a1.041,1.041,0,0,1-1.472,0L.458,10.057a1.561,1.561,0,0,1,0-2.209l.736-.736a1.562,1.562,0,0,1,2.209,0l3.671,3.671L16.993.864a1.562,1.562,0,0,1,2.209,0l.736.736a1.561,1.561,0,0,1,0,2.209Zm0,0" transform="translate(0 -0.406)" fill="#00d58d"/> </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="item_content" *ngIf="internacoes !== 0">
+            <label for="">Internações</label>
+            <div class="item_list" *ngFor="let pet of pets | keyvalue; index as i">
+                <div class="item" *ngFor="let internacao of pets[i].internacoes | keyvalue; index as x">
+                    <div class="left">
+                        <h2>{{ pets[i].nome }}</h2>
+                        <p><b>{{ pets[i].internacoes[x].frequencia }}</b></p>
+                        <p>Data: <span>{{ pets[i].internacoes[x].data_hora | date : 'dd/MM/yyyy HH:mm' }}</span></p>
+                        <p>Local: <span>{{ pets[i].internacoes[x].clinica }}</span></p>
+                        <p *ngIf="pets[i].internacoes[x].data_entrada">Data Entrada: <span>{{ pets[i].internacoes[x].data_entrada | date : 'dd/MM/yyyy HH:mm'}}</span></p>
+                        <p *ngIf="pets[i].internacoes[x].data_saida">Data Saida: <span>{{ pets[i].internacoes[x].data_saida | date : 'dd/MM/yyyy HH:mm'}}</span></p>
+                        <p><span>{{ pets[i].internacoes[x].descricao }}</span></p>
+                    </div>
+                    <div class="right" *ngIf="pets[i].internacoes[x].status == 'Concluido' || pets[i].internacoes[x].status == 'Cancelado'" status="finalizado">
+                        <svg class="relogio" xmlns="http://www.w3.org/2000/svg" width="19.898" height="21.585" viewBox="0 0 19.898 21.585"> <g id="stopwatch" transform="translate(-20)"> <g id="Grupo_21" data-name="Grupo 21" transform="translate(20)"> <g id="Grupo_20" data-name="Grupo 20" transform="translate(0)"> <path id="Caminho_13" data-name="Caminho 13" d="M384.951,15l2.289,1.909a.843.843,0,1,0,1.08-1.3L386.031,13.7a.843.843,0,1,0-1.08,1.3Z" transform="translate(-369.275 -12.94)" fill="#dc8400"/> <path id="Caminho_14" data-name="Caminho 14" d="M33.889,17.105a.84.84,0,0,0,.54-.2L36.718,15a.843.843,0,1,0-1.08-1.3l-2.289,1.909a.843.843,0,0,0,.54,1.491Z" transform="translate(-32.495 -12.94)" fill="#dc8400"/> <path id="Caminho_15" data-name="Caminho 15" d="M36.984,4.6a9.874,9.874,0,0,0-6.192-2.878V.843a.843.843,0,1,0-1.686,0v.879a9.949,9.949,0,0,0-6.192,16.949,9.95,9.95,0,0,0,12.931.979.843.843,0,1,0-1-1.358,8.252,8.252,0,1,1,2.348-2.679.843.843,0,1,0,1.477.813A9.954,9.954,0,0,0,36.984,4.6Z" transform="translate(-20)" fill="#dc8400"/> <path id="Caminho_16" data-name="Caminho 16" d="M221.794,151.335a.843.843,0,0,0-1.186.125l-2.659,3.285a1.688,1.688,0,1,0,1.311,1.061l2.659-3.285A.843.843,0,0,0,221.794,151.335Z" transform="translate(-207.737 -144.775)" fill="#dc8400"/> </g> </g> </g> </svg>
+                        <svg class="concluido" xmlns="http://www.w3.org/2000/svg" width="20.396" height="15.837" viewBox="0 0 20.396 15.837"> <path id="check" d="M7.81,15.938a1.041,1.041,0,0,1-1.472,0L.458,10.057a1.561,1.561,0,0,1,0-2.209l.736-.736a1.562,1.562,0,0,1,2.209,0l3.671,3.671L16.993.864a1.562,1.562,0,0,1,2.209,0l.736.736a1.561,1.561,0,0,1,0,2.209Zm0,0" transform="translate(0 -0.406)" fill="#00d58d"/> </svg>
+                    </div>
+                    <div class="right" *ngIf="pets[i].internacoes[x].status == 'Pendente' " status="pendente">
+                        <svg class="relogio" xmlns="http://www.w3.org/2000/svg" width="19.898" height="21.585" viewBox="0 0 19.898 21.585"> <g id="stopwatch" transform="translate(-20)"> <g id="Grupo_21" data-name="Grupo 21" transform="translate(20)"> <g id="Grupo_20" data-name="Grupo 20" transform="translate(0)"> <path id="Caminho_13" data-name="Caminho 13" d="M384.951,15l2.289,1.909a.843.843,0,1,0,1.08-1.3L386.031,13.7a.843.843,0,1,0-1.08,1.3Z" transform="translate(-369.275 -12.94)" fill="#dc8400"/> <path id="Caminho_14" data-name="Caminho 14" d="M33.889,17.105a.84.84,0,0,0,.54-.2L36.718,15a.843.843,0,1,0-1.08-1.3l-2.289,1.909a.843.843,0,0,0,.54,1.491Z" transform="translate(-32.495 -12.94)" fill="#dc8400"/> <path id="Caminho_15" data-name="Caminho 15" d="M36.984,4.6a9.874,9.874,0,0,0-6.192-2.878V.843a.843.843,0,1,0-1.686,0v.879a9.949,9.949,0,0,0-6.192,16.949,9.95,9.95,0,0,0,12.931.979.843.843,0,1,0-1-1.358,8.252,8.252,0,1,1,2.348-2.679.843.843,0,1,0,1.477.813A9.954,9.954,0,0,0,36.984,4.6Z" transform="translate(-20)" fill="#dc8400"/> <path id="Caminho_16" data-name="Caminho 16" d="M221.794,151.335a.843.843,0,0,0-1.186.125l-2.659,3.285a1.688,1.688,0,1,0,1.311,1.061l2.659-3.285A.843.843,0,0,0,221.794,151.335Z" transform="translate(-207.737 -144.775)" fill="#dc8400"/> </g> </g> </g> </svg>
+                        <svg class="concluido" xmlns="http://www.w3.org/2000/svg" width="20.396" height="15.837" viewBox="0 0 20.396 15.837"> <path id="check" d="M7.81,15.938a1.041,1.041,0,0,1-1.472,0L.458,10.057a1.561,1.561,0,0,1,0-2.209l.736-.736a1.562,1.562,0,0,1,2.209,0l3.671,3.671L16.993.864a1.562,1.562,0,0,1,2.209,0l.736.736a1.561,1.561,0,0,1,0,2.209Zm0,0" transform="translate(0 -0.406)" fill="#00d58d"/> </svg>
+                    </div>
+                    <div class="right" *ngIf="pets[i].internacoes[x].status == 'Agendado'" status="agendado">
+                        <svg class="relogio" xmlns="http://www.w3.org/2000/svg" width="19.898" height="21.585" viewBox="0 0 19.898 21.585"> <g id="stopwatch" transform="translate(-20)"> <g id="Grupo_21" data-name="Grupo 21" transform="translate(20)"> <g id="Grupo_20" data-name="Grupo 20" transform="translate(0)"> <path id="Caminho_13" data-name="Caminho 13" d="M384.951,15l2.289,1.909a.843.843,0,1,0,1.08-1.3L386.031,13.7a.843.843,0,1,0-1.08,1.3Z" transform="translate(-369.275 -12.94)" fill="#dc8400"/> <path id="Caminho_14" data-name="Caminho 14" d="M33.889,17.105a.84.84,0,0,0,.54-.2L36.718,15a.843.843,0,1,0-1.08-1.3l-2.289,1.909a.843.843,0,0,0,.54,1.491Z" transform="translate(-32.495 -12.94)" fill="#dc8400"/> <path id="Caminho_15" data-name="Caminho 15" d="M36.984,4.6a9.874,9.874,0,0,0-6.192-2.878V.843a.843.843,0,1,0-1.686,0v.879a9.949,9.949,0,0,0-6.192,16.949,9.95,9.95,0,0,0,12.931.979.843.843,0,1,0-1-1.358,8.252,8.252,0,1,1,2.348-2.679.843.843,0,1,0,1.477.813A9.954,9.954,0,0,0,36.984,4.6Z" transform="translate(-20)" fill="#dc8400"/> <path id="Caminho_16" data-name="Caminho 16" d="M221.794,151.335a.843.843,0,0,0-1.186.125l-2.659,3.285a1.688,1.688,0,1,0,1.311,1.061l2.659-3.285A.843.843,0,0,0,221.794,151.335Z" transform="translate(-207.737 -144.775)" fill="#dc8400"/> </g> </g> </g> </svg>
+                        <svg class="concluido" xmlns="http://www.w3.org/2000/svg" width="20.396" height="15.837" viewBox="0 0 20.396 15.837"> <path id="check" d="M7.81,15.938a1.041,1.041,0,0,1-1.472,0L.458,10.057a1.561,1.561,0,0,1,0-2.209l.736-.736a1.562,1.562,0,0,1,2.209,0l3.671,3.671L16.993.864a1.562,1.562,0,0,1,2.209,0l.736.736a1.561,1.561,0,0,1,0,2.209Zm0,0" transform="translate(0 -0.406)" fill="#00d58d"/> </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</ion-content>

@@ -1,0 +1,162 @@
+@import "./../../../../../mixins.scss";
+
+app-editar-dados-pet{
+    ion-content{
+        .content{
+            @include content;
+            min-height: calc(100% - 25vw);
+            padding: 9.7vw 6.9vw 25vw;
+    
+            .foto_content{
+                display: block;
+                width: 34.2vw;
+                height: 26.7vw;
+                position: relative;
+                margin: 0 auto 8.3vw;
+    
+                .adicionar_foto{
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    left: 0;
+                    top: 0;
+                    border: 1px dashed #772E8A;
+                    border-radius: 3.3vw;
+                    @include flex-wrap;
+                    justify-content: center;
+                    align-content: center;
+                    padding: 0 0 2.8vw;
+    
+                    svg{
+                        display: block;
+                        width: 6.1vw;
+                        height: auto;
+                        margin-bottom: -1.9vw;
+    
+                        *{
+                            fill: #772E8A;
+                        }
+                    }
+                    p{
+                        width: 100%;
+                        margin: 0;
+                        color: #772E8A;
+                        text-align: center;
+                        font-size: 3.6vw;
+                        line-height: 3.9vw;
+                        font-weight: 500;
+                    }
+                }
+                .foto{
+                    background-position: center;
+                    background-size: cover;
+                    border-radius: 3.3vw;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    cursor: pointer;
+
+                    *{ cursor: pointer; }
+
+                    svg{
+                        position: absolute;
+                        right: 0;
+                        bottom: -22px;
+                        pointer-events: none;
+                    }
+                }
+            }
+    
+            .item_list{
+                padding: 0 0 5.6vw;
+                
+                .item{
+                    width: 100%;
+                    margin: 0 0 4.2vw;
+                    @include input_1;
+                }
+            }
+    
+            button.cadastrar{
+                @include button_1;
+            }
+        }
+    }
+
+    @media (min-width: 450px){
+        ion-content{
+            .content{
+                min-height: calc(100% - 112px);
+                padding: 44px 31px 100px;
+        
+                .foto_content{
+                    width: 154px;
+                    height: 120px;
+                    margin: 0 auto 37px;
+        
+                    .adicionar_foto{
+                        border-radius: 15px;
+                        padding: 0 0 13px;
+        
+                        svg{
+                            width: 27px;
+                            margin-bottom: -9px;
+                        }
+                        p{
+                            font-size: 16px;
+                            line-height: 18px;
+                        }
+                    }
+                    .foto{
+                        border-radius: 15px;
+                    }
+                }
+        
+                .item_list{
+                    padding: 0 0 25px;
+                    
+                    .item{
+                        margin: 0 0 19px;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (min-width: 1000px){
+        ion-content{
+            border-bottom: 30px solid #772e8a;
+
+            .content{
+                width: 640px;
+                padding: 75px 0;
+
+                .foto_content{
+                    .adicionar_foto{
+                        svg{}
+                        p{}
+                    }
+                    .foto{}
+                }
+        
+                .item_list{
+                    @include flex-wrap;
+                    justify-content: space-between;
+                    
+                    .item{
+                        width: calc((100% - 20px)/2);
+                        margin: 0 0 15px;
+
+                        &.item_full{
+                            width: 100%;
+                        }
+                    }
+                }
+        
+                button.cadastrar{}
+            }
+        }
+    }
+}

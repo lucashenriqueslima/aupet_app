@@ -1,0 +1,326 @@
+@import './../../../../mixins.scss';
+
+app-interno-agendamento{
+    ion-content{
+        .content{
+            @include content;
+            min-height: calc(100% - 25vw);
+            padding: 7.8vw 0 6.9vw;
+    
+            .agendamento_header{
+                margin: 0 0 5.6vw;
+                
+                .foto{
+                    width: 27.8vw;
+                    height: 27.8vw;
+                    border-radius: 50%;
+                    display: block;
+                    margin: 0 auto 2.8vw;
+                    background-color: #585858;
+                    background-position: center;
+                    background-size: cover;
+                }
+                h2{
+                    font-size: 3.9vw;
+                    font-weight: bold;
+                    color: #772E8A;
+                    margin: 0;
+                    text-align: center;
+                }
+                p{
+                    font-size: 3.9vw;
+                    font-weight: 500;
+                    color: #4A4A4A;
+                    margin: 0;
+                    text-align: center;
+                }
+            }
+    
+            .dados_pet{
+                .dado{
+                    @include flex-wrap;
+                    border-bottom: 1px solid #D8D8D8;
+                    padding: 2.8vw 8.3vw;
+    
+                    h2{
+                        width: 50%;
+                        font-size: 3.9vw;
+                        font-weight: bold;
+                        color: #4A4A4A;
+                        margin: 0;
+                    }
+                    p{
+                        width: 50%;
+                        font-size: 3.9vw;
+                        font-weight: 500;
+                        color: #4A4A4A;
+                        margin: 0;
+                        text-align: right;
+                    }
+                }
+            }
+    
+            .dados_agendamento{
+                padding: 9.7vw 8.3vw 5.6vw;
+    
+                h2{
+                    text-transform: uppercase;
+                    font-size: 4.4vw;
+                    font-weight: bold;
+                    letter-spacing: .3px;
+                    color: #772E8A;
+                    margin: 0 0 8.3vw;
+                }
+                div{
+                    position: relative;
+                    padding: 0 0 0 8.3vw;
+    
+                    svg{
+                        position: absolute;
+                        left: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        height: auto;
+                    }
+    
+                    &.data{
+                        font-size: 3.9vw;
+                        line-height: 4.2vw;
+                        font-weight: 500;
+                        color: #0D0D0D;
+                        margin: 0 0 6.4vw;
+                        padding: 0 8.3vw 0 8.3vw;
+    
+    
+                        svg{
+                            &.calendario{
+                                width: 5.6vw;
+                            }
+                            &.active{
+                                width: 6.7vw;
+                                left: initial;
+                                right: 0;
+                                display: none;
+                            }
+                        }
+                        &.active{
+                            svg.active{
+                                display: block;
+                            }
+                        }
+                    }
+                    &.servicos{
+                        font-size: 3.9vw;
+                        line-height: 4.2vw;
+                        font-weight: 500;
+                        color: #0D0D0D;
+                        margin: 0 0 6.4vw;
+    
+    
+                        svg{
+                            width: 5.6vw;
+                        }
+                    }
+                    &.local{
+                        font-size: 3.9vw;
+                        line-height: 4.2vw;
+                        font-weight: 500;
+                        color: #0D0D0D;
+                        margin: 0;
+    
+                        svg{
+                            width: 3.6vw;
+                        }
+                    }
+                }
+            }
+    
+            .buttons_agendamento{
+                padding: 11.1vw 6.9vw 0;
+                @include flex-wrap;
+                justify-content: space-between;
+    
+                &.active{ display: none; }
+    
+                button{
+                    width: calc((100% - 5.6vw)/2);
+                    height: 13.9vw;
+                    padding: 0 5.6vw;
+                    color: white;
+                    text-transform: uppercase;
+                    font-size: 3vw;
+                    font-weight: 500;
+                    letter-spacing: 1px;
+                    line-height: 3.6vw;
+                    border-radius: 2.2vw;
+
+                    &.active{ display: none; }
+
+                    &.confirmar_agendamento{
+                        background: #00b147;
+                    }
+                    &.agendamento_realizado{
+                        background: #00b147;
+                    }
+    
+                    &.dados_cliente{
+                        background: #0098C5;
+                        width: 100%;
+                        margin: 0 0 15px;
+                    }
+                    &.cancelar{
+                        background: #f70000;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (min-width: 450px){
+        ion-content{
+            .content{
+                min-height: calc(100% - 112px);
+                padding: 35px 0 31px;
+        
+                .agendamento_header{
+                    margin: 0 0 25px;
+                    
+                    .foto{
+                        width: 125px;
+                        height: 125px;
+                        margin: 0 auto 13px;
+                    }
+                    h2{
+                        font-size: 18px;
+                    }
+                    p{
+                        font-size: 18px;
+                    }
+                }
+        
+                .dados_pet{
+                    .dado{
+                        padding: 13px 37px;
+        
+                        h2{
+                            font-size: 18px;
+                        }
+                        p{
+                            font-size: 18px;
+                        }
+                    }
+                }
+        
+                .dados_agendamento{
+                    padding: 44px 37px 25px;
+        
+                    h2{
+                        font-size: 20px;
+                        margin: 0 0 37px;
+                    }
+                    div{
+                        padding: 0 0 0 37px;
+        
+                        &.data{
+                            font-size: 18px;
+                            line-height: 19px;
+                            margin: 0 0 29px;
+                            padding: 0 37px 0 37px;
+        
+        
+                            svg{
+                                &.calendario{
+                                    width: 25px;
+                                }
+                                &.active{
+                                    width: 30px;
+                                }
+                            }
+                        }
+                        &.servicos{
+                            font-size: 18px;
+                            line-height: 19px;
+                            margin: 0 0 29px;
+        
+        
+                            svg{
+                                width: 25px;
+                            }
+                        }
+                        &.local{
+                            font-size: 18px;
+                            line-height: 19px;
+        
+                            svg{
+                                width: 16px;
+                            }
+                        }
+                    }
+                }
+        
+                .buttons_agendamento{
+                    padding: 50px 31px 0;
+        
+                    button{
+                        width: calc((100% - 25px)/2);
+                        height: 63px;
+                        padding: 0 25px;
+                        font-size: 13px;
+                        line-height: 16px;
+                        border-radius: 10px;
+                    }
+                }
+            }
+        }
+    }
+    @media (min-width: 1000px){
+        ion-content{
+            border-bottom: 30px solid #772e8a;
+            
+            .content{
+                min-height: initial;
+                max-width: 750px;
+
+                .agendamento_header{
+                    h2{
+                        font-size: 16px;
+                    }
+                    p{
+                        font-size: 16px;
+                    }
+                }
+        
+                .dados_pet{
+                    .dado{
+                        h2{
+                            font-size: 16px;
+                        }
+                        p{
+                            font-size: 16px;
+                        }
+                    }
+                }
+        
+                .dados_agendamento{
+                    h2{
+                        font-size: 18px;
+                    }
+                    div{
+                        &.data{
+                            font-size: 16px;
+                            line-height: 17px;
+                        }
+                        &.servicos{
+                            font-size: 16px;
+                            line-height: 17px;
+                        }
+                        &.local{
+                            font-size: 16px;
+                            line-height: 17px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

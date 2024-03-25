@@ -1,0 +1,80 @@
+button.pesquisa{
+    position: absolute;
+    padding: 0;
+    width: 11.1vw;
+    height: 8.3vw;
+    background: transparent;
+
+    &.opened{
+        input{
+            pointer-events: all;
+            opacity: 1;
+            left: 0;
+        }
+
+        svg{
+            &.lupa{
+                display: none;
+            }
+            &.fechar{
+                display: initial;
+            }
+        }
+    }
+
+    .open_search{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+    }
+
+    input{
+        position: absolute;
+        left: 2.8vw;
+        top: 50%;
+        transform: translate(-100%, -50%);
+        border: none;
+        font-size: 3.9vw;
+        padding: 1.7vw 2.8vw;
+        border-radius: 1.4vw;
+        width: 55.6vw;
+        opacity: 0;
+        pointer-events: none;
+        transition: all .3s;
+        background: white;
+        color: black;
+    }
+
+    svg{
+        width: 4.4vw;
+        height: auto;
+
+        &.lupa{
+
+        }
+        &.fechar{
+            display: none;
+        }
+    }
+}
+
+@media (min-width: 450px){
+    button.pesquisa{
+        width: 50px;
+        height: 37px;
+
+        input{
+            left: 12px;
+            font-size: 17px;
+            padding: 7px 12px;
+            border-radius: 6px;
+            width: 240px;
+        }
+
+        svg{
+            width: 20px;
+        }
+    }
+}

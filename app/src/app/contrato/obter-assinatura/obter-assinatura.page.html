@@ -1,0 +1,8 @@
+<ion-content>
+  <app-header-simples #header title="Assinatura"></app-header-simples>
+  <div class="content">
+    <canvas #canvas (window:resize)="onResize($event)"></canvas>
+    <button class="limpar" (click)="btnLimpar()">Limpar</button>
+    <button class="salvar" (click)="salvar()">Salvar</button>
+  </div>
+</ion-content>

@@ -1,0 +1,67 @@
+<ion-content>
+	<app-header-simples title="Dados adicionais"></app-header-simples>
+	<div class="content">
+		<form (ngSubmit)="salvar()" ngNativeValidate>
+		<div class="dados_termo">
+			<div class="item">
+				<input required type="text" [(ngModel)]='data.nome' [ngModelOptions]="{standalone: true}" placeholder=" ">
+				<label class="placeholder">Nome completo</label>
+			</div>
+			<div class="item">
+				<input required type="tel" mask="(99) 99999-9999" [(ngModel)]='data.telefone' [ngModelOptions]="{standalone: true}" placeholder=" ">
+				<label class="placeholder">Telefone</label>
+			</div>
+			<div class="item">
+				<input required type="email" [(ngModel)]='data.email' [ngModelOptions]="{standalone: true}" placeholder=" ">
+				<label class="placeholder">Email</label>
+			</div>
+			<div class="item">
+				<input required type="date"  [(ngModel)]='data.data_nascimento' [ngModelOptions]="{standalone: true}">
+				<label class="placeholder">Data de nascimento</label>
+			</div>
+			<div class="item">
+				<input required type="tel" mask="999.999.999-99" [(ngModel)]='data.cpf' [ngModelOptions]="{standalone: true}" placeholder=" ">
+				<label class="placeholder">CPF ou CNPJ</label>
+			</div>
+			<div class="item">
+				<input (keyup)="cepKeyUp($event)" mask="99999-999" type="tel" [ngModelOptions]="{standalone: true}" [(ngModel)]="data.cep" placeholder=" ">
+				<label class="placeholder">CEP</label>
+			</div>
+
+			<div class="item">
+				<input required [ngModelOptions]="{standalone: true}" [(ngModel)]="data.rua" placeholder=" ">
+				<label class="placeholder">Rua</label>
+			</div>
+			<div class="item">
+				<input required [ngModelOptions]="{standalone: true}" [(ngModel)]="data.numero" placeholder=" ">
+				<label class="placeholder">Número</label>
+			</div>
+			<div class="item">
+				<input [ngModelOptions]="{standalone: true}" [(ngModel)]="data.complemento" placeholder=" ">
+				<label class="placeholder">Complemento</label>
+			</div>
+			<div class="item half_item">
+				<select [attr.data-value]="data.id_estado" [ngModelOptions]="{standalone: true}" [(ngModel)]="data.id_estado" required (change)="selectState(data.id_estado)">
+					<option value=""></option>
+					<option *ngFor="let state of states" value="{{ state.id }}">{{ state.estado }}</option>
+				</select>
+                    <label class="placeholder">Estado</label>
+                </div>
+                <div class="item half_item">
+                    <select [attr.data-value]="data.id_cidade" [ngModelOptions]="{standalone: true}" required [(ngModel)]="data.id_cidade">
+					<option value=""></option>
+					<option *ngFor="let city of cities" required value="{{ city.id }}">{{ city.cidade }}</option>
+				</select>
+				<label class="placeholder">Cidade</label>
+			</div>
+			<div class="item ">
+				<input required [ngModelOptions]="{standalone: true}" [(ngModel)]="data.bairro" placeholder=" ">
+				<label class="placeholder">Bairro</label>
+			</div>
+		</div>
+		<div class="botoes">
+			<button type="submit" [attr.data-load]="load ? 'on' : ''">Enviar</button>
+		</div>
+		</form>
+	</div>
+</ion-content>

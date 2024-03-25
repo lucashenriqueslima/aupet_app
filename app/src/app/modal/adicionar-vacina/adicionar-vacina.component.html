@@ -1,0 +1,30 @@
+<div class="pop_up_content">
+    <div class="content">
+        <h2>Agendar vacina:</h2>
+
+        <div class="item">
+            <select [attr.data-value]="data.id_clinica" name="id_especialidade" [(ngModel)]='data.id_clinica' (change)="selecionarClinica(data.id_clinica)">
+                <option value="undefined"></option>
+                <option *ngFor="let item of clinicas" value="{{item.id_clinica}}">{{item.nome_fantasia}}</option>
+            </select>
+            <label class="placeholder">Selecione Clinica Credenciada</label>
+        </div>
+        <div class="item">
+            <input type="text" placeholder=" " [(ngModel)]="data.nome_vacina">
+            <label class="placeholder">Nome da vacina</label>
+        </div>
+        <div class="item">
+            <input type="date" placeholder=" " min="{{ today }}" [(ngModel)]="data.data">
+            <label class="placeholder">Data da vacina</label>
+        </div>
+        <div class="item">
+            <input type="time" [(ngModel)]='data.hora' placeholder=" ">
+            <label class="placeholder">Selecione a hora</label>
+        </div>
+
+        <div class="buttons">
+            <button class="cancelar" (click)="dismiss()">cancelar</button>
+            <button class="confirm" (click)="salvar()">ok</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,173 @@
+<ion-content>
+    <app-header-simples title="Criar Cadastro "></app-header-simples>
+    <div class="content">
+        <form (submit)="request($event)" ngNativeValidate>
+            <div class="item_content">
+                <h2>
+                    <svg class="camera" xmlns="http://www.w3.org/2000/svg" width="21.933" height="19.192" viewBox="0 0 21.933 19.192"> <path id="Caminho_25" data-name="Caminho 25" d="M187.843,199.236a2.742,2.742,0,1,1-3.877,0,2.742,2.742,0,0,1,3.877,0" transform="translate(-174.938 -190.894)" fill="#772e8a" /> <path id="Caminho_26" data-name="Caminho 26" d="M19.191,33.264H17.3l-1.372-2.742H6.006l-1.37,2.743-1.892,0a2.747,2.747,0,0,0-2.737,2.74L0,46.972a2.745,2.745,0,0,0,2.742,2.742h16.45a2.744,2.744,0,0,0,2.742-2.742V36.005A2.744,2.744,0,0,0,19.191,33.264ZM10.966,46.287A5.483,5.483,0,1,1,16.45,40.8a5.49,5.49,0,0,1-5.483,5.483Z" transform="translate(0 -30.522)" fill="#772e8a" /> </svg> 
+                    Logo da clínica
+                </h2>
+                <div class="images">
+                    <div class="item" (click)="inputFoto()">
+                        <label class="adicionar_imagem">+</label>
+                        <div class="imagem" style="background-image: url('{{ form.logo }}');"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="item_content">
+                <h2>
+                    <svg class="dado_icon" xmlns="http://www.w3.org/2000/svg" width="24.527" height="31.034" viewBox="0 0 24.527 31.034"> <g id="online" transform="translate(-12.672 0.001)"> <path id="Caminho_629" data-name="Caminho 629" d="M182.895,101.395h-6.3a.966.966,0,0,0,0,1.932h6.3a.966.966,0,0,0,0-1.932Zm0,0" transform="translate(-155.115 -94.867)" fill="#772e8a" /> <path id="Caminho_630" data-name="Caminho 630" d="M175.731,194.792h-1.162V193.63a.966.966,0,0,0-.966-.966h-3.1a.966.966,0,0,0-.966.966v1.162h-1.163a.966.966,0,0,0-.966.966v3.1a.966.966,0,0,0,.966.966h1.163v1.162a.966.966,0,0,0,.966.966h3.1a.966.966,0,0,0,.966-.966v-1.162h1.162a.966.966,0,0,0,.966-.966v-3.1A.966.966,0,0,0,175.731,194.792Zm-.966,3.1H173.6a.966.966,0,0,0-.966.966v1.162h-1.171V198.86a.966.966,0,0,0-.966-.966h-1.163v-1.17H170.5a.966.966,0,0,0,.966-.966V194.6h1.171v1.162a.966.966,0,0,0,.966.966h1.162Zm0,0" transform="translate(-147.422 -180.26)" fill="#772e8a" /> <path id="Caminho_631" data-name="Caminho 631" d="M25.6,24.672h8.5a2.5,2.5,0,0,0,2.494-2.493V9.784a2.707,2.707,0,0,0-2.7-2.7H31.545V.965A.966.966,0,0,0,30.579,0h-11.9a.966.966,0,0,0-.966.966V3.476H15.482a2.813,2.813,0,0,0-2.81,2.809V22.179a2.5,2.5,0,0,0,2.494,2.493H25.6Zm5.95-15.664,2.337,0a.773.773,0,0,1,.771.747H31.545Zm-11.9-7.077h9.969V9.759H19.645ZM14.6,6.285a.879.879,0,0,1,.878-.878h2.232V9.759H14.6Zm.562,16.455a.563.563,0,0,1-.562-.562V11.69H34.655V22.179a.562.562,0,0,1-.562.562ZM37.03,31.033Z" transform="translate(0 0)" fill="#772e8a" /> <path id="Caminho_632" data-name="Caminho 632" d="M182.895,51.188h-6.3a.966.966,0,0,0,0,1.932h6.3a.966.966,0,0,0,0-1.932Zm0,0" transform="translate(-155.115 -47.892)" fill="#772e8a" /> </g> </svg> 
+                    Dados da empresa
+                </h2>
+                <div class="input_content">
+                    <div class="item full_item">
+                        <input type="text" required placeholder=" " [ngModelOptions]="{standalone: true}" [(ngModel)]="form.nome">
+                        <label class="placeholder">Nome da clínica <sup>*</sup></label>
+                    </div>
+                    <div class="item">
+                        <input type="tel" required mask="99.999.999/9999-99" placeholder=" " [ngModelOptions]="{standalone: true}" [(ngModel)]="form.cnpj">
+                        <label class="placeholder">CNPJ <sup>*</sup></label>
+                    </div>
+                    <div class="item">
+                        <input type="text" required placeholder=" " [ngModelOptions]="{standalone: true}" [(ngModel)]="form.nome_fantasia">
+                        <label class="placeholder">Razão social <sup>*</sup></label>
+                    </div>
+                    <div class="item">
+                        <input type="text" required placeholder=" " [ngModelOptions]="{standalone: true}" [(ngModel)]="form.responsavel">
+                        <label class="placeholder">Responsável <sup>*</sup></label>
+                    </div>
+                    <div class="item">
+                        <input type="text" placeholder=" " [ngModelOptions]="{standalone: true}" [(ngModel)]="form.responsavel2">
+                        <label class="placeholder">Segundo responsável</label>
+                    </div>
+                    <div class="item">
+                        <input type="tel" required mask="(99) 99999-9999" placeholder=" " [ngModelOptions]="{standalone: true}" [(ngModel)]="form.telefone">
+                        <label class="placeholder">Telefone/Whatsapp <sup>*</sup></label>
+                    </div>
+                    <div class="item">
+                        <input type="tel" mask="(99) 99999-9999" placeholder=" " [ngModelOptions]="{standalone: true}" [(ngModel)]="form.telefone2">
+                        <label class="placeholder">Segundo Telefone</label>
+                    </div>
+                    <div class="item">
+                        <input type="email" required placeholder=" " [ngModelOptions]="{standalone: true}" [(ngModel)]="form.email">
+                        <label class="placeholder">E-mail <sup>*</sup></label>
+                    </div>
+                    <div class="item">
+                        <input type="email" placeholder=" " [ngModelOptions]="{standalone: true}" [(ngModel)]="form.email2">
+                        <label class="placeholder">Segundo e-mail</label>
+                    </div>
+                    <div class="item full_item">
+                        <textarea name="" id="" cols="30" rows="10" placeholder="Observações" [ngModelOptions]="{standalone: true}" [(ngModel)]="form.observacao"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="item_content">
+                <h2>
+                    <svg class="medalha" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="940.017px" height="940.017px" viewBox="0 0 940.017 940.017" style="enable-background:new 0 0 940.017 940.017;" xml:space="preserve"> <g> <g> <path d="M630.009,667.5c-0.6,0-1.2,0-1.8,0l-39.601-1.5l-29.399,26.6c-9.2,8.301-21.101,12.9-33.5,12.9 c-6.5,0-12.9-1.199-18.9-3.699l-36.7-15l-36.699,15c-6,2.5-12.4,3.699-18.9,3.699c-12.4,0-24.3-4.6-33.5-12.9l-29.4-26.6 l-39.6,1.5c-0.6,0-1.2,0-1.8,0c-18.601,0-35.5-10.199-44.2-26.699l-18.5-35.102l-1.5-0.5V914.9c0,18.6,19.601,30.699,36.2,22.299 l176.8-88.799c7.1-3.5,15.4-3.5,22.5,0l176.5,88.9c16.6,8.398,36.2-3.701,36.2-22.301V605.301l-1.5,0.5l-18.5,35.1 C665.608,657.301,648.608,667.5,630.009,667.5z" /> <path d="M811.209,353.6c5.1-8.1,5.1-18.4,0-26.6l-21.101-33.6c-3.5-5.5-4.6-12.2-3.3-18.5l8.4-38.8c2-9.4-1.5-19.1-9.101-25 l-31.3-24.3c-5.1-4-8.5-9.8-9.399-16.3l-5.5-39.3c-1.301-9.5-8-17.4-17.101-20.4l-37.7-12.2c-6.199-2-11.399-6.4-14.399-12.1 l-18.5-35.1c-4.3-8.2-12.9-13.3-22.101-13.3c-0.3,0-0.6,0-0.899,0l-39.601,1.5c-0.3,0-0.6,0-0.899,0c-6.2,0-12.2-2.3-16.8-6.5 l-29.4-26.6c-4.7-4.2-10.7-6.5-16.8-6.5c-3.2,0-6.4,0.6-9.4,1.9l-36.7,15c-3,1.2-6.199,1.9-9.399,1.9s-6.4-0.6-9.4-1.9l-36.7-15 c-3.1-1.2-6.3-1.9-9.399-1.9c-6.101,0-12.101,2.2-16.8,6.5l-29.4,26.6c-4.6,4.2-10.6,6.5-16.8,6.5c-0.3,0-0.601,0-0.9,0l-39.6-1.5 c-0.3,0-0.601,0-0.9,0c-9.2,0-17.8,5.1-22.1,13.3l-18.5,35.1c-3,5.8-8.2,10.1-14.399,12.1l-37.7,12.2 c-9.101,2.9-15.8,10.9-17.101,20.4l-5.5,39.3c-0.899,6.5-4.3,12.3-9.399,16.3l-31.7,24.3c-7.601,5.9-11.101,15.6-9.101,25 l8.4,38.8c1.4,6.4,0.2,13-3.3,18.5L128.809,327c-5.1,8.1-5.1,18.4,0,26.6l21.101,33.6c3.5,5.5,4.6,12.2,3.3,18.5l-8.4,38.801 c-2,9.399,1.5,19.1,9.101,25l31.3,24.3c5.1,4,8.5,9.799,9.4,16.299l5.5,39.301c1.3,9.5,8,17.4,17.1,20.4l28.6,9.199l9.2,3 c6.2,2,11.4,6.4,14.4,12.1l18.5,35.1c4.3,8.201,12.899,13.301,22.1,13.301c0.3,0,0.6,0,0.9,0l39.6-1.5c0.3,0,0.6,0,0.9,0 c6.199,0,12.199,2.301,16.8,6.5l29.399,26.6c4.7,4.201,10.7,6.5,16.801,6.5c3.199,0,6.399-0.6,9.399-1.9l36.7-15 c3-1.199,6.2-1.898,9.4-1.898c3.199,0,6.399,0.6,9.399,1.898l36.7,15c3.1,1.201,6.3,1.9,9.4,1.9c6.1,0,12.1-2.199,16.8-6.5 l29.399-26.6c4.601-4.199,10.601-6.5,16.801-6.5c0.3,0,0.6,0,0.899,0l39.601,1.5c0.3,0,0.6,0,0.899,0 c9.2,0,17.8-5.1,22.101-13.301l18.5-35.1c3-5.799,8.199-10.1,14.399-12.1l9.2-3l28.6-9.199c9.101-2.9,15.801-10.9,17.101-20.4 l5.5-39.301c0.899-6.5,4.3-12.299,9.399-16.299l31.301-24.3c7.6-5.9,11.1-15.601,9.1-25l-8.4-38.801 c-1.399-6.399-0.199-13,3.301-18.5L811.209,353.6z M711.909,442.5c-5.101,11.899-10.9,23.399-17.601,34.4 c-10.8,17.699-23.7,34.199-38.6,49c-24.101,24.1-52.2,43-83.4,56.199c-32.399,13.701-66.8,20.6-102.2,20.6 c-35.399,0-69.8-6.898-102.199-20.6c-31.301-13.199-59.301-32.1-83.4-56.199c-14.899-14.9-27.8-31.301-38.6-49 c-6.7-11-12.601-22.4-17.601-34.4c-13.699-32.4-20.6-66.801-20.6-102.2c0-35.4,6.9-69.8,20.6-102.2 c13.2-31.3,32.101-59.3,56.2-83.4s52.2-43,83.4-56.2c32.399-13.7,66.8-20.6,102.199-20.6c35.4,0,69.801,6.9,102.2,20.6 c31.3,13.2,59.3,32.1,83.4,56.2c24.1,24.1,43,52.2,56.2,83.4c13.699,32.4,20.6,66.8,20.6,102.2 C732.509,375.7,725.608,410.1,711.909,442.5z" /> <path d="M470.009,107.8c-128.4,0-232.5,104.1-232.5,232.5c0,21.3,2.9,42,8.3,61.6c27,98.5,117.2,170.901,224.2,170.901 s197.2-72.4,224.2-170.901c5.399-19.6,8.3-40.3,8.3-61.6C702.509,211.9,598.409,107.8,470.009,107.8z M573.509,448 c4.5,21.1-18,37.599-36.8,26.9l-66.7-37.8l-66.8,37.8c-18.7,10.6-41.3-5.9-36.8-26.9l16-75.4l-52.2-47.1l-5.8-5.3 c-15.9-14.4-7.5-40.8,13.699-43.4l76-9.3l33.101-70.9c9-19.2,36.3-19.2,45.3,0l33.1,70.9l76,9.3c21.301,2.6,29.601,29,13.7,43.4 l-5.8,5.3l-52.2,47.1L573.509,448z" /> </g> </g> </svg> 
+                    Especialidades
+                </h2>
+                <div class="input_content">
+                    <div class="item full_item">
+                        <button class="open_modal" (click)="open_modal_especialidade()" type="button">
+                            Selecionar especialidades
+                        </button>
+                    </div>
+                </div>
+                <div class="lista_itens" *ngIf="checkEsp()">
+                    <div class="item" *ngFor="let row of especialidades | callback: filterEspecialidades" >
+                        {{row.nome}}
+                        <button class="delete" (click)="row.selecionado = false" type="button">
+                            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"> <g> <g> <path d="M257,0C116.39,0,0,114.39,0,255s116.39,257,257,257s255-116.39,255-257S397.61,0,257,0z M383.22,338.79 c11.7,11.7,11.7,30.73,0,42.44c-11.61,11.6-30.64,11.79-42.44,0L257,297.42l-85.79,83.82c-11.7,11.7-30.73,11.7-42.44,0 c-11.7-11.7-11.7-30.73,0-42.44l83.8-83.8l-83.8-83.8c-11.7-11.71-11.7-30.74,0-42.44c11.71-11.7,30.74-11.7,42.44,0L257,212.58 l83.78-83.82c11.68-11.68,30.71-11.72,42.44,0c11.7,11.7,11.7,30.73,0,42.44l-83.8,83.8L383.22,338.79z" /> </g> </g>     </svg> 
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="item_content">
+                <h2>
+                    <svg class="localizacao" data-name="pin (2)" xmlns="http://www.w3.org/2000/svg" width="19.2" height="26.507" viewBox="0 0 19.2 26.507"> <g id="Grupo_32" data-name="Grupo 32"> <path id="Caminho_18" data-name="Caminho 18" d="M80.173,0a9.611,9.611,0,0,0-9.6,9.6c0,6.569,8.591,16.213,8.957,16.621a.865.865,0,0,0,1.286,0c.366-.407,8.957-10.051,8.957-16.621A9.611,9.611,0,0,0,80.173,0Zm0,14.43A4.83,4.83,0,1,1,85,9.6,4.835,4.835,0,0,1,80.173,14.43Z" transform="translate(-70.573)" fill="#772e8a" /> </g> </svg> 
+                    Endereço
+                </h2>
+                <div class="input_content">
+                    <div class="item">
+                        <input type="tel" (keyup)="cepKeyUp($event)" mask="99999-999" placeholder=" " [ngModelOptions]="{standalone: true}" [(ngModel)]="form.cep">
+                        <label class="placeholder">CEP <sup>*</sup></label>
+                    </div>
+                    <div class="item">
+                        <input type="text" required placeholder=" " [ngModelOptions]="{standalone: true}" [(ngModel)]="form.rua">
+                        <label class="placeholder">Logradouro <sup>*</sup></label>
+                    </div>
+                    <div class="item">
+                        <input type="text" required placeholder=" " [ngModelOptions]="{standalone: true}" [(ngModel)]="form.numero">
+                        <label class="placeholder">Número</label>
+                    </div>
+                    <div class="item">
+                        <input type="text" placeholder=" " [ngModelOptions]="{standalone: true}" [(ngModel)]="form.complemento">
+                        <label class="placeholder">Complemento</label>
+                    </div>
+                    <div class="item half_item">
+                        <select [attr.data-value]="form.id_estado" [ngModelOptions]="{standalone: true}" [(ngModel)]="form.id_estado" required (change)="selectState(form.id_estado)">
+                            <option value=""></option>
+                            <option *ngFor="let state of states" value="{{ state.id }}">{{ state.estado }}</option>
+                        </select>
+                        <label class="placeholder">Estado <sup>*</sup></label>
+                    </div>
+                    <div class="item half_item">
+                        <select [attr.data-value]="form.id_cidade" [ngModelOptions]="{standalone: true}" [(ngModel)]="form.id_cidade">
+                            <option value=""></option>
+                            <option *ngFor="let city of cities" required value="{{ city.id }}">{{ city.cidade }}</option>
+                        </select>
+                        <label class="placeholder">Cidade <sup>*</sup></label>
+                    </div>
+                    <div class="item ">
+                        <input type="text" required placeholder=" " [ngModelOptions]="{standalone: true}" [(ngModel)]="form.bairro">
+                        <label class="placeholder">Bairro <sup>*</sup></label>
+                    </div>
+                    <div class="item">
+                        <input type="tel" placeholder=" " [ngModelOptions]="{standalone: true}" [(ngModel)]="form.latitude">
+                        <label class="placeholder">latitude <sup>*</sup></label>
+                    </div>
+                    <div class="item">
+                        <input type="tel" placeholder=" " [ngModelOptions]="{standalone: true}" [(ngModel)]="form.longitude">
+                        <label class="placeholder">longitude <sup>*</sup></label>
+                    </div>
+                </div>
+            </div>
+            <div class="item_content">
+                <h2>
+                    <svg class="cadeado" id="bold" enable-background="new 0 0 24 24" height="25" viewBox="0 0 24 24" width="25" xmlns="http://www.w3.org/2000/svg">
+                        <path d="m18.75 9h-.75v-3c0-3.309-2.691-6-6-6s-6 2.691-6 6v3h-.75c-1.24 0-2.25 1.009-2.25 2.25v10.5c0 1.241 1.01 2.25 2.25 2.25h13.5c1.24 0 2.25-1.009 2.25-2.25v-10.5c0-1.241-1.01-2.25-2.25-2.25zm-10.75-3c0-2.206 1.794-4 4-4s4 1.794 4 4v3h-8zm5 10.722v2.278c0 .552-.447 1-1 1s-1-.448-1-1v-2.278c-.595-.347-1-.985-1-1.722 0-1.103.897-2 2-2s2 .897 2 2c0 .737-.405 1.375-1 1.722z" />
+                    </svg> Acesso
+                </h2>
+                <div class="input_content">
+                    <div class="item ">
+                        <input type="{{senha}}" required placeholder=" " [ngModelOptions]="{standalone: true}" [(ngModel)]="form.senha" autocomplete="new-password">
+                        <label class="placeholder">Senha <sup>*</sup></label>
+                        <button type="button" class="olho" [class.text]="senha == 'text'" (click)="mudar_visibilidade(1)"><img src="assets/icon/eye.svg"/></button>
+                    </div>
+                    <div class="item">
+                        <input type="{{confirmar_senha}}" required placeholder=" " [ngModelOptions]="{standalone: true}" [(ngModel)]="form.passrepeat" autocomplete="new-password">
+                        <label class="placeholder">Confirmar senha <sup>*</sup></label>
+                        <button type="button" class="olho" [class.text]="confirmar_senha == 'text'" (click)="mudar_visibilidade(2)"><img src="assets/icon/eye.svg"/></button>
+                    </div>
+                </div>
+            </div>
+            <div class="item_content" style="margin: 0;">
+                <h2>
+                    <svg class="camera" xmlns="http://www.w3.org/2000/svg" width="21.933" height="19.192" viewBox="0 0 21.933 19.192"> <path id="Caminho_25" data-name="Caminho 25" d="M187.843,199.236a2.742,2.742,0,1,1-3.877,0,2.742,2.742,0,0,1,3.877,0" transform="translate(-174.938 -190.894)" fill="#772e8a" /> <path id="Caminho_26" data-name="Caminho 26" d="M19.191,33.264H17.3l-1.372-2.742H6.006l-1.37,2.743-1.892,0a2.747,2.747,0,0,0-2.737,2.74L0,46.972a2.745,2.745,0,0,0,2.742,2.742h16.45a2.744,2.744,0,0,0,2.742-2.742V36.005A2.744,2.744,0,0,0,19.191,33.264ZM10.966,46.287A5.483,5.483,0,1,1,16.45,40.8a5.49,5.49,0,0,1-5.483,5.483Z" transform="translate(0 -30.522)" fill="#772e8a" /> </svg> 
+                    Galeria de fotos
+                </h2>
+                <div class="images">
+                    <div class="item" *ngFor='let img of images let i = index' (click)="getImages(i)">
+                        <label class="adicionar_imagem">+</label>
+                        <div class="imagem" style="background-image: url('{{ img }}');"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="termo">
+                <input type="checkbox" name="termo_clinica" id="termo_clinica">
+                <label for="termo_clinica">Aceito os <span routerLink="/termo-de-uso">Termos de Uso</span></label>
+            </div>
+            <button class="salvar" type="submit" [attr.data-load]="load ? 'on' : ''">Cadastrar</button>
+        </form>
+    </div>
+</ion-content>

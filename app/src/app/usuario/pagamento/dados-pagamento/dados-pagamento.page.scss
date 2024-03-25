@@ -1,0 +1,210 @@
+@import "./../../../../mixins.scss";
+
+app-dados-pagamento{
+    ion-content{
+        .content{
+            @include content;
+            min-height: calc(100% - 25vw);
+            padding: 9.7vw 6.9vw 25vw;
+    
+            h2{
+                margin: 0 0 3.3vw;
+                font-size: 3.9vw;
+                font-weight: bold;
+                color: #4D4D4D;
+            }
+            .itens_content{
+                padding: 0 0 5.5vw;
+    
+                .item{
+                    margin: 0 0 2.8vw;
+    
+                    @include input_1;
+                }
+            }
+    
+            .forma_pagamento{
+                @include flex-wrap;
+                justify-content: space-between;
+    
+                h3{
+                    width: 100%;
+                    margin: 0 0 3.3vw;
+                    font-size: 3.6vw;
+                    color: #772E8A;
+                    font-weight: bold;
+                }
+                .forma{
+                    width: calc((100% - 4.2vw)/2);
+    
+                    input{
+                        display: none;
+    
+                        &:checked + label{
+                            &:after{
+                                display: block;
+                            }
+                        }
+                    }
+                    label{
+                        font-size: 3.6vw;
+                        color: #000000;
+                        border: 1px solid #D6D6D6;
+                        width: 100%;
+                        display: block;
+                        padding: 0 2.8vw 0 15.3vw;
+                        line-height: 3.9vw;
+                        border-radius: 1.4vw;
+                        height: 13.9vw;
+                        @include flex-wrap;
+                        align-items: center;
+                        position: relative;
+    
+                        &:before{
+                            content: "";
+                            position: absolute;
+                            width: 6.7vw;
+                            height: 6.7vw;
+                            border: 1px solid #BBBBBB;
+                            left: 5.5vw;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            border-radius: 50%;
+                        }
+    
+                        &:after{
+                            content: '';
+                            position: absolute;
+                            width: 3.9vw;
+                            height: 3.9vw;
+                            background: #00D58D;
+                            border-radius: 50%;
+                            left: 7.2vw;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            display: none;
+                        }
+                    }
+                }
+            }
+            button.continuar{
+                @include button_1;
+                margin: 13.9vw 0 0;
+            }
+        }
+    }
+
+    @media (min-width: 450px){
+        ion-content{
+            .content{
+                min-height: calc(100% - 112px);
+                padding: 44px 31px 100px;
+        
+                h2{
+                    margin: 0 0 15px;
+                    font-size: 17px;
+                }
+                .itens_content{
+                    padding: 0 0 25px;
+        
+                    .item{
+                        margin: 0 0 13px;
+                    }
+                }
+        
+                .forma_pagamento{
+                    h3{
+                        margin: 0 0 15px;
+                        font-size: 16px;
+                    }
+                    .forma{
+                        width: calc((100% - 19px)/2);
+        
+                        label{
+                            font-size: 16px;
+                            padding: 0 13px 0 69px;
+                            line-height: 17px;
+                            border-radius: 6px;
+                            height: 62px;
+        
+                            &:before{
+                                width: 30px;
+                                height: 30px;
+                                left: 25px;
+                            }
+        
+                            &:after{
+                                width: 17px;
+                                height: 17px;
+                                left: 32px;
+                            }
+                        }
+                    }
+                }
+                button.continuar{
+                    margin: 62px 0 0;
+                }
+            }
+        }
+    }
+    @media (min-width: 1000px){
+        ion-content{
+            border-bottom: 30px solid #772e8a;
+
+            .content{
+                min-height: initial;
+                width: 630px;
+                padding: 75px 0 45px;
+                max-width: initial;
+        
+                h2{
+                    font-size: 14px;
+                }
+                .itens_content{
+                    @include flex-wrap;
+                    justify-content: space-between;
+                    padding: 0 0 38px;
+        
+                    .item{
+                        margin: 0 0 10px;
+                        width: calc((100% - 10px)/2);
+                    }
+                }
+        
+                .forma_pagamento{
+                    justify-content: initial;
+
+                    h3{
+                        font-size: 13px;
+                        margin: 0 0 10px;
+                    }
+                    .forma{
+                        width: 150px;
+                        margin: 0 15px 0 0;
+
+                        label{
+                            font-size: 13px;
+                            padding: 0 13px 0 55px;
+                            line-height: 14px;
+                            height: 50px;
+
+                            &:before{
+                                width: 24px;
+                                height: 24px;
+                                left: 20px;
+                            }
+        
+                            &:after{
+                                width: 14px;
+                                height: 14px;
+                                left: 26px;
+                            }
+                        }
+                    }
+                }
+                button.continuar{
+                }
+            }
+        }
+    }
+}

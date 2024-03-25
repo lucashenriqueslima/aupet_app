@@ -1,0 +1,100 @@
+@import "./../../../mixins.scss";
+
+app-plano-cancelamento{
+    ion-content{
+        .content{
+            @include content;
+            padding: 9.7vw 6.9vw 25vw;
+            min-height: calc(100% - 25vw);
+        
+            svg{
+                width: 21.67vw;
+                height: auto;
+                margin: 6.94vw 0 4.17vw;
+            }
+            h2{
+                font-weight: bold;
+                font-size: 6.11vw;
+                line-height: 7.22vw;
+                color: #772E8A;
+                margin: 0 0 4.17vw;
+            }
+            h3{
+                font-weight: bold;
+                font-size: 4.44vw;
+                line-height: 6.11vw;
+                color: #1D1D1D;
+                margin: 0 0 5.56vw;
+            }
+            p{
+                font-size: 3.89vw;
+                line-height: 5.56vw;
+                color: #4D4D4D;
+                margin: 0 0 4.17vw;
+            }
+            .select{
+                margin: 0 0 8.33vw;
+                @include input_1;
+            }
+            .buttons{
+                button{
+                    @include button_1;
+                    &.cancelar{
+                        margin: 0 0 2.78vw;
+                    }
+                    &.outros_planos{
+                        background: #DC8400;
+                        box-shadow: 1px 3px 10px #dc8400;
+                    }
+                }
+            }
+        }
+    }
+    @media (min-width: 450px) {
+        ion-content{
+            .content {
+                padding: 44px 31px 100px;
+                min-height: calc(100% - 112px);
+    
+                svg{
+                    width: 94px;
+                    margin: 30px 0 18px;
+                }
+                h2{
+                    font-size: 26px;
+                    line-height: 31px;
+                    margin: 0 0 18px;
+                }
+                h3{
+                    font-size: 19px;
+                    line-height: 26px;
+                    margin: 0 0 24px;
+                }
+                p{
+                    font-size: 17px;
+                    line-height: 24px;
+                    margin: 0 0 18px;
+                }
+                .select{
+                    margin: 0 0 36px;
+                }
+                .buttons{
+                    button{
+                        &.cancelar{
+                            margin: 0 0 12px;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+    @media (min-width: 1000px) {
+        .content {
+            min-height: initial;
+            max-width: initial;
+            width: 640px;
+            padding: 75px 0;
+        }
+    }
+}

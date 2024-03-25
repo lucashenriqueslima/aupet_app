@@ -1,0 +1,58 @@
+<ion-content>
+    <app-header-simples title="Agendamentos" link="/clinica/agendamentos"></app-header-simples>
+
+    <div class="content">
+        <div class="agendamento_header">
+            <div class="foto" style="background-image: url('{{ agendamento?.foto }}');"></div>
+            <h2>Nome do pet</h2>
+            <p>{{ agendamento?.nome }}</p>
+        </div>
+        <div class="dados_pet">
+            <div class="dado">
+                <h2>Espécie</h2>
+                <p>{{ agendamento?.especie }}</p>
+            </div>
+            <div class="dado">
+                <h2>Raça</h2>
+                <p>{{ agendamento?.raca }}</p>
+            </div>
+            <div class="dado">
+                <h2>Sexo</h2>
+                <p>{{ agendamento?.sexo }}</p>
+            </div>
+            <div class="dado">
+                <h2>Porte</h2>
+                <p>{{ agendamento?.porte }}</p>
+            </div>
+            <div class="dado">
+                <h2>Peso</h2>
+                <p>{{ agendamento?.peso }}</p>
+            </div>
+            <div class="dado">
+                <h2>Cor</h2>
+                <p>{{ agendamento?.cor }}</p>
+            </div>
+        </div>
+        <div class="dados_agendamento">
+            <h2>dados do agendamento</h2>
+            <div class="data" [ngClass]="finalizado == true ? 'active' : ''">
+                <svg class="calendario" data-name="calendar (1)" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><g id="Grupo_332" data-name="Grupo 332"><g id="Grupo_331" data-name="Grupo 331"><circle id="Elipse_69" data-name="Elipse 69" cx="1" cy="1" r="1" transform="translate(14 7)" fill="#772e8a"/><path id="Caminho_626" data-name="Caminho 626" d="M16.875,1.563H15.859V.781a.781.781,0,0,0-1.562,0v.781H10.742V.781a.781.781,0,0,0-1.562,0v.781H5.664V.781A.781.781,0,0,0,4.1.781v.781H3.125A3.129,3.129,0,0,0,0,4.688V16.875A3.129,3.129,0,0,0,3.125,20H9.1a.781.781,0,0,0,0-1.562H3.125a1.564,1.564,0,0,1-1.562-1.562V4.688A1.564,1.564,0,0,1,3.125,3.125H4.1v.781a.781.781,0,0,0,1.563,0V3.125H9.18v.781a.781.781,0,0,0,1.563,0V3.125H14.3v.781a.781.781,0,0,0,1.563,0V3.125h1.016a1.564,1.564,0,0,1,1.563,1.563V9.141a.781.781,0,0,0,1.563,0V4.688A3.129,3.129,0,0,0,16.875,1.563Z" fill="#772e8a"/><path id="Caminho_627" data-name="Caminho 627" d="M274.727,270a4.727,4.727,0,1,0,4.727,4.727A4.732,4.732,0,0,0,274.727,270Zm0,7.891a3.164,3.164,0,1,1,3.164-3.164A3.168,3.168,0,0,1,274.727,277.891Z" transform="translate(-259.453 -259.453)" fill="#772e8a"/><path id="Caminho_628" data-name="Caminho 628" d="M372.914,331.6h-.352v-.82a.781.781,0,0,0-1.562,0v1.6a.781.781,0,0,0,.781.781h1.133a.781.781,0,0,0,0-1.562Z" transform="translate(-356.508 -317.109)" fill="#772e8a"/><circle id="Elipse_70" data-name="Elipse 70" cx="1" cy="1" r="1" transform="translate(11 7)" fill="#772e8a"/><circle id="Elipse_72" data-name="Elipse 72" cx="1" cy="1" r="1" transform="translate(4 7)" fill="#772e8a"/><circle id="Elipse_78" data-name="Elipse 78" cx="1" cy="1" r="1" transform="translate(4 10)" fill="#772e8a"/><circle id="Elipse_74" data-name="Elipse 74" cx="1" cy="1" r="1" transform="translate(4 14)" fill="#772e8a"/><circle id="Elipse_75" data-name="Elipse 75" cx="1" cy="1" r="1" transform="translate(7 14)" fill="#772e8a"/><circle id="Elipse_76" data-name="Elipse 76" cx="1" cy="1" r="1" transform="translate(7 7)" fill="#772e8a"/><circle id="Elipse_77" data-name="Elipse 77" cx="1" cy="1" r="1" transform="translate(7 10)" fill="#772e8a"/></g></g></svg>Dia
+                {{agendamento?.data_agendamento | date:'dd/MM/yyyy'}} às {{agendamento?.data_agendamento | date:'HH:mm'}}
+                <svg class="active" data-name="check (1)" xmlns="http://www.w3.org/2000/svg" width="23.752" height="23.752" viewBox="0 0 23.752 23.752"><path id="Caminho_7" data-name="Caminho 7" d="M11.876,0A11.876,11.876,0,1,0,23.752,11.876,11.889,11.889,0,0,0,11.876,0Zm0,0" fill="#00d58d"/><path id="Caminho_8" data-name="Caminho 8" d="M152.667,167.018l-6.433,6.433a.989.989,0,0,1-1.4,0l-3.216-3.216a.989.989,0,0,1,1.4-1.4l2.517,2.517,5.733-5.733a.989.989,0,0,1,1.4,1.4Zm0,0" transform="translate(-134.772 -157.659)" fill="#fafafa"/></svg>
+            </div>
+            <div class="servicos">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20.327" height="25.72" viewBox="0 0 20.327 25.72"><g id="online" transform="translate(-12.672 0.001)"><path id="Caminho_629" data-name="Caminho 629" d="M181.65,101.395h-5.221a.8.8,0,0,0,0,1.6h5.221a.8.8,0,0,0,0-1.6Zm0,0" transform="translate(-156.458 -95.985)" fill="#772e8a"/><path id="Caminho_630" data-name="Caminho 630" d="M174.305,194.428h-.963v-.963a.8.8,0,0,0-.8-.8H169.97a.8.8,0,0,0-.8.8v.963h-.964a.8.8,0,0,0-.8.8v2.57a.8.8,0,0,0,.8.8h.964v.963a.8.8,0,0,0,.8.8h2.571a.8.8,0,0,0,.8-.8V198.6h.963a.8.8,0,0,0,.8-.8v-2.57A.8.8,0,0,0,174.305,194.428Zm-.8,2.57h-.963a.8.8,0,0,0-.8.8v.963h-.97V197.8a.8.8,0,0,0-.8-.8h-.964v-.969h.964a.8.8,0,0,0,.8-.8v-.963h.97v.963a.8.8,0,0,0,.8.8h.963Zm0,0" transform="translate(-148.674 -182.384)" fill="#772e8a"/><path id="Caminho_631" data-name="Caminho 631" d="M23.382,20.447h7.043a2.069,2.069,0,0,0,2.067-2.066V8.109A2.243,2.243,0,0,0,30.25,5.868H28.313V.8a.8.8,0,0,0-.8-.8H17.65a.8.8,0,0,0-.8.8V2.881H15a2.331,2.331,0,0,0-2.329,2.328V18.381a2.069,2.069,0,0,0,2.067,2.066h8.643ZM28.313,7.466l1.937,0a.64.64,0,0,1,.639.619H28.313ZM18.451,1.6h8.262V8.088H18.451ZM14.273,5.209A.728.728,0,0,1,15,4.481h1.85V8.088H14.273Zm.466,13.638a.467.467,0,0,1-.466-.466V9.688H30.891v8.693a.466.466,0,0,1-.466.465Zm18.12,6.873Z" transform="translate(0 0)" fill="#772e8a"/><path id="Caminho_632" data-name="Caminho 632" d="M181.65,51.188h-5.221a.8.8,0,0,0,0,1.6h5.221a.8.8,0,0,0,0-1.6Zm0,0" transform="translate(-156.458 -48.457)" fill="#772e8a"/></g></svg>                {{ agendamento?.servico }} , {{ agendamento?.descricao }}
+            </div>
+            <div class="local">
+                <svg id="pin_2_" data-name="pin (2)" xmlns="http://www.w3.org/2000/svg" width="13.17" height="18.182" viewBox="0 0 13.17 18.182"><g id="Grupo_32" data-name="Grupo 32"><path id="Caminho_18" data-name="Caminho 18" d="M77.158,0a6.592,6.592,0,0,0-6.585,6.585c0,4.506,5.893,11.121,6.144,11.4a.593.593,0,0,0,.882,0c.251-.279,6.144-6.895,6.144-11.4A6.592,6.592,0,0,0,77.158,0Zm0,9.9a3.313,3.313,0,1,1,3.313-3.313A3.317,3.317,0,0,1,77.158,9.9Z" transform="translate(-70.573)" fill="#772e8a"/></g></svg>                {{ appService?.user?.rua}},{{ appService?.user?.numero }},{{ appService?.user?.bairro}}
+            </div>
+        </div>
+
+        <div class="buttons_agendamento">
+            <button class="dados_cliente" (click)="open_modal_dados()">Dados do cliente</button>
+            <button *ngIf="agendamento?.status_agendamento == 'Agendado'" [ngClass]="finalizado == true ? 'active' : ''" class="agendamento_realizado" (click)="open_modal_Tratar()">Finalizar o atendimento</button>
+            <button *ngIf="agendamento?.status_agendamento == 'Pendente'" [ngClass]="finalizado == true ? 'active' : ''" class="confirmar_agendamento" (click)="confirmaAgendamento()">Confirmar o agendamento</button>
+            <button [ngClass]="finalizado == true ? 'active' : ''" class="cancelar" (click)="open_modal_cancelar()">Cancelar agendamento</button>
+        </div>
+    </div>
+</ion-content>

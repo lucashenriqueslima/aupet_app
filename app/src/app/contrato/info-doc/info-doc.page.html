@@ -1,0 +1,16 @@
+<ion-content>
+    <app-header-simples title="Formulário de contrato"></app-header-simples>
+    <div class="content">
+        <form (ngSubmit)="salvar()" ngNativeValidate>
+            <div class="dados_termo">
+                <div class="item" *ngFor="let row of data">
+                    <input type="text" required [(ngModel)]='row.resposta' [ngModelOptions]="{standalone: true}" placeholder=" ">
+                    <label class="placeholder">{{row.descricao}}</label>
+                </div>
+            </div>
+            <div class="botoes">
+                <button type="submit">Enviar</button>
+            </div>
+        </form>
+    </div>
+</ion-content>

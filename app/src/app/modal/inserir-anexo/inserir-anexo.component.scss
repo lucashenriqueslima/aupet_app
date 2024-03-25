@@ -1,0 +1,33 @@
+@import "./../../../mixins.scss";
+app-inserir-anexo {
+    @include modal_2;
+    label {
+        font-family: opensans;
+        color: #772e8a;
+    }
+    .pop_up_content {
+        .content {
+            .list_item {
+                padding: 6.9vw 6.9vw 1px;
+                .item {
+                    @include input_1;
+                    margin: 0 0 4.2vw;
+                }
+            }
+        }
+    }
+    @media (min-width: 450px) {
+        .pop_up_content {
+            .content {
+                .list_item {
+                    padding: 30px 30px 1px;
+                    .item {
+                        @include input_1;
+                        margin: 0 0 18px;
+                    }
+                }
+            }
+        }
+    }
+    
+}

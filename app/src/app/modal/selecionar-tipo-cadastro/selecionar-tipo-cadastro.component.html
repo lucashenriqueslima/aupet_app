@@ -1,0 +1,25 @@
+<div class="pop_up_content">
+    <div class="content">
+        <svg xmlns="http://www.w3.org/2000/svg" width="75" height="75" viewBox="0 0 75 75"><g id="login" transform="translate(0 -0.001)"><g id="Grupo_232" data-name="Grupo 232" transform="translate(0 0.001)"><g id="Grupo_231" data-name="Grupo 231"><ellipse id="Elipse_64" data-name="Elipse 64" cx="2.5" cy="3" rx="2.5" ry="3" transform="translate(47 48)" fill="#772e8a"/><path id="Caminho_575" data-name="Caminho 575" d="M34.863,69.141H11.719a5.866,5.866,0,0,1-5.859-5.859V39.259A5.866,5.866,0,0,1,11.719,33.4H53.906a5.866,5.866,0,0,1,5.859,5.859v5.859a2.93,2.93,0,0,0,5.859,0V39.259A11.732,11.732,0,0,0,53.906,27.54H50.385V17.208A17.415,17.415,0,0,0,32.807,0,17.415,17.415,0,0,0,15.229,17.208V27.54h-3.51A11.732,11.732,0,0,0,0,39.259V63.282A11.732,11.732,0,0,0,11.719,75H34.863a2.93,2.93,0,1,0,0-5.859ZM21.088,17.208A11.551,11.551,0,0,1,32.807,5.86,11.551,11.551,0,0,1,44.526,17.208V27.54H21.088V17.208Z" transform="translate(0 -0.001)" fill="#772e8a"/><path id="Caminho_576" data-name="Caminho 576" d="M298.285,322.547a2.929,2.929,0,0,0-4.087.677l-14.44,20.171a1.673,1.673,0,0,1-2.408.125l-9.332-9.107a2.93,2.93,0,0,0-4.092,4.193l9.349,9.123.026.025a7.553,7.553,0,0,0,5.2,2.077q.248,0,.5-.017a7.553,7.553,0,0,0,5.371-2.8q.051-.064.1-.13l14.5-20.253A2.93,2.93,0,0,0,298.285,322.547Z" transform="translate(-224.509 -274.831)" fill="#772e8a"/><ellipse id="Elipse_65" data-name="Elipse 65" cx="2.5" cy="3" rx="2.5" ry="3" transform="translate(36 48)" fill="#772e8a"/><ellipse id="Elipse_66" data-name="Elipse 66" cx="3.5" cy="3" rx="3.5" ry="3" transform="translate(13 48)" fill="#772e8a"/><circle id="Elipse_67" data-name="Elipse 67" cx="3" cy="3" r="3" transform="translate(24 48)" fill="#772e8a"/></g></g></g></svg>
+        <h2>Seja bem vindo</h2>
+        <p>Escolha qual tipo de Cadastro você deseja:</p>
+
+        <div class="item_login">
+            <input type="radio" name="tipo_user" id="user_1" checked value="1">
+            <label for="user_1">Usuário</label>
+        </div>
+        <div class="item_login">
+            <input type="radio" name="tipo_user" id="user_2" value="2">
+            <label for="user_2">Consultor</label>
+        </div>
+        <div class="item_login">
+            <input type="radio" name="tipo_user" id="user_3" value="3">
+            <label for="user_3">Rede Credenciada</label>
+        </div>
+
+        <div class="buttons">
+            <button class="cancelar" (click)="dismiss()">cancelar</button>
+            <button class="confirm" (click)="mudar_pagina()">Acessar</button>
+        </div>
+    </div>
+</div>

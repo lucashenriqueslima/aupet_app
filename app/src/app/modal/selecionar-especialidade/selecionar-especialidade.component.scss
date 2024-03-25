@@ -1,0 +1,20 @@
+@import "./../../../mixins.scss";
+
+app-selecionar-especialidade{
+    @include modal_1;
+
+    .pop_up_content{
+        .content{
+            h2{ width: 100%; }
+
+            .list_item{
+                @include flex-wrap;
+                
+                .item{
+                    width: 50%;
+                    margin: 0;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,15 @@
+<div class="pop_up_content">
+	<div class="content">
+		<h2>Recuperar senha:</h2>
+		<form (submit)="salvar($event)" ngNativeValidate>
+			<div class="item">
+				<input required [(ngModel)]="data.email" type="email" placeholder=" " name="email">
+				<label class="placeholder">E-mail</label>
+			</div>
+			<div class="buttons">
+				<button class="cancelar" type="button" (click)="dismiss()">cancelar</button>
+				<button class="confirm" type="submit" [attr.data-load]="load ? 'on' : 'off'">ok</button>
+			</div>
+		</form>
+	</div>
+</div>

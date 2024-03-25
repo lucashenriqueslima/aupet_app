@@ -1,0 +1,112 @@
+<ion-content>
+    <app-header-simples title="Criar Usuario"></app-header-simples>
+    <div class="content">
+        <form (submit)="request($event)" ngNativeValidate>
+            <div class="item_content">
+                <h2>
+                    <svg class="camera" xmlns="http://www.w3.org/2000/svg" width="21.933" height="19.192" viewBox="0 0 21.933 19.192"> <path id="Caminho_25" data-name="Caminho 25" d="M187.843,199.236a2.742,2.742,0,1,1-3.877,0,2.742,2.742,0,0,1,3.877,0" transform="translate(-174.938 -190.894)" fill="#772e8a" /> <path id="Caminho_26" data-name="Caminho 26" d="M19.191,33.264H17.3l-1.372-2.742H6.006l-1.37,2.743-1.892,0a2.747,2.747,0,0,0-2.737,2.74L0,46.972a2.745,2.745,0,0,0,2.742,2.742h16.45a2.744,2.744,0,0,0,2.742-2.742V36.005A2.744,2.744,0,0,0,19.191,33.264ZM10.966,46.287A5.483,5.483,0,1,1,16.45,40.8a5.49,5.49,0,0,1-5.483,5.483Z" transform="translate(0 -30.522)" fill="#772e8a" /> </svg> 
+                    Foto de perfil
+                </h2>
+                <div class="images">
+                    <div class="item" (click)="inputfoto()">
+                        <label class="adicionar_imagem">+</label>
+                        <div class="imagem" style="background-image: url('{{ form?.foto }}');"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="item_content">
+                <h2>
+                    <svg class="perfil" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 350 350" style="enable-background:new 0 0 350 350;" xml:space="preserve"> <g> <path d="M175,171.173c38.914,0,70.463-38.318,70.463-85.586C245.463,38.318,235.105,0,175,0s-70.465,38.318-70.465,85.587 C104.535,132.855,136.084,171.173,175,171.173z" /> <path d="M41.909,301.853C41.897,298.971,41.885,301.041,41.909,301.853L41.909,301.853z" /> <path d="M308.085,304.104C308.123,303.315,308.098,298.63,308.085,304.104L308.085,304.104z" /> <path d="M307.935,298.397c-1.305-82.342-12.059-105.805-94.352-120.657c0,0-11.584,14.761-38.584,14.761 s-38.586-14.761-38.586-14.761c-81.395,14.69-92.803,37.805-94.303,117.982c-0.123,6.547-0.18,6.891-0.202,6.131 c0.005,1.424,0.011,4.058,0.011,8.651c0,0,19.592,39.496,133.08,39.496c113.486,0,133.08-39.496,133.08-39.496 c0-2.951,0.002-5.003,0.005-6.399C308.062,304.575,308.018,303.664,307.935,298.397z" /> </g> </svg> 
+                    Dados do usuário
+                </h2>
+                <div class="input_content">
+                    <div class="item">
+                        <input type="text" required placeholder=" " [ngModelOptions]="{standalone: true}" [(ngModel)]="form.nome">
+                        <label class="placeholder">Nome completo <sup>*</sup></label>
+                    </div>
+                    <div class="item">
+                        <input type="text" required mask="999.999.999-99" placeholder=" " [ngModelOptions]="{standalone: true}" [(ngModel)]="form.cpf">
+                        <label class="placeholder">CPF <sup>*</sup></label>
+                    </div>
+                    <div class="item">
+                        <input type="email" required placeholder=" " [ngModelOptions]="{standalone: true}" [(ngModel)]="form.email">
+                        <label class="placeholder">E-mail <sup>*</sup></label>
+                    </div>
+                    <div class="item">
+                        <input type="text" required mask="(99) 99999-9999" placeholder=" " [ngModelOptions]="{standalone: true}" [(ngModel)]="form.telefone">
+                        <label class="placeholder">Telefone/Whatsapp <sup>*</sup></label>
+                    </div>
+                    <div class="item">
+                        <input required type="date" [(ngModel)]='form.data_nascimento' [ngModelOptions]="{standalone: true}">
+                        <label class="placeholder">Data de nascimento</label>
+                    </div>
+                </div>
+            </div>
+            <div class="item_content">
+                <h2>
+                    <svg class="localizacao" data-name="pin (2)" xmlns="http://www.w3.org/2000/svg" width="19.2" height="26.507" viewBox="0 0 19.2 26.507"> <g id="Grupo_32" data-name="Grupo 32"> <path id="Caminho_18" data-name="Caminho 18" d="M80.173,0a9.611,9.611,0,0,0-9.6,9.6c0,6.569,8.591,16.213,8.957,16.621a.865.865,0,0,0,1.286,0c.366-.407,8.957-10.051,8.957-16.621A9.611,9.611,0,0,0,80.173,0Zm0,14.43A4.83,4.83,0,1,1,85,9.6,4.835,4.835,0,0,1,80.173,14.43Z" transform="translate(-70.573)" fill="#772e8a" /> </g> </svg> 
+                    Endereço
+                </h2>
+                <div class="input_content">
+                    <div class="item">
+                        <input type="text" (keyup)="cepKeyUp($event)" mask="99999-999" placeholder=" " [ngModelOptions]="{standalone: true}" [(ngModel)]="form.cep">
+                        <label class="placeholder">CEP <sup>*</sup></label>
+                    </div>
+                    <div class="item">
+                        <input type="text" placeholder=" " [ngModelOptions]="{standalone: true}" [(ngModel)]="form.rua">
+                        <label class="placeholder">Logradouro <sup>*</sup></label>
+                    </div>
+                    <div class="item">
+                        <input type="text" placeholder=" " [ngModelOptions]="{standalone: true}" [(ngModel)]="form.numero">
+                        <label class="placeholder">Número</label>
+                    </div>
+                    <div class="item">
+                        <input type="text" placeholder=" " [ngModelOptions]="{standalone: true}" [(ngModel)]="form.complemento">
+                        <label class="placeholder">Complemento</label>
+                    </div>
+                    <div class="item half_item">
+                        <select [attr.data-value]="form.id_estado" [ngModelOptions]="{standalone: true}" [(ngModel)]="form.id_estado" (change)="selectState(form.id_estado)">
+                            <option value=""></option>
+                            <option *ngFor="let state of states" value="{{ state.id }}">{{ state.estado }}</option>
+                        </select>
+                        <label class="placeholder">Estado <sup>*</sup></label>
+                    </div>
+                    <div class="item half_item">
+                        <select [attr.data-value]="form.id_cidade" [ngModelOptions]="{standalone: true}" [(ngModel)]="form.id_cidade">
+                            <option value=""></option>
+                            <option *ngFor="let city of cities" value="{{ city.id }}">{{ city.cidade }}</option>
+                        </select>
+                        <label class="placeholder">Cidade <sup>*</sup></label>
+                    </div>
+                    <div class="item">
+                        <input type="text" placeholder=" " [ngModelOptions]="{standalone: true}" [(ngModel)]="form.bairro">
+                        <label class="placeholder">Bairro <sup>*</sup></label>
+                    </div>
+                </div>
+            </div>
+            <div class="item_content" style="margin: 0 !important;">
+                <h2>
+                    <svg class="cadeado" id="bold" enable-background="new 0 0 24 24" height="25" viewBox="0 0 24 24" width="25" xmlns="http://www.w3.org/2000/svg"> <path d="m18.75 9h-.75v-3c0-3.309-2.691-6-6-6s-6 2.691-6 6v3h-.75c-1.24 0-2.25 1.009-2.25 2.25v10.5c0 1.241 1.01 2.25 2.25 2.25h13.5c1.24 0 2.25-1.009 2.25-2.25v-10.5c0-1.241-1.01-2.25-2.25-2.25zm-10.75-3c0-2.206 1.794-4 4-4s4 1.794 4 4v3h-8zm5 10.722v2.278c0 .552-.447 1-1 1s-1-.448-1-1v-2.278c-.595-.347-1-.985-1-1.722 0-1.103.897-2 2-2s2 .897 2 2c0 .737-.405 1.375-1 1.722z" /> </svg> 
+                    Acesso
+                </h2>
+                <div class="input_content">
+                    <div class="item">
+                        <input type="{{senha}}" required placeholder=" " [ngModelOptions]="{standalone: true}" [(ngModel)]="form.senha" autocomplete="new-password">
+                        <label class="placeholder">Senha <sup>*</sup></label>
+                        <button type="button" class="olho" [class.text]="senha == 'text'" (click)="mudar_visibilidade(1)"><img src="assets/icon/eye.svg"/></button>
+                    </div>
+                    <div class="item">
+                        <input type="{{confirmar_senha}}" required placeholder=" " [ngModelOptions]="{standalone: true}" [(ngModel)]="form.passrepeat" autocomplete="new-password">
+                        <label class="placeholder">Confirmar senha <sup>*</sup></label>
+                        <button type="button" class="olho" [class.text]="confirmar_senha == 'text'" (click)="mudar_visibilidade(2)"><img src="assets/icon/eye.svg"/></button>
+                    </div>
+                </div>
+            </div>
+            <div class="termo">
+                <input type="checkbox" name="termo_associado" id="termo_associado">
+                <label for="termo_associado">Aceito os <span routerLink="/termo-de-uso">Termos de Uso</span></label>
+            </div>
+            <button class="salvar" type="submit" [attr.data-load]="load ? 'on' : ''">Cadastrar</button>
+        </form>
+    </div>
+</ion-content>

@@ -1,0 +1,6 @@
+@import './../../../mixins.scss';
+app-criar-clinica {
+    ion-content {
+        @include perfil_page;
+    }
+}

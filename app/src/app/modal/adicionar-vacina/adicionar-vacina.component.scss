@@ -1,0 +1,5 @@
+@import "./../../../mixins.scss";
+
+app-adicionar-vacina{
+    @include modal_1;
+}

@@ -1,0 +1,76 @@
+<ion-content>
+    <app-header-simples title="Dados do Associado"></app-header-simples>
+
+    <div class="content">
+        <h2>Dados : </h2>
+        <div class="itens_content">
+            <div class="item">
+                <input type="text" placeholder=" " [(ngModel)]="dados.nome">
+                <label class="placeholder">Nome</label>
+            </div>
+            <div class="item">
+                <input type="text" mask="999.999.999-99" placeholder=" " [(ngModel)]="dados.cpf">
+                <label class="placeholder">CPF</label>
+            </div>
+            <div class="item">
+                <input type="email" placeholder=" " [(ngModel)]="dados.email">
+                <label class="placeholder">E-mail</label>
+            </div>
+            <div class="item">
+                <input type="text" mask="(99) 99999-9999" placeholder=" " [(ngModel)]="dados.telefone">
+                <label class="placeholder">Telefone</label>
+            </div>
+
+            <div class="item">
+				<input required type="date"  [(ngModel)]='dados.data_nascimento' [ngModelOptions]="{standalone: true}">
+				<label class="placeholder">Data de nascimento</label>
+			</div>
+            <div class="item">
+				<input (keyup)="cepKeyUp($event)" mask="99999-999" type="tel" [ngModelOptions]="{standalone: true}" [(ngModel)]="dados.cep" placeholder=" ">
+				<label class="placeholder">CEP</label>
+			</div>
+			<div class="item">
+				<input required [ngModelOptions]="{standalone: true}" [(ngModel)]="dados.rua" placeholder=" ">
+				<label class="placeholder">Rua</label>
+			</div>
+			<div class="item">
+				<input required [ngModelOptions]="{standalone: true}" [(ngModel)]="dados.numero" placeholder=" ">
+				<label class="placeholder">Número</label>
+			</div>
+			<div class="item">
+				<input [ngModelOptions]="{standalone: true}" [(ngModel)]="dados.complemento" placeholder=" ">
+				<label class="placeholder">Complemento</label>
+			</div>
+			<div class="item half_item">
+				<select [attr.data-value]="dados.id_estado" [ngModelOptions]="{standalone: true}" [(ngModel)]="dados.id_estado" required (change)="selectState(dados.id_estado)">
+					<option value=""></option>
+					<option *ngFor="let state of states" value="{{ state.id }}">{{ state.estado }}</option>
+				</select>
+                    <label class="placeholder">Estado</label>
+                </div>
+                <div class="item half_item">
+                    <select [attr.data-value]="dados.id_cidade" [ngModelOptions]="{standalone: true}" required [(ngModel)]="dados.id_cidade">
+					<option value=""></option>
+					<option *ngFor="let city of cities" required value="{{ city.id }}">{{ city.cidade }}</option>
+				</select>
+				<label class="placeholder">Cidade</label>
+			</div>
+			<div class="item ">
+				<input required [ngModelOptions]="{standalone: true}" [(ngModel)]="dados.bairro" placeholder=" ">
+				<label class="placeholder">Bairro</label>
+			</div>
+        </div>
+
+        <div class="forma_pagamento">
+            <h3>Forma de pagamento:</h3>
+            <div class="forma">
+                <input type="radio" name="forma" id="forma_1" [(ngModel)]="dados.forma_plano" (change)="validateButton()">
+                <label for="forma_1">Cartão<br>de crédito</label>
+            </div>
+        </div>
+
+        <button class="continuar" (click)="navigatePagamento()">Continuar</button>
+    </div>
+
+    <app-mobile-menu active_page="5"></app-mobile-menu>
+</ion-content>

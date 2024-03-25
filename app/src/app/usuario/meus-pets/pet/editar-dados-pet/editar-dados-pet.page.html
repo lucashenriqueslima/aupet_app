@@ -1,0 +1,54 @@
+<ion-content>
+  <app-header-simples title="Alterar plano e dados"></app-header-simples>
+
+  <div class="content">
+      <div class="item_list">
+          <div class="item item_full">
+              <input type="text" placeholder=" " [(ngModel)]='pet.nome'>
+              <label class="placeholder">Nome do pet</label>
+          </div>
+          <div class="item">
+              <select [attr.data-value]="pet.id_especie" [(ngModel)]='pet.id_especie' (change)="selectRaca(pet.id_especie)">
+                  <option value="undefined" hidden ></option>
+                  <option *ngFor="let especie of especies" value="{{especie.id}}">{{especie.titulo}}</option>
+              </select>
+              <label class="placeholder">Espécie</label>
+          </div>
+          <div class="item">
+            <select [attr.data-value]="pet.id_raca" [(ngModel)]='pet.id_raca'>
+                <option value="undefined" hidden ></option>
+                <option *ngFor="let raca of racas" value="{{raca.id}}" >{{raca.titulo}}</option>
+            </select>
+            <label class="placeholder">Raça</label>
+        </div>
+        <div class="item">
+          <select [attr.data-value]="pet.sexo" [(ngModel)]='pet.sexo'>
+              <option value="undefined" hidden ></option>
+              <option value="Macho">Macho</option>
+              <option value="Fêmea">Fêmea</option>
+          </select>
+          <label class="placeholder">Sexo</label>
+        </div>
+        <div class="item">
+          <select [attr.data-value]="pet.porte" [(ngModel)]='pet.porte'>
+              <option value="undefined" hidden ></option>
+              <option value="Grande">Grande</option>
+              <option value="Médio">Médio</option>
+              <option value="Pequeno">Pequeno</option>
+          </select>
+          <label class="placeholder">Porte</label>
+        </div>
+        <div class="item">
+          <select class="borda" [attr.data-value]="pet.id_plano" [(ngModel)]='pet.id_plano'>
+              <option value="undefined" hidden ></option>
+              <option *ngFor="let plano of planos" value="{{plano.id}}" >{{plano.titulo}} - {{plano.valor}}</option>
+          </select>
+          <label class="placeholder">Selecione o plano</label>
+        </div>
+
+      </div>
+      <button class="cadastrar" (click)="salvar()">Salvar Alterações</button>
+  </div>
+
+  <app-mobile-menu *ngIf="appService.ambiente == 'associado'" active_page="3"></app-mobile-menu>
+</ion-content>

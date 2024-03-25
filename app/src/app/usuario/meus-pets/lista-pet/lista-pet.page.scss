@@ -1,0 +1,154 @@
+@import "./../../../../mixins.scss";
+
+app-lista-pet{
+    ion-content{
+        .content{
+            @include content;
+            min-height: calc(100% - 25vw);
+            
+            .lista_vazia{
+                padding: 175px 0 0;
+            
+                svg{
+                    display: block;
+                    margin: 0 auto 35px;
+                    width: 94px;
+                    height: auto;
+                }
+                p{
+                    color: #DC8400;
+                    margin: 0;
+                    text-align: center;
+                    font-size: 16px;
+                    font-weight: 500;
+                }
+            }
+    
+            .lista_content{
+                @include flex-wrap;
+                padding: 8.3vw 3.3vw 27.8vw;
+    
+                .item{
+                    width: 39.4vw;
+                    margin: 0 3.6vw 9.2vw;
+                    cursor: pointer;
+
+                    *{ cursor: pointer; }
+    
+                    div.image{
+                        background-color: #00000033;
+                        width: 100%;
+                        height: 30vw;
+                        border-radius: 2.7vw;
+                        margin: 0 0 3.9vw;
+                        background-position: center;
+                        background-size: cover;
+                    }
+                    h2{
+                        font-size: 3.9vw;
+                        font-weight: bold;
+                        color: #772E8A;
+                        margin: 0;
+                    }
+                    p.animal{
+                        margin: 0 0 1.4vw;
+                        color: #111111;
+                        font-size: 3.3vw;
+                        font-weight: 500;
+                    }
+                    p.plano{
+                        margin: 0;
+                        color: #757575;
+                        font-size: 2.5vw;
+                        font-weight: 500;
+                        padding: 0 0 0 2.7vw;
+                        position: relative;
+    
+                        &:before{
+                            content: '';
+                            position: absolute;
+                            left: 0;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            width: 1.7vw;
+                            height: 1.7vw;
+                            border-radius: 50%;
+                            background: #772E8A;
+                        }
+                    }
+
+                    p.arquivado {
+                        margin: 0;
+                        color: #e01111;
+                        font-size: 3vw;
+                        font-weight: 500;
+                        position: relative;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (min-width: 450px){
+        ion-content{
+            .content{
+                min-height: calc(100% - 112px);
+        
+                .lista_content{
+                    padding: 37px 15px 125px;
+        
+                    .item{
+                        width: 177px;
+                        margin: 0 16px 41px;
+        
+                        div.image{
+                            height: 135px;
+                            border-radius: 12px;
+                            margin: 0 0 17px;
+                        }
+                        h2{
+                            font-size: 17px;
+                        }
+                        p.animal{
+                            margin: 0 0 6px;
+                            font-size: 15px;
+                        }
+                        p.plano{
+                            font-size: 11px;
+                            padding: 0 0 0 12px;
+        
+                            &:before{
+                                width: 8px;
+                                height: 8px;
+                            }
+                        }
+
+                        p.arquivado {
+                            font-size: 15px;
+                            // padding: 0 0 0 12px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @media (min-width: 1000px){
+        ion-content{
+            border-bottom: 30px solid #772e8a;
+
+            .content{
+                max-width: 630px;
+                min-height: initial;
+        
+                .lista_content{
+                    padding: 75px 0 100px;
+        
+                    .item{
+                        margin: 0 16px 40px;
+                    }
+                }
+            }
+        }
+    }
+}
+

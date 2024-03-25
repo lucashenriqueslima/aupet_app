@@ -1,0 +1,250 @@
+@import "./../../../mixins.scss";
+
+app-home-consultor{
+    ion-content{
+        .header{
+            position: relative;
+            width: 100%;
+            height: 75vw;
+            background-position: center;
+            background-size: cover;
+            border-radius: 0 0 9.7vw 9.7vw;
+            overflow: hidden;
+    
+            &:before{
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                left: 0;
+                top: 0;
+                background: #000;
+                opacity: .3;
+            }
+    
+            .header_content{
+                position: relative;
+                @include flex-wrap;
+                align-items: center;
+                justify-content: space-between;
+                padding: 11.1vw 6.9vw 0;
+    
+                button.perfil{
+                    position: relative;
+                    padding: 0;
+                    width: 10vw;
+                    height: 10vw;
+                    border-radius: 50%;
+                    overflow: hidden;
+                    border: 1px solid #F09700;
+                    background-color: #F09700;
+                    background-position: center !important;
+                    background-size: cover !important;
+                    background-image: url(./../../../assets/icon/perfil_image.svg);
+
+                    span{
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-position: center !important;
+                        background-size: cover !important;
+                    }
+    
+                    img{
+                        width: 100%;
+                        display: block;
+                        margin: 0 auto;
+                    }
+                }
+                img.logo{
+                    width: 21.4vw;
+                    height: auto;
+                }
+                button.logout{
+                    @include flex-wrap;
+                    flex-direction: column;
+                    right: 4.7vw;
+                    top: 9.7vw;
+                    background: transparent;
+                    padding: 0;
+                    justify-content: center;
+                    align-items: center;
+                    width: 11.1vw;
+                    height: 11.1vw;
+    
+                    &:after{
+                        content: "Logout";
+                        font-size: 2.5vw;
+                        width: 100%;
+                        font-weight: 500;
+                        text-align: center;
+                        color: #FFFFFF;
+                    }
+    
+                    svg{
+                        margin: 0 0 0.6vw;
+                        width: 3.6vw;
+                        height: auto;
+                    }
+                }
+            }
+        }
+    
+        .content{
+            width: 100%;
+            min-height: calc(100% - 66.6vw);
+            background-image: url(./../../../assets/img/consultor/home_content_bg.png);
+            background-repeat: no-repeat;
+            background-position: right bottom;
+            background-size: 59.7vw auto;
+            padding: 0 6.9vw 22.2vw;
+            margin: -8.3vw auto 0;
+
+            &[animate="false"]{
+                button{
+                    opacity: 0;
+                    margin-top: 10px;
+                }
+            }
+    
+            button{
+                position: relative;
+                width: 100%;
+                height: 19.4vw;
+                background: white;
+                padding: 0 5.6vw 0 22.2vw;
+                font-size: 3.9vw;
+                font-weight: 500;
+                letter-spacing: 1px;
+                color: #000000;
+                text-transform: uppercase;
+                text-align: left;
+                margin: 0 0 3.3vw;
+                border-radius: 2.8vw;
+                transition: all .3s;
+
+                &:nth-child(1){ transition-delay: .1s; }
+                &:nth-child(2){ transition-delay: .2s; }
+                &:nth-child(3){ transition-delay: .4s; }
+                &:nth-child(4){ transition-delay: .5s; }
+    
+                &.criar_proposta{
+                    svg{ width: 8.9vw; }
+                }
+                &.meus_leeds{
+                    svg{ width: 11.1vw; }
+                }
+                &.doacao{
+                    svg{ width: 8.9vw; }
+                }
+                &.historico{
+                    svg{ width: 9.2vw; }
+                }
+        
+                svg{
+                    position: absolute;
+                    top: 50%;
+                    left: 6.9vw;
+                    transform: translateY(-50%);
+                    height: auto;
+                }
+            }
+        }
+    }
+
+    @media (min-width: 450px){
+        ion-content{
+            .header{
+                height: 337px;
+                border-radius: 0 0 44px 44px;
+                margin: 0 auto;
+        
+                .header_content{
+                    padding: 50px 31px 0;
+        
+                    button.perfil{
+                        width: 45px;
+                        height: 45px;
+                    }
+                    img.logo{
+                        width: 96px;
+                    }
+                    button.logout{
+                        right: 21px;
+                        top: 44px;
+                        width: 50px;
+                        height: 50px;
+        
+                        &:after{
+                            font-size: 11px;
+                        }
+        
+                        svg{
+                            margin: 0 0 3px;
+                            width: 16px;
+                        }
+                    }
+                }
+            }
+        
+            .content{
+                min-height: calc(100% -  300px);
+                background-size: 269px auto;
+                padding: 0 31px 100px;
+                margin: -37px auto 0;
+        
+                button{
+                    height: 87px;
+                    padding: 0 25px 0 100px;
+                    font-size: 18px;
+                    margin: 0 auto 15px;
+                    display: block;
+                    border-radius: 13px;
+                    max-width: 390px;
+        
+                    &.criar_proposta{
+                        svg{ width: 40px; }
+                    }
+                    &.meus_leeds{
+                        svg{ width: 50px; }
+                    }
+                    &.doacao{
+                        svg{ width: 40px; }
+                    }
+                    &.historico{
+                        svg{ width: 41px; }
+                    }
+            
+                    svg{
+                        left: 31px;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (min-width: 1000px){
+        ion-content{
+            --background: url(./../../../assets/img/bg_content_patern.png);
+
+            .header{
+                border-radius: 0;
+                height: 450px;
+        
+                .header_content{
+                    background: #772E8A;
+                    height: 100px;
+                    padding: 0 30px;
+                }
+            }
+        
+            .content{
+                min-height: initial;
+                background-image: initial;
+                padding: 0 30px 50px;
+            }
+        }
+    }
+}

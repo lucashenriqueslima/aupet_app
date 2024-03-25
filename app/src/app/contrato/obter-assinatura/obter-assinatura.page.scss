@@ -1,0 +1,113 @@
+@import "./../../../mixins.scss";
+
+obter-assinatura {
+    ion-content {
+        .content {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: calc(100% - 25vw);
+            background: #ffffff;
+            overflow: hidden;
+
+            &:before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.4);
+            }
+            &:after {
+                content: "";
+                position: absolute;
+                left: 50%;
+                top: 46%;
+                transform: translate(-50%, -50%);
+                background-image: url('/assets/img/assinatura/assine_vertical.png');
+                background-position: center;
+                width: 100px;
+                height: 500px;
+                max-height: 85%;
+                border: 2px dashed #772e8a;
+                border-radius: 5px;
+            }
+            canvas {
+                border: 1px solid #888;
+                border-radius: 3px;
+                position: relative;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+                background: none;
+                &:before {
+                    content: "";
+                    position: absolute;
+                }
+            }
+
+            button {
+                position: absolute;
+                bottom: 0;
+                display: block;
+                width: 50%;
+                max-width: 220px;
+                height: 12vw;
+                max-height: 45px;
+                font-family: "opensans";
+                font-weight: 600;
+                font-size: 5vw;
+                color: white;
+                border: none;
+                z-index: 2;
+
+                &.limpar {
+                    right: 50%;
+                    border-radius: 10px 0 0 0;
+                    background: #b26146;
+                }
+                &.salvar {
+                    left: 50%;
+                    border-radius: 0 10px 0 0;
+                    background: #772e8a;
+                }
+            }
+        }
+    }
+
+    @media (min-width: 450px) {
+        ion-content {
+            .content {
+                height: calc(100% - 112px);
+
+                &:after {
+                }
+
+                button {
+                    height: 52px;
+                    font-size: 22px;
+                }
+            }
+        }
+    }
+    @media (min-width: 1000px) {
+        ion-content {
+            .content {
+                height: calc(100% - 100px);
+
+                &:after {
+                    height: 100px;
+                    width: 500px;
+                    background-image: url(/assets/img/assinatura/assine_horizontal.png);
+                }
+
+                button {
+                    height: 52px;
+                    font-size: 22px;
+                }
+            }
+        }
+    }
+}

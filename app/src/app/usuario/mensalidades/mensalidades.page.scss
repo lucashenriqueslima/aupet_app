@@ -1,0 +1,148 @@
+@import "./../../../mixins.scss";
+
+app-mensalidades {
+    ion-content {
+        .content {
+            padding: 9.7vw 6.9vw 20vw;
+            min-height: calc(100% - 25vw);
+            @include content;
+            background: #F1F1F1;
+
+            .item{
+                width: 100%;
+                height: 25vw;
+                background: white;
+                border-radius: 2.8vw;
+                margin: 0 0 3.3vw;
+                padding: 0 22.2vw 0 5.5vw;
+                @include flex-wrap;
+                flex-direction: column;
+                justify-content: center;
+                position: relative;
+            
+                &[pago="true"] .icone{
+                    &:before{
+                        content: 'Pago';
+                    }
+                    svg{
+                        &.aberto{
+                            display: none;
+                        }
+                        &.pago{
+                            display: block;
+                        }
+                    }
+                }
+            
+                p.data{
+                    width: 100%;
+                    font-size: 3vw;
+                    line-height: 4.2vw;
+                    color: #040404;
+                    margin: 0;
+                }
+                p.nome{
+                    width: 100%;
+                    font-size: 3.3vw;
+                    font-weight: bold;
+                    line-height: 4.4vw;
+                    color: #772E8A;
+                    margin: 0;
+                }
+                p.valor{
+                    width: 100%;
+                    font-size: 4.4vw;
+                    line-height: 5.8vw;
+                    color: #757575;
+                    margin: 0;
+                }
+            
+                .icone{
+                    position: absolute;
+                    right: 6.1vw;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 11.1vw;
+                    height: 9.2vw;
+            
+                    &:before{
+                        content: 'Em aberto';
+                        position: absolute;
+                        bottom: 0;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        font-size: 2.5vw;
+                        line-height: 3.3vw;
+                        color: #4D4D4D;
+                        width: 19.4vw;
+                        text-align: center;
+                    }
+                    svg{
+                        margin: 0 auto;
+                        display: none;
+            
+                        &.aberto{
+                            display: block;
+                        }
+                        &.pago{
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @media (min-width: 450px) {
+        ion-content {
+            .content {
+                padding: 44px 31px 100px;
+                min-height: calc(100% - 112px);
+
+                .item{
+                    height: 109px;
+                    border-radius: 12px;
+                    margin: 0 0 14px;
+                    padding: 0 96px 0 24px;
+                
+                    p.data{
+                        font-size: 13px;
+                        line-height: 18px;
+                    }
+                    p.nome{
+                        font-size: 14px;
+                        line-height: 19px;
+                    }
+                    p.valor{
+                        font-size: 19px;
+                        line-height: 25px;
+                    }
+                    .icone{
+                        right: 26px;
+                        width: 48px;
+                        height: 40px;
+                
+                        &:before{
+                            font-size: 11px;
+                            line-height: 14px;
+                            width: 84px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @media (min-width: 1000px) {
+        ion-content {
+            border-bottom: 30px solid #772e8a;
+            .content {
+                min-height: initial;
+                max-width: initial;
+                width: 640px;
+                padding: 75px 0;
+                @include flex-wrap;
+                justify-content: space-between;
+                background: white;
+            }
+        }
+    }
+}

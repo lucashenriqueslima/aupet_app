@@ -1,0 +1,108 @@
+@import "./../../../mixins.scss";
+app-selecionar-tipo-usuario {
+    @include modal_1;
+    .pop_up_content {
+        .content {
+            padding: 9.7vw 9.7vw 2.8vw;
+            svg {
+                display: block;
+                margin: 0 auto 6.9vw;
+                width: 20.8vw;
+                height: auto;
+            }
+            h2 {
+                margin: 0;
+                cursor: default;
+            }
+            p {
+                font-size: 3.9vw;
+                color: #000000;
+                text-align: center;
+                margin: 0 0 9.7vw;
+                cursor: default;
+            }
+            .item_login {
+                input {
+                    display: none;
+                    &:checked+label {
+                        &:after {
+                            display: block;
+                        }
+                    }
+                }
+                label {
+                    font-size: 3.6vw;
+                    font-weight: 500;
+                    color: #000000;
+                    display: block;
+                    width: 100%;
+                    padding: 1.4vw 0 1.4vw 9.2vw;
+                    margin: 0 0 4.2vw;
+                    position: relative;
+
+                    &:before {
+                        content: '';
+                        position: absolute;
+                        width: 6.7vw;
+                        height: 6.7vw;
+                        border: 1px solid #707070;
+                        border-radius: 50%;
+                        left: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+                    &:after {
+                        display: none;
+                        content: "";
+                        position: absolute;
+                        background: #00D58D;
+                        width: 3.3vw;
+                        height: 3.3vw;
+                        border-radius: 50%;
+                        left: 1.9vw;
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+                }
+            }
+            .buttons {
+                margin: 19.4vw 0 0;
+            }
+        }
+    }
+    @media (min-width: 450px) {
+        .pop_up_content {
+            .content {
+                padding: 42px 42px 12px;
+                width: 400px;
+                svg {
+                    margin: 0 auto 30px;
+                    width: 90px;
+                }
+                p {
+                    font-size: 17px;
+                    margin: 0 0 42px;
+                }
+                .item_login {
+                    label {
+                        font-size: 16px;
+                        padding: 6px 0 6px 40px;
+                        margin: 0 0 18px;
+                        &:before {
+                            width: 29px;
+                            height: 29px;
+                        }
+                        &:after {
+                            width: 14px;
+                            height: 14px;
+                            left: 9px;
+                        }
+                    }
+                }
+                .buttons {
+                    margin: 84px 0 0;
+                }
+            }
+        }
+    }
+}

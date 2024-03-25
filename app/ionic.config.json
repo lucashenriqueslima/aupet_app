@@ -1,0 +1,7 @@
+{
+  "name": "allpet",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

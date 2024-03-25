@@ -1,0 +1,33 @@
+<ion-content>
+  <img src="assets/img/login/logo.svg" alt="" class="logo">
+  <img src="assets/img/login/image_home.png" alt="" class="pets">
+
+  <div class="login_content">
+    <form ngNativeValidate (submit)="login()">
+      <div class="item_input">
+        <input type="email" required placeholder=" " [(ngModel)]="data.email" name="email">
+        <label>E-mail</label>
+      </div>
+      <div class="item_input">
+        <input type="{{ password_input }}" required placeholder=" " [(ngModel)]="data.senha" name="senha">
+        <label>Senha</label>
+        <button type="button" class="olho {{ password_input }}" (click)="mudar_visibilidade()"><img src="assets/icon/eye.svg"/></button>
+      </div>
+      <button class="entrar" type="submit" [attr.data-load]="load ? 'on' : ''">Entrar</button>
+    </form>
+    <!-- <button class="entrar" routerLink="/usuario/home">Entrar</button>
+      <button class="entrar" routerLink="/consultor/home" style="margin: 0;">Entrar consultor</button>
+      <button class="entrar" routerLink="/clinica/home">Entrar clinica</button> -->
+    <button class="esqueceu_senha" (click)="open_modal_recuperar_senha()">Esqueceu a senha?</button>
+
+    <!-- <button class="login_facebook">
+      <svg id="facebook" xmlns="http://www.w3.org/2000/svg" width="25.912" height="25.912" viewBox="0 0 25.912 25.912">
+        <path id="Caminho_321" data-name="Caminho 321" d="M25.912,12.956A12.956,12.956,0,1,1,12.956,0,12.956,12.956,0,0,1,25.912,12.956Zm0,0" fill="#004ec2" />
+        <path id="Caminho_323" data-name="Caminho 323" d="M153.874,71.344v2.934s-3.368-.489-3.368,1.684v2.173h3.042l-.38,3.314h-2.662v8.638h-3.368V81.449l-2.879-.054v-3.26h2.825v-2.5a4.266,4.266,0,0,1,3.477-4.4A9.789,9.789,0,0,1,153.874,71.344Zm0,0" transform="translate(-135.957 -67.532)" fill="#fff" />
+      </svg>
+      Login com facebook
+    </button> -->
+    <p class="cadastro">Ainda não é cliente? <span (click)="open_modal_tipo_cadastro()">Cadastre-se aqui</span></p>
+    <p class="versao">Versão {{appService.enviroment.version}}</p>
+  </div>
+</ion-content>

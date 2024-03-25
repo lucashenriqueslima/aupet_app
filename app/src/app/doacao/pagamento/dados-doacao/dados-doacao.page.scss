@@ -1,0 +1,364 @@
+@import "./../../../../mixins.scss";
+
+app-dados-doacao{
+    ion-content{
+        .content{
+            @include content;
+            min-height: calc(100% - 25vw);
+            padding: 9.7vw 6.9vw 25vw;
+    
+            h2{
+                margin: 0 0 3.3vw;
+                font-size: 3.9vw;
+                font-weight: bold;
+                color: #4D4D4D;
+            }
+            .itens_content{
+                padding: 0 0 5.6vw;
+    
+                .item{
+                    margin: 0 0 2.8vw;
+    
+                    @include input_1;
+                }
+            }
+            .valor_pagamento{
+                padding: 0 0 11.1vw;
+                
+                h3{
+                    margin: 0 0 2.2vw;
+                    font-size: 3.9vw;
+                    font-weight: bold;
+                    color: #772E8A;
+                }
+                .valores{
+                    @include flex-wrap;
+                    padding: 0 0 5.6vw;
+    
+                    .item{
+                        margin: 0 8.3vw 2vw 0;
+    
+                        input{
+                            display: none;
+    
+                            &:checked + label{
+                                &:after{
+                                    display: block;
+                                }
+                            }
+                        }
+                        label{
+                            padding: 1.4vw 0 1.4vw 9.2vw;
+                            font-size: 3.9vw;
+                            font-weight: 500;
+                            color: #4D4D4D;
+                            position: relative;
+                            display: block;
+    
+                            &:before{
+                                content: '';
+                                position: absolute;
+                                left: 0;
+                                top: 50%;
+                                transform: translateY(-50%);
+                                width: 6.7vw;
+                                height: 6.7vw;
+                                border: 1px solid #707070;
+                                border-radius: 50%;
+                            }
+                            &:after{
+                                content: '';
+                                position: absolute;
+                                width: 3.9vw;
+                                height: 3.9vw;
+                                background: #00D58D;
+                                border-radius: 50%;
+                                left: 1.7vw;
+                                top: 50%;
+                                transform: translateY(-50%);
+                                display: none;
+                            }
+    
+                        }
+                    }
+                }
+                .outro_valor{
+                    @include flex-wrap;
+    
+                    label{
+                        width: 23.6vw;
+                        font-size: 3.3vw;
+                        font-weight: bold;
+                        color: #4D4D4D;
+                        display: block;
+                        margin: 0;
+                    }
+                    input{
+                        width: calc(100% - 23.6vw);
+                        border: none;
+                        font-size: 3.3vw;
+                        color: #878787;
+                        height: 5.6vw;
+                        font-weight: 500;
+                        border-bottom: 1px solid #707070;
+                    }
+                }
+            }
+            .forma_pagamento{
+                @include flex-wrap;
+                justify-content: space-between;
+    
+                h3{
+                    width: 100%;
+                    margin: 0 0 3.3vw;
+                    font-size: 3.6vw;
+                    color: #772E8A;
+                    font-weight: bold;
+                }
+                .forma{
+                    width: calc((100% - 4.2vw)/2);
+    
+                    input{
+                        display: none;
+    
+                        &:checked + label{
+                            &:after{
+                                display: block;
+                            }
+                        }
+                    }
+                    label{
+                        font-size: 3.6vw;
+                        color: #000000;
+                        border: 1px solid #D6D6D6;
+                        width: 100%;
+                        display: block;
+                        padding: 0 2.8vw 0 15.3vw;
+                        line-height: 3.9vw;
+                        border-radius: 1.4vw;
+                        height: 13.9vw;
+                        @include flex-wrap;
+                        align-items: center;
+                        position: relative;
+    
+                        &:before{
+                            content: "";
+                            position: absolute;
+                            width: 6.7vw;
+                            height: 6.7vw;
+                            border: 1px solid #BBBBBB;
+                            left: 5.6vw;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            border-radius: 50%;
+                        }
+    
+                        &:after{
+                            content: '';
+                            position: absolute;
+                            width: 3.9vw;
+                            height: 3.9vw;
+                            background: #00D58D;
+                            border-radius: 50%;
+                            left: 7.2vw;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            display: none;
+                        }
+                    }
+                }
+            }
+            button.continuar{
+                @include button_1;
+                margin: 13.9vw 0 0;
+            }
+        }
+    }
+
+    @media (min-width: 450px){
+        ion-content{
+            .content{
+                min-height: calc(100% - 112px);
+                padding: 44px 31px 100px;
+        
+                h2{
+                    margin: 0 0 15px;
+                    font-size: 18px;
+                }
+                .itens_content{
+                    padding: 0 0 25px;
+        
+                    .item{
+                        margin: 0 0 13px;
+                    }
+                }
+                .valor_pagamento{
+                    padding: 0 0 50px;
+                    
+                    h3{
+                        margin: 0 0 10px;
+                        font-size: 18px;
+                    }
+                    .valores{
+                        padding: 0 0 25px;
+        
+                        .item{
+                            margin: 0 37px 9px 0;
+        
+                            label{
+                                padding: 6px 0 6px 41px;
+                                font-size: 18px;
+        
+                                &:before{
+                                    width:30px;
+                                    height:30px;
+                                }
+                                &:after{
+                                    width: 18px;
+                                    height: 18px;
+                                    left: 7px;
+                                }
+        
+                            }
+                        }
+                    }
+                    .outro_valor{
+                        label{
+                            width: 106px;
+                            font-size: 15px;
+                        }
+                        input{
+                            width: calc(100% - 106px);
+                            font-size: 15px;
+                            height: 25px;
+                        }
+                    }
+                }
+                .forma_pagamento{
+                    h3{
+                        margin: 0 0 15px;
+                        font-size: 16px;
+                    }
+                    .forma{
+                        width: calc((100% - 19px)/2);
+        
+                        label{
+                            font-size: 16px;
+                            padding: 0 13px 0 69px;
+                            line-height: 18px;
+                            border-radius: 6px;
+                            height: 63px;
+        
+                            &:before{
+                                width:30px;
+                                height:30px;
+                                left: 25px;
+                            }
+        
+                            &:after{
+                                width: 18px;
+                                height: 18px;
+                                left: 32px;
+                                top: 50%;
+                            }
+                        }
+                    }
+                }
+                button.continuar{
+                    margin: 63px 0 0;
+                }
+            }
+        }
+    }
+
+    @media (min-width: 1000px){
+        ion-content{
+            border-bottom: 30px solid #772e8a;
+
+            .content{
+                width: 100%;
+                max-width: 650px;
+                min-height: auto;
+                padding: 60px 25px 70px;
+
+                h2{
+                    font-size: 15px;
+                }
+                .itens_content{
+                    @include flex-wrap;
+                    justify-content: space-between;
+
+                    .item{
+                        width: calc((100% - 10px)/2);
+                        margin: 0 0 10px;
+                    }
+                }
+                .valor_pagamento{
+                    h3{
+                        font-size: 15px;
+                    }
+                    .valores{
+                        .item{
+                            label{
+                                font-size: 15px;
+                                padding: 6px 0 6px 38px;
+
+                                &:before{
+                                    width: 25px;
+                                    height: 25px;
+                                }
+                                &:after{
+                                    width: 15px;
+                                    height: 15px;
+                                    left: 6px;
+                                }
+                            }
+                        }
+                    }
+                    .outro_valor{
+                        label{
+                            font-size: 14px;
+                            width: 95px;
+                        }
+                        input{
+                            max-width: 150px;
+                            font-size: 13px;
+                            height: 23px;
+                        }
+                    }
+                }
+                .forma_pagamento{
+                    justify-content: initial;
+
+                    h3{
+                        font-size: 13px;
+                        margin: 0 0 10px;
+                    }
+                    .forma{
+                        width: 150px;
+                        margin: 0 15px 0 0;
+
+                        label{
+                            font-size: 13px;
+                            padding: 0 13px 0 55px;
+                            line-height: 14px;
+                            height: 50px;
+
+                            &:before{
+                                width: 24px;
+                                height: 24px;
+                                left: 20px;
+                            }
+        
+                            &:after{
+                                width: 14px;
+                                height: 14px;
+                                left: 26px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

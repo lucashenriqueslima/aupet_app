@@ -1,0 +1,16 @@
+<ion-content>
+    <app-header-simples title="Faça uma doação"></app-header-simples>
+
+    <div class="content">
+        <div class="item" *ngFor="let item of ongs" (click)="interno(item.id)">
+            <div class="image" style="background-image: url('{{ item.logo }}');"></div>
+            <div class="text">
+                <h2>{{ item.nome }}</h2>
+                <p>{{ item.rua }},{{ item.bairro}}</p>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="7.551" height="12.853" viewBox="0 0 7.551 12.853"> <g id="right-arrow" transform="translate(-101.478)"> <g id="Grupo_3" data-name="Grupo 3" transform="translate(101.478)"> <path id="Caminho_2" data-name="Caminho 2" d="M108.824,5.925,103.1.205a.7.7,0,0,0-.994,0l-.421.421a.7.7,0,0,0,0,.994l4.8,4.8-4.808,4.808a.7.7,0,0,0,0,.994l.421.421a.7.7,0,0,0,.994,0l5.725-5.725a.71.71,0,0,0,0-1Z" transform="translate(-101.478)" fill="#dc8400"/> </g> </g> </svg>
+        </div>
+    </div>
+
+    <app-mobile-menu active_page="5" *ngIf="appService.ambiente == 'associado'"></app-mobile-menu>
+</ion-content>

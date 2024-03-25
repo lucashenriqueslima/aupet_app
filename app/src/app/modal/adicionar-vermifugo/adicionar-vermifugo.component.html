@@ -1,0 +1,26 @@
+<div class="pop_up_content">
+  <div class="content">
+      <h2>Adicionar vermífugo:</h2>
+      <div class="item">
+        <input type="text" placeholder=" " [(ngModel)]="data.nome_vermifungo">
+        <label class="placeholder">Nome do vermífugo</label>
+      </div>
+      <div class="item">
+        <input type="text" placeholder=" " type="date" [(ngModel)]="data.data">
+        <label class="placeholder">Data do vermífugo</label>
+      </div>
+      <div class="item">
+        <input type="time" placeholder=" " [(ngModel)]="data.hr_fermifungo">
+        <label class="placeholder">Hora de início</label>
+      </div>
+      <div class="item">
+        <input type="text" placeholder=" " type="date"  [(ngModel)]="data.proxima_data">
+        <label class="placeholder">Próxima data para vermifugação</label>
+      </div>
+      <div class="buttons">
+          <button class="cancelar" (click)="dismiss()">cancelar</button>
+          <button class="confirm" (click)="salvar()">ok</button>
+      </div>
+  </div>
+</div>
+

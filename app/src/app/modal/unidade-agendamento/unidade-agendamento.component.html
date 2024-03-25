@@ -1,0 +1,66 @@
+<div class="pop_up_content">
+    <div class="content">
+        <div class="content_1 {{ etapa }}">
+            <!-- ngIf -->
+            <h2>{{ clinica.nome }}</h2>
+            <p>Agendar serviço</p>
+            <div class="item">
+                <select [attr.data-value]="agendamento.id_especialidade" name="id_especialidade" [(ngModel)]='agendamento.id_especialidade'>
+                    <option value="undefined"></option>
+                    <option *ngFor="let item of clinica.especialidades" value="{{item.id}}">{{item.nome}}</option>
+                </select>
+                <label class="placeholder">Selecione o serviço</label>
+            </div>
+            <div class="item">
+                <select [attr.data-value]="agendamento.id_pet" name="agendamento.pet" [(ngModel)]='agendamento.id_pet'>
+                    <option value="undefined"></option>
+                    <option *ngFor="let pet of pets" value="{{pet.id}}">{{pet.nome}}</option>
+                </select>
+                <label class="placeholder">Selecione o Pet</label>
+            </div>
+            <div class="item">
+                <input type="text" *ngIf="agendamento.id_especialidade != 4" [(ngModel)]='agendamento.descricao' placeholder=" ">
+                <label class="placeholder" *ngIf="agendamento.id_especialidade != 4">Descrição do Serviços</label>
+            </div>
+            <div class="item" *ngIf="agendamento.id_especialidade == 5 || agendamento.id_especialidade == 6 || agendamento.id_especialidade == 7 || agendamento.id_especialidade == 9">
+                <input type="text" [(ngModel)]='agendamento.observacao' placeholder=" ">
+                <label class="placeholder">Observações</label>
+            </div>
+
+            <div class="item" *ngIf="agendamento.id_especialidade == 4">
+                <input type="text" [(ngModel)]='agendamento.nome_vacina' placeholder=" ">
+                <label class="placeholder">Nome da Vacina</label>
+            </div>
+            <div class="item">
+                <input type="date" [(ngModel)]='agendamento.data' min="{{ today }}" placeholder=" " required>
+                <label class="placeholder">Data</label>
+            </div>
+            <div class="item">
+                <input type="time" [(ngModel)]='agendamento.hora' placeholder=" ">
+                <label class="placeholder">Selecione a hora</label>
+            </div>
+
+            <div class="buttons">
+                <button class="cancelar" (click)="dismiss()">cancelar</button>
+                <button class="confirm" (click)="proximo_passo()">ok</button>
+            </div>
+        </div>
+
+        <div class="content_2 {{ etapa }}">
+            <!-- ngIf -->
+            <h2>Solicitando o agendamento:</h2>
+            <div class="dados">
+                <h3>{{ agendamento?.servico }}</h3>
+                <p class="data">dia {{ agendamento?.data | date:'dd/MM/yyyy' }} as {{ agendamento?.hora }}h</p>
+                <p class="clinica">{{ clinica?.nome_fantasia }}</p>
+                <p class="endereco">
+                    <svg id="pin_2_" data-name="pin (2)" xmlns="http://www.w3.org/2000/svg" width="7.178" height="9.91" viewBox="0 0 7.178 9.91"><g id="Grupo_32" data-name="Grupo 32"><path id="Caminho_18" data-name="Caminho 18" d="M74.162,0a3.593,3.593,0,0,0-3.589,3.589c0,2.456,3.212,6.062,3.349,6.214a.323.323,0,0,0,.481,0c.137-.152,3.349-3.758,3.349-6.214A3.593,3.593,0,0,0,74.162,0Zm0,5.395a1.806,1.806,0,1,1,1.806-1.806A1.808,1.808,0,0,1,74.162,5.395Z" transform="translate(-70.573)" fill="#dc8400"/></g></svg>                    {{ clinica.rua }},{{ clinica.numero }},{{ clinica.bairro }}
+                </p>
+            </div>
+            <div class="buttons">
+                <button class="cancelar" (click)="dismiss()">cancelar</button>
+                <button class="confirm" (click)="confirmar()">confirmar</button>
+            </div>
+        </div>
+    </div>
+</div>

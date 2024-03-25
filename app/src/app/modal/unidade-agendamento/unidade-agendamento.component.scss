@@ -1,0 +1,211 @@
+@import "./../../../mixins.scss";
+
+app-unidade-agendamento{
+    .pop_up_content{
+        overflow: auto;
+
+        .content{
+            width: 80.6vw;
+            margin: 12.5vw auto;
+            background: white;
+            border-radius: 2.8vw;
+            padding: 6.9vw 6.9vw 2.8vw;
+
+            .content_1{
+                display: none;
+
+                &.etapa_1{
+                    display: block;
+                }
+
+                h2{
+                    margin: 0;
+                    font-size: 5.6vw;
+                    line-height: 5.6vw;
+                    font-weight: bold;
+                    color: #772E8A;
+                    text-align: center;
+                }
+                p{
+                    margin: 0 0 5.6vw;
+                    color: #000000;
+                    font-size: 4.4vw;
+                    font-weight: 500;
+                    text-align: center;
+                }
+                .item{
+                    margin: 0 0 3vw;
+                    @include input_1;
+                }
+                .buttons{
+                    @include flex-wrap;
+                    justify-content: flex-end;
+                    margin: 5.6vw 0 0;
+                    
+                    button{
+                        padding: 3vw 3vw;
+                        background: transparent;
+                        font-size: 3.6vw;
+                        text-transform: uppercase;
+                        font-weight: bold;
+        
+                        &.cancelar{
+                            color: #4D4D4D;
+                        }
+                        &.confirm{
+                            color: #00A4CE;
+                            margin-left: 5.6vw;
+                        }
+                    }
+                }
+            }
+            .content_2{
+                display: none;
+
+                &.etapa_2{
+                    display: block;
+                }
+
+                h2{
+                    color: #772E8A;
+                    margin: 0 0 6.9vw;
+                    font-size: 4.4vw;
+                    font-weight: bold;
+                }
+                .dados{
+                    h3{
+                        color: #DC8400;
+                        font-size: 3.6vw;
+                        font-weight: bold;
+                        margin: 0;
+                    }
+                    p.data{
+                        margin: 0;
+                        color: #4D4D4D;
+                        font-size: 3.6vw;
+                        font-weight: 500;
+                    }
+                    p.clinica{
+                        color: #772E8A;
+                        margin: 0;
+                        font-size: 3.6vw;
+                        font-weight: 500;
+                    }
+                    p.endereco{
+                        margin: 5.6vw 0 0;
+                        color: #4D4D4D;
+                        font-size: 3.6vw;
+                        font-weight: 500;
+                        position: relative;
+                        padding: 0 0 0 4.2vw;
+
+                        svg{
+                            position: absolute;
+                            left: 0;
+                            top: 1.4vw;
+                            width: 1.9vw;
+                            height: auto;
+                        }
+                    }
+                }
+                .buttons{
+                    @include flex-wrap;
+                    justify-content: flex-end;
+                    padding: 19.4vw 0 0;
+                    
+                    button{
+                        padding: 3vw 3vw;
+                        background: transparent;
+                        font-size: 3.6vw;
+                        text-transform: uppercase;
+                        font-weight: bold;
+        
+                        &.cancelar{
+                            color: #4D4D4D;
+                        }
+                        &.confirm{
+                            color: #00A4CE;
+                            margin-left: 5.6vw;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media (min-width: 450px){
+        .pop_up_content{
+            .content{
+                width: 350px;
+                margin: 54px auto;
+                border-radius: 12px;
+                padding: 30px 30px 12px;
+        
+                .content_1{
+                    h2{
+                        font-size: 24px;
+                        line-height: 24px;
+                    }
+                    p{
+                        margin: 0 0 24px;
+                        font-size: 19px;
+                    }
+                    .item{
+                        margin: 0 0 15px;
+                    }
+                    .buttons{
+                        margin: 24px 0 0;
+                        
+                        button{
+                            padding: 13px 13px;
+                            font-size: 16px;
+            
+                            &.confirm{
+                                margin-left: 24px;
+                            }
+                        }
+                    }
+                }
+                .content_2{
+                    h2{
+                        margin: 0 0 30px;
+                        font-size: 19px;
+                    }
+                    .dados{
+                        h3{
+                            font-size: 16px;
+                        }
+                        p.data{
+                            font-size: 16px;
+                        }
+                        p.clinica{
+                            font-size: 16px;
+                        }
+                        p.endereco{
+                            margin: 24px 0 0;
+                            font-size: 16px;
+                            padding: 0 0 0 18px;
+        
+                            svg{
+                                top: 6px;
+                                width: 8px;
+                            }
+                        }
+                    }
+                    .buttons{
+                        padding: 84px 0 0;
+                        
+                        button{
+                            padding: 13px 13px;
+                            font-size: 16px;
+            
+                            &.confirm{
+                                margin-left: 24px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

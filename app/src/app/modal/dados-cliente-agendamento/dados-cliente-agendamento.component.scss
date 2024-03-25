@@ -1,0 +1,131 @@
+@import "./../../../mixins.scss";
+
+app-dados-cliente-agendamento{
+    @include modal_2;
+
+    .pop_up_content{
+        .content{
+            .dados_content{
+                padding: 6.9vw;
+    
+                h2{
+                    font-size: 3.9vw;
+                    font-weight: 500;
+                    color: #772E8A;
+                    position: relative;
+                    padding: 1.4vw 0 1.4vw 11.1vw;
+                    margin: 0 0 5.6vw;
+    
+                    svg{
+                        width: 7.5vw;
+                        height: auto;
+                        position: absolute;
+                        left: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+                }
+                .dados_list{
+                    .dado{
+                        margin: 0 0 4.2vw;
+    
+                        h3{
+                            font-size: 3.6vw;
+                            font-weight: bold;
+                            color: #4A4A4A;
+                            margin: 0;
+                        }
+                        p{
+                            font-size: 3.6vw;
+                            line-height: 5vw;
+                            font-weight: 500;
+                            color: #4A4A4A;
+                            margin: 0;
+                        }
+                    }
+                }
+    
+                .contact_buttons{
+                    @include flex-wrap;
+                    justify-content: space-between;
+                    padding: 15.3vw 0 4.2vw;
+    
+                    button{
+                        width: calc((100% - 1.4vw)/2);
+                        height: 8.3vw;
+                        border: 1px solid #772E8A;
+                        @include flex-wrap;
+                        justify-content: center;
+                        align-items: center;
+                        text-transform: uppercase;
+                        font-size: 3vw;
+                        letter-spacing: .5px;
+                        color: #772E8A;
+                        font-weight: 500;
+                        background: transparent;
+                        border-radius: 1.4vw;
+                        
+                        &.whatsapp{
+                            svg{
+                                width: 2.2vw;
+                                height: auto;
+                                margin: 0 1.4vw 0 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media (min-width: 450px){
+        .pop_up_content{
+            .content{
+                .dados_content{
+                    padding: 30px;
+        
+                    h2{
+                        font-size: 17px;
+                        padding: 6px 0 6px 48px;
+                        margin: 0 0 24px;
+        
+                        svg{
+                            width: 33px;
+                        }
+                    }
+                    .dados_list{
+                        .dado{
+                            margin: 0 0 18px;
+        
+                            h3{
+                                font-size: 16px;
+                            }
+                            p{
+                                font-size: 16px;
+                                line-height: 22px;
+                            }
+                        }
+                    }
+        
+                    .contact_buttons{
+                        padding: 67px 0 18px;
+        
+                        button{
+                            width: calc((100% - 6px)/2);
+                            height: 36px;
+                            font-size: 13px;
+                            border-radius: 6px;
+                            
+                            &.whatsapp{
+                                svg{
+                                    width: 10px;
+                                    margin: 0 6px 0 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

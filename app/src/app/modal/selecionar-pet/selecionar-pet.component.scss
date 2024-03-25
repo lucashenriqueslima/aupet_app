@@ -1,0 +1,4 @@
+@import "./../../../mixins.scss";
+app-selecionar-pet {
+    @include modal_1;
+}

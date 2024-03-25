@@ -1,0 +1,108 @@
+@import "./../../../mixins.scss";
+clinica-menu-lateral {
+    ion-menu ion-content {
+        --background: var(--ion-item-background, var(--ion-background-color, #fff));
+    }
+
+    ion-menu.md ion-content {
+        --padding-start: 0;
+        --padding-end: 0;
+        --padding-top: 0;
+        --padding-bottom: 0;
+    }
+    ion-content {
+        --padding-start: 0;
+        --padding-end: 0;
+        --padding-top: 0;
+        --padding-bottom: 0;
+
+        .header_menu {
+            @include flex-wrap;
+            width: 100%;
+            height: 100px;
+            align-items: center;
+            padding: 0 25px;
+            background: #772e8a;
+
+            .image {
+                position: relative;
+                width: 55px;
+                height: 55px;
+                border-radius: 50%;
+                background-color: #F09700;
+                background-position: center !important;
+                background-size: cover !important;
+                background-image: url(./../../../assets/icon/perfil_image.svg);
+                overflow: hidden;
+
+                span{
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-position: center !important;
+                    background-size: cover !important;
+                }
+            }
+            .text {
+                width: calc(100% - 55px);
+                padding: 0 0 0 15px;
+
+                h2 {
+                    color: white;
+                    font-size: 13px;
+                    font-weight: bold;
+                    margin: 0 0 3px;
+                }
+                button.editar {
+                    background: transparent;
+                    font-size: 12px;
+                    font-weight: 500;
+                    color: white;
+                    margin: 0;
+                    padding: 7px 0;
+                    display: block;
+                }
+            }
+        }
+
+        .content_menu {
+            min-height: calc(100% - 105px);
+            background: white;
+            padding: 35px 25px 100px;
+            position: relative;
+
+            .paginas {
+                button.item {
+                    display: block;
+                    background: transparent;
+                    padding: 6px 0;
+                    font-size: 14px;
+                    color: #5d5d5d;
+                    font-weight: 500;
+                    margin: 0 0 15px;
+                }
+            }
+            button.sair {
+                padding: 0;
+                height: 30px;
+                display: flex;
+                align-items: center;
+                position: absolute;
+                bottom: 25px;
+                left: 25px;
+                background: transparent;
+                font-size: 14px;
+                font-weight: 500;
+                color: #5d5d5d;
+
+                svg {
+                    width: 20px;
+                    height: auto;
+                    margin: 0 10px 0 0;
+                }
+            }
+        }
+    }
+}

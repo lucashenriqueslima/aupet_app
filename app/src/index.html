@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Aupet</title>
+    <base href="/" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="viewport"
+        content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+
+    <link rel="icon" sizes="32x32" href="assets/aupet/icon-32x32.png">
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="assets/aupet/icon-180x180.png">
+    <link rel="icon" sizes="192x192" href="assets/aupet/icon-192x192.png">
+    <link rel="icon" sizes="512x512" href="assets/aupet/icon-512x512.png">
+    <link rel="icon" type="image/png" href="assets/aupet/icon-72x72.png">
+    <link rel="manifest" href="assets/aupet/manifest.json">
+    <meta name="theme-color" content="#772E8A">
+
+    <!-- add to homescreen for ios -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.css' rel='stylesheet' />
+</head>
+<script>
+    var requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+    };
+
+    // fetch("http://192.168.1.10:21250/getKeyPublic", requestOptions) 
+    fetch("https://api.aupetheinsten.com.br/getKeyPublic", requestOptions)
+        .then(response => response.text())
+        .then(result => localStorage.setItem('PUBLIC_KEY', result))
+        .catch(error => console.log('error', error));
+</script>
+
+<body>
+    <input type='hidden' id='generic-input' />
+    <app-root></app-root>
+</body>
+
+</html>

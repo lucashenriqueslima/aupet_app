@@ -1,0 +1,364 @@
+@import "./../../../mixins.scss";
+app-status-lead {
+    ion-content {
+        .content {
+            min-height: calc(100% - 25vw);
+            @include content;
+            padding: 9.7vw 0 0 0;
+
+            .list_item{
+                padding: 0 6.9vw 0 12vw;
+
+                .item {
+                    min-height: 30.6vw;
+                    position: relative;
+                    border-left: 1px dashed #772e8a;
+                    padding: 1.9vw 9.7vw 11.1vw 13vw;
+                    opacity: 0.4;
+                    pointer-events: none;
+                    &:last-child {
+                        border-left: none;
+                    }
+                    &.finalizado {
+                        opacity: 1;
+                        .icones {
+                            display: block;
+                            svg {
+                                &.andamento {
+                                    display: none;
+                                }
+                            }
+                        }
+                        .text {
+                            p {
+                                &.concluido {
+                                    display: block;
+                                }
+                                &.status {
+                                    display: none;
+                                }
+                            }
+                        }
+                        .buttons {
+                            display: none;
+                        }
+                    }
+                    &.ativo {
+                        opacity: 1;
+                        pointer-events: all;
+                        border-left: 1px dashed rgba(119, 46, 138, 0.4);
+                        .icones {
+                            display: block;
+                            svg {
+                                &.finalizado {
+                                    display: none;
+                                }
+                            }
+                        }
+                        .text {
+                            p {
+                                &.concluido {
+                                    display: none;
+                                }
+                                &.status {
+                                    display: block;
+                                }
+                            }
+                        }
+                    }
+                    span.etapa {
+                        @include flex-wrap;
+                        width: 10.8vw;
+                        height: 10.8vw;
+                        background: #772e8a;
+                        color: white;
+                        justify-content: center;
+                        align-items: center;
+                        border-radius: 50%;
+                        font-size: 5vw;
+                        font-weight: 500;
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        transform: translateX(-50%);
+                    }
+                    .icones {
+                        display: none;
+                        position: absolute;
+                        right: 0;
+                        top: 2.8vw;
+                        svg {
+                            width: 5.6vw;
+                            height: auto;
+                        }
+                    }
+                    h2 {
+                        margin: 0;
+                        color: #772e8a;
+                        font-size: 3.9vw;
+                        font-weight: bold;
+                    }
+                    .text {
+                        p {
+                            margin: 0;
+                            color: #000000;
+                            font-size: 3.6vw;
+                            font-weight: 500;
+                            &.concluido {
+                                display: none;
+                            }
+                            &.status {
+                            }
+                        }
+                    }
+                    .buttons {
+                        padding: 4.2vw 0 0;
+                        button {
+                            padding: 0;
+                            background: transparent;
+                            color: #772e8a;
+                            border: 1px solid #772e8a;
+                            text-transform: uppercase;
+                            font-weight: 500;
+                            font-size: 3vw;
+                            letter-spacing: 0.5px;
+                            width: 41.7vw;
+                            height: 8.3vw;
+                            border-radius: 1.4vw;
+                            display: block;
+                            margin: 0 0 3vw;
+                            position: relative;
+                            box-shadow: initial;
+
+                            &::before{
+                                content: '';
+                                position: absolute;
+                                display: none;
+                                top: 0;
+                                right: 0;
+                                width: 4.722vw;
+                                height: 4.722vw;
+                                background-size: contain;
+                                background-repeat: no-repeat;
+                                background-position: center;
+                                transform: translate(50%, -40%);
+                            }
+                            &[active="true"] {
+                                img {
+                                    display: block;
+                                }
+                            }
+                            &[aprovada="true"]{
+                                background: #00C656;
+                                border-color: #00C656;
+                                color: white;
+
+                                &::before{
+                                    background-image: url(./../../../assets/icon/status/check.svg);
+                                    display: block;
+                                }
+
+                                >div{
+                                    display: block;
+                                    
+                                    &::before{
+                                        content: 'Aprovado';
+                                        color: #00A849;
+                                    }
+                                    &:after{
+                                        display: none;
+                                    }
+                                }
+                            }
+                            &[analise="true"]{
+                                background: #E18E00;
+                                border-color: #E18E00;
+                                color: white;
+
+                                &::before{
+                                    background-image: url(./../../../assets/icon/status/alert.svg);
+                                    display: block;
+                                }
+
+                                >div{
+                                    display: block;
+                                    
+                                    &::before{
+                                        content: 'Em análise';
+                                        color: #DC8400;
+                                    }
+                                    &:after{
+                                        content: '(Aguarde)';
+                                    }
+                                }
+                            }
+                            &[reprovado="true"]{
+                                background: #C70000;
+                                border-color: #C70000;
+                                color: white;
+                                
+                                &::before{
+                                    background-image: url(./../../../assets/icon/status/refused.svg);
+                                    display: block;
+                                }
+
+                                >div{
+                                    display: block;
+                                    
+                                    &::before{
+                                        content: 'Reprovado';
+                                        color: #C70000;
+                                    }
+                                    &:after{
+                                        content: '(Reenviar)';
+                                    }
+                                }
+                            }
+
+                            >div{
+                                display: none;
+                                position: absolute;
+                                top: 50%;
+                                right: 0;
+                                transform: translate(100%, -50%);        
+                                padding: 0 0 0 6.9vw;
+                                pointer-events: none;
+
+                                &::before{
+                                    content: 'Before';
+                                    display: block;
+                                    color: #000000;
+                                    text-align: left;
+                                    text-transform: initial;
+                                    font-size: 2.78vw;
+                                    line-height: 3.89vw;
+                                    letter-spacing: 1px;
+                                }
+                                &:after{
+                                    content: 'After';
+                                    display: block;
+                                    color: #414141;
+                                    text-align: left;
+                                    text-transform: initial;
+                                    font-size: 2.5vw;
+                                    line-height: 3.3vw;
+                                }
+                            }
+
+                            img {
+                                display: none;
+                                position: absolute;
+                                right: 0;
+                                top: 0;
+                                transform: translate(45%, -45%);
+                                width: 18px;
+                                height: auto;
+                            }
+                            &[disabled] {
+                                opacity: 0.5;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .buttons{
+                padding: 0 6.9vw 10vw;
+
+                button{
+                    @include button_1;
+                }
+            }
+        }
+    }
+    @media (min-width: 450px) {
+        ion-content {
+            .content {
+                min-height: calc(100% - 112px);
+                padding: 44px 0 0 0;
+
+                .list_item{
+                    padding: 0 31px 0 56px;
+
+                    .item {
+                        min-height: 138px;
+                        padding: 9px 44px 50px 63px;
+                        span.etapa {
+                            width: 49px;
+                            height: 49px;
+                            font-size: 22px;
+                        }
+                        .icones {
+                            top: 13px;
+                            svg {
+                                width: 25px;
+                            }
+                        }
+                        h2 {
+                            font-size: 18px;
+                        }
+                        .text {
+                            p {
+                                font-size: 16px;
+                            }
+                        }
+                        .buttons {
+                            padding: 19px 0 0;
+                            button {
+                                font-size: 13px;
+                                width: 188px;
+                                height: 37px;
+                                border-radius: 6px;
+                                margin: 0 0 12px;
+
+                                &::before{
+                                    width: 20px;
+                                    height: 20px;
+                                }
+
+                                >div{
+                                    padding: 0 0 0 30px;
+    
+                                    &::before{
+                                        font-size: 12px;
+                                        line-height: 17px;
+                                    }
+                                    &:after{
+                                        font-size: 11px;
+                                        line-height: 14px;
+                                    }
+                                }
+
+
+                                svg {
+                                    width: 21px;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .buttons{
+                    padding: 0 31px 50px;
+                }
+            }
+        }
+    }
+    @media (min-width: 1000px) {
+        ion-content {
+            border-bottom: 30px solid #772e8a;
+            .content {
+                max-width: 750px;
+                padding: 41px 0 44px;
+
+                .list_item{
+                    padding: 0 31px;
+                }
+
+                .buttons{
+                    padding: 0 31px;
+                }
+            }
+        }
+    }
+}

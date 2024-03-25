@@ -1,0 +1,55 @@
+@import "./../../../mixins.scss";
+app-filtrar-agendamento-component {
+    @include modal_2;
+    .pop_up_content {
+        .content {
+            .ordernar_por {
+                @include flex-wrap;
+                align-items: center;
+                padding: 6.9vw;
+                p {
+                    margin: 0;
+                    width: calc(100% - 56.9vw);
+                    color: #5D2975;
+                    font-size: 3.9vw;
+                    font-weight: 500;
+                }
+                select {
+                    width: 56.9vw;
+                    height: 8.3vw;
+                    color: #686868;
+                    font-size: 3vw;
+                    font-weight: 500;
+                    padding: 0 6.9vw 0 4.2vw;
+                    border: 1px solid #BFBFBF;
+                    position: relative;
+                    background-image: url(./../../../assets/icon/select_2.svg);
+                    background-size: 3vw;
+                    background-repeat: no-repeat;
+                    background-position: calc(100% - 2.8vw) center;
+                }
+            }
+        }
+    }
+    @media (min-width: 450px) {
+        .pop_up_content {
+            .content {
+                .ordernar_por {
+                    padding: 30px;
+                    p {
+                        width: calc(100% - 247px);
+                        font-size: 17px;
+                    }
+                    select {
+                        width: 247px;
+                        height: 36px;
+                        font-size: 13px;
+                        padding: 0 30px 0 18px;
+                        background-size: 13px;
+                        background-position: calc(100% - 12px) center;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,8 @@
+/app/node_modules
+/server/node_modules
+/server/dist
+.vscode/settings.json
+server/.env
+app/src/environments/environment.ts
+app/signapk/aupet.apk
+app/platforms

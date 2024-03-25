@@ -1,0 +1,61 @@
+@import "./../../../../../mixins.scss";
+
+app-carteirinha-pet{
+    ion-content{
+        app-header-simples{ display: none; }
+        --background: #F1F1F1;
+
+        @include icon_name(54px);
+
+        .content{
+            @include content;
+            min-height: calc(100% - 73.9vw);
+            background: #F1F1F1;
+            padding: 26.4vw 6.9vw 50vw;
+            position: relative;
+        
+            p{
+                font-size: 3.9vw;
+                color: #4D4D4D;
+                line-height: 6.1vw;
+                text-align: center;
+                width: 100%;
+                margin: 0;
+                font-weight: 500;
+            }
+        
+            .button_content{
+                padding: 0 6.9vw 22vw;
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+        
+                button.gerar_pdf{
+                    @include button_1;
+                }
+            }
+        }
+
+        @media (min-width: 450px){
+            .content{
+                min-height: calc(100% - 332px);
+                padding: 119px 31px 200px;
+            
+                p{
+                    font-size: 17px;
+                    line-height: 27px;
+                }
+            
+                .button_content{
+                    padding: 0 31px 90px;
+                }
+            }
+        }
+        @media (min-width: 1000px){
+            border-bottom: 30px solid #772e8a;
+
+            app-header-simples{ display: block; }
+        }
+    }
+}

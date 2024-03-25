@@ -1,0 +1,10 @@
+<div class="pop_up_content">
+    <div class="content">
+        <h2 *ngIf="!pet.id_plano">Este pet não possui nenhum plano. Assine um plano para utilizar essa função.</h2>
+        <h2 *ngIf="pet.id_plano">Aguarde a Confirmação de adesão para utilizar essa função.</h2>
+        <div class="buttons">
+            <button *ngIf="!pet.id_plano" class="confirm" (click)="planos()">Planos</button>
+            <button class="cancelar" (click)="dismiss()">fechar</button>
+        </div>
+    </div>
+</div>

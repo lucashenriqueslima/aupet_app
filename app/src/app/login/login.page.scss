@@ -1,0 +1,282 @@
+@import "./../../mixins.scss";
+
+app-login{
+    ion-content{   
+        --background: url(./../../assets/img/bg_content_patern.png);
+
+        img.logo{
+            margin: 12.5vw auto 0;
+            display: block;
+            width: 26.7vw;
+        }
+        img.pets{
+            margin: 0 auto;
+            display: block;
+            width: 88.9vw;
+        }
+    
+        .login_content{
+            @include content;
+            min-height: calc(100% - 79vw);
+            padding: 11.1vw 6.9vw 10.3vw;
+            position: relative;
+    
+            .item_input{
+                margin: 0 0 6.4vw;
+                position: relative;
+                font-size: 3.9vw;
+                color: #757575;
+    
+                input{
+                    width: 100%;
+                    border: none;
+                    border-bottom: 1px solid rgba(187, 187, 187, 1);
+                    font-family: opensans;
+                    font-weight: 500;
+                    color: #757575;
+                    height: 11.1vw;
+                    padding: 0 12.5vw 0 0;
+                    transition: all .3s ease-out;
+                    -webkit-transition: all .3s ease-out;
+                    -moz-transition: all .3s ease-out;
+                    -webkit-appearance:none;
+                    background-color: white !important;
+                    border-radius: 0 !important;
+                    color: #757575 !important;
+
+                    &::placeholder {
+                        color:transparent;
+                    }
+                    &:focus + label, &:not(:placeholder-shown) + label, &:-webkit-autofill + label {
+                        font-size: .8em;
+                        top: 0;
+                        background: white;
+                    }
+                }
+                label {
+                    pointer-events: none;
+                    position: absolute;
+                    left: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    transition: all .3s ease-out;
+                    -webkit-transition: all .3s ease-out;
+                    -moz-transition: all .3s ease-out;
+                    margin: 0;
+                }
+                button.olho{
+                    width: 5.5vw;
+                    padding: 0%;
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background: transparent;
+
+                    &:before{
+                        content: "";
+                        position: absolute;
+                        left: 51%;
+                        top: 48%;
+                        transform: translate(-50%, -50%) rotate(-45deg);
+                        width: 0%;
+                        height: 3px;
+                        background: #bbbbbb;
+                        transition: all .3s;
+                    }
+
+                    &.text{
+                        &:before{
+                            width: 110%;
+                        }
+                    }
+    
+                    svg{
+                        width: 100%;
+                        height: auto;
+                    }
+                }
+            }
+            button.entrar{
+                @include button_1;
+                margin: 2.8vw 0 11.1vw;
+            }
+            button.esqueceu_senha{
+                display: block;
+                margin: 0 auto 9.7vw;
+                font-family: opensans;
+                font-size: 3vw;
+                font-weight: 500;
+                text-transform: uppercase;
+                color: #772E8A;
+                border-bottom: 1px solid rgba(119, 46, 138, .5);
+                padding: 2.8vw 0;
+                background: transparent;
+            }
+            button.login_facebook{
+                width: 66.7vw;
+                height: 13.3vw;
+                margin: 0 auto 11.1vw;
+                display: block;
+                background: transparent;
+                border: 1px solid #D6D6D6;
+                border-radius: 4.1vw;
+                @include flex-wrap;
+                align-items: center;
+                justify-content: center;
+                font-family: opensans;
+                font-size: 3.3vw;
+                font-weight: 500;
+                color: #004EC2;
+    
+                svg{
+                    height: auto;
+                    width: 7.2vw;
+                    margin: 0 2.8vw 0 0;
+                }
+            }
+            p.cadastro{
+                color: #4D4D4D;
+                font-family: opensans;
+                font-size: 3.6vw;
+                font-weight: 500;
+                text-align: center;
+                margin: 0 0 9.7vw;
+                cursor: default;
+    
+                span{
+                    color: #DC8400;
+                    font-weight: 500;
+                    cursor: pointer;
+                }
+            }
+            p.versao{
+                color: #979797;
+                margin: 0;
+                text-align: center;
+                font-family: opensans;
+                font-size: 3.3vw;
+                font-weight: 500;
+                position: absolute;
+                bottom: 5.5vw;
+                left: 0;
+                width: 100%;
+            }
+    
+        }
+    }
+
+    @media(min-width: 450px){
+        ion-content{    
+            img.logo{
+                margin: 56px auto 0;
+                width: 120px;
+            }
+            img.pets{
+                width: 400px;
+            }
+        
+            .login_content{
+                min-height: calc(100% - 355px);
+                padding: 50px 31px 46px;
+        
+                .item_input{
+                    margin: 0 0 29px;
+                    font-size: 18px;
+        
+                    input{
+                        height: 50px;
+                        padding: 0 55px 0 0;
+                    }
+                    button.olho{
+                        width: 25px;
+                    }
+                }
+                button.entrar{
+                    margin: 13px 0 50px;
+                }
+                button.esqueceu_senha{
+                    margin: 0 auto 44px;
+                    font-size: 13px;
+                    padding: 13px 0;
+                }
+                button.login_facebook{
+                    width: 300px;
+                    height: 60px;
+                    margin: 0 auto 50px;
+                    border-radius: 18px;
+                    font-size: 15px;
+        
+                    svg{
+                        width: 32px;
+                        margin: 0 13px 0 0;
+                    }
+                }
+                p.cadastro{
+                    font-size: 16px;
+                    margin: 0 0 44px;
+                }
+                p.versao{
+                    font-size: 15px;
+                    bottom: 25px;
+                    width: 100%;
+                }
+        
+            }
+        }
+    }
+
+    @media (min-width: 1000px){
+        ion-content{    
+            img.logo{
+                width: 200px;
+                margin: 55px auto 35px;
+            }
+            img.pets{ display: none; }
+        
+            .login_content{
+                max-width: 435px;
+                padding: 35px 60px 46px;
+                border-radius: 10px;
+                min-height: 0;
+
+                .item_input{
+                    margin: 0 0 25px;
+                    font-size: 14px;
+
+                    input{
+                        height: 40px;
+                    }
+                    button.olho{
+                        width: 20px;
+                    }
+                }
+                button.entrar{
+                    margin: 13px 0 35px;
+                }
+                button.esqueceu_senha{
+                    margin: 0 auto 40px;
+                    font-size: 11px;
+                    padding: 12px 0;
+                }
+                button.login_facebook{
+                    font-size: 12px;
+                    height: 48px;
+                    width: 240px;
+                    border-radius: 15px;
+                    margin: 0 auto 35px;
+
+                    svg{
+                        width: 25px;
+                        margin: 0 10px 0 0;
+                    }
+                }
+                p.cadastro{
+                    font-size: 13px;
+                    margin: 0;
+                }
+                p.versao{ display: none; }
+            }
+        }
+    }
+}

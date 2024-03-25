@@ -1,0 +1,35 @@
+@import "./../../../mixins.scss";
+
+app-verifica-existe-associado{
+    @include modal_1;
+
+    .alert_content{
+        svg{
+            display: block;
+            margin: 0 auto 20px;
+        }
+        h2{
+            font-weight: bold;
+            font-size: 16px;
+            line-height: 22px;
+            color: #772E8A;
+            margin: 0 auto 15px !important;
+            text-align: center;
+            max-width: 240px;
+            display: block;
+        }
+        p{
+            display: block;
+            max-width: 300px;
+            font-size: 15px;
+            line-height: 19px;
+            color: #4D4D4D;
+            margin: 0 auto;
+            text-align: center;
+
+            b{
+                color: #772E8A;
+            }
+        }
+    }
+}

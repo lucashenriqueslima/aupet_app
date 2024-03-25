@@ -1,0 +1,5 @@
+@import "./../../../mixins.scss";
+
+app-adicionar-vermifugo{
+    @include modal_1;
+}

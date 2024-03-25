@@ -1,0 +1,401 @@
+@import "./../../../mixins.scss";
+
+
+app-foto{
+    ion-content{
+        .content{
+            @include content;
+            padding: 9.7vw 6.9vw 11.1vw;
+            min-height: calc(100% - 25vw);
+
+            .info_content{
+                margin: 0 0 13.9vw;
+
+                .item{
+                    font-size: 3.6vw;
+                    letter-spacing: 0.3px;
+                    font-weight: 500;
+                    color: grey;
+
+                    span.title{
+                        color: #772E8A;
+                        font-weight: bold;
+                    }
+                }
+                button.compartilhar{
+                    background: #772E8A;
+                    color: white;
+                    @include flex-wrap;
+                    align-items: center;
+                    font-size: 2.5vw;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    border-radius: 1.4vw;
+                    padding: 1.4vw 2.8vw;
+                    margin: 2.8vw 0 0;
+
+                    svg{
+                        width: 4.2vw;
+                        height: auto;
+                        margin-right: 1.4vw;
+                    }
+                }
+            }
+
+            .item_content{
+                h2{
+                    margin: 0 0 5.6vw;
+                    font-size: 3.6vw;
+                    font-weight: bold;
+                    color: #772E8A;
+                    padding: 1.4vw 0 1.4vw 11.9vw;
+                    position: relative;
+                    letter-spacing: 0.3px;
+                    text-transform: uppercase;
+
+                    &.anexo{
+                        margin: 0 0 1vw;
+                    }
+    
+                    svg{
+                        height: auto;
+                        position: absolute;
+                        left: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+    
+                        &.camera{
+                            width: 6.1vw;
+                        }
+                        &.dado_icon{
+                            width: 6.9vw;
+                        }
+                        &.localizacao{
+                            width: 5.3vw;
+                        }
+                        &.cadeado{
+                            width: 6.9vw;
+                        }
+                        &.perfil{
+                            width: 7vw;
+                        }
+                        &.medalha{
+                            width: 8vw;
+                        }
+    
+                        *{
+                            fill: #772E8A;
+                        }
+                    }
+
+                    span{
+                        text-transform: initial;
+                        font-size: 2.8vw;
+                    }
+                }
+
+                .images{
+                    @include flex-wrap;
+                    margin: 0 0 10vw;
+    
+                    .item{
+                        width: 26.4vw;
+                        padding-top: 20.8vw;
+                        position: relative;
+                        margin-right: 2.2vw;
+                        margin: 0 2.2vw 3.5vw 0;
+    
+                        input{ display: none; }
+    
+                        label.adicionar_imagem{
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                            width: 100%;
+                            height: 20.8vw;
+                            border: 1px dashed #772E8A;
+                            @include flex-wrap;
+                            align-items: center;
+                            justify-content: center;
+                            color: #772E8A;
+                            font-size: 8.9vw;
+                            font-weight: 500;
+                            border-radius: 2.8vw;
+                        }
+                        .imagem{
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                            width: 100%;
+                            height: 20.8vw;
+                            border-radius: 2.8vw;
+                            background-position: center;
+                            background-size: cover;
+                            pointer-events: none;
+
+                            &:before{
+                                content: '';
+                                position: absolute;
+                                right: 0;
+                                bottom: 0;
+                                width: 6vw;
+                                height: 6vw;
+                                background-size: 3vw !important;
+                                background-position: center !important;
+                                background-repeat: no-repeat !important;
+                                border-radius: 1vw;
+                                display: none;
+                                pointer-events: none;
+                            }
+
+                            &[data-status="aceito"]{
+                                &:before{
+                                    background: #00aa08;
+                                    background-image: url(./../../../assets/icon/status_foto_1.svg);
+                                    display: block;
+                                }
+                            }
+                            &[data-status="recusado"]{
+                                &:before{
+                                    background: #e00000;
+                                    background-image: url(./../../../assets/icon/status_foto_2.svg);
+                                    display: block;
+                                }
+                            }
+                            &[data-status="upload"]{
+                                &:before{
+                                    background: #0075e0;
+                                    background-image: url(./../../../assets/icon/status_foto_3.svg);
+                                    background-size: 4vw !important;
+                                    display: block;
+                                }
+                            }
+                        }
+                        p.nome{
+                            color: #772e8a;
+                            font-weight: bold;
+                            margin: 0 0 1.4vw;
+                            font-size: 3vw;
+                            line-height: 3.3vw;
+                            padding: 1.4vw 0 0;
+                        }
+                        button.referencia{
+                            width: 100%;
+                            background: #772e8a;
+                            color: white;
+                            display: block;
+                            padding: 1.4vw 0;
+                            font-size: 3vw;
+                            font-weight: 500;
+                            text-transform: uppercase;
+                            border-radius: 0.8vw;
+                        }
+                    }
+                }
+
+                textarea{
+                    border: none;
+                    width: 100% !important;
+                    height: 30vw;
+                    background: #FEF2E0;
+                    border-radius: 1.4vw;
+                    padding: 4vw 5.6vw;
+                    font-family: opensans;
+                    font-size: 3.6vw;
+                    font-weight: 500;
+                    color: #7B7B7B;
+                    margin: 0 0 11vw;
+                
+                    &::placeholder{
+                        color: #7B7B7B;
+                    }
+                }
+            }
+
+            .lista_arquivos{
+                margin: 0 0 8.3vw;
+
+                .item{
+                    position: relative;
+                    width: 100%;
+                    color: #772e8a;
+                    font-weight: 500;
+                    font-size: 3.6vw;
+                    padding: 2.8vw 6.9vw 2.8vw 0;
+                    border-bottom: 1px solid rgba(119, 46, 138, 0.3);
+
+                    button.deletar{
+                        position: absolute;
+                        right: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        width: 4.7vw;
+                        padding: 0;
+                        border: none;
+                        background: transparent;
+
+                        svg{
+                            width: 100%;
+                            height: auto;
+
+                            *{
+                                fill: #772E8A;
+                            }
+                        }
+                    }
+                }
+            }
+
+            button.salvar{
+                @include button_1;
+            }
+        }
+    }
+
+    @media(min-width: 450px){
+        ion-content{
+            .content{
+                padding: 42px 30px 48px;
+                min-height: calc(100% - 108px);
+        
+                .info_content{
+                    margin: 0 0 60px;
+        
+                    .item{
+                        font-size: 15px;
+                        letter-spacing: 0.3px;
+                    }
+                    button.compartilhar{
+                        font-size: 10px;
+                        border-radius: 6px;
+                        padding: 6px 12px;
+                        margin: 12px 0 0;
+        
+                        svg{
+                            width: 18px;
+                            margin-right: 6px;
+                        }
+                    }
+                }
+        
+                .item_content{
+                    h2{
+                        margin: 0 0 24px;
+                        font-size: 15px;
+                        padding: 6px 0 6px 51px;
+                        letter-spacing: 0.3px;
+        
+                        &.anexo{
+                            margin: 0 0 4px;
+
+                            svg{
+                                width: 25px;
+                                height: auto;
+                            }
+                        }
+        
+                        svg{
+                            &.camera{
+                                width: 26px;
+                            }
+                            &.dado_icon{
+                                width: 30px;
+                            }
+                            &.localizacao{
+                                width: 23px;
+                            }
+                            &.cadeado{
+                                width: 30px;
+                            }
+                            &.perfil{
+                                width: 30px;
+                            }
+                            &.medalha{
+                                width: 35px;
+                            }
+                        }
+        
+                        span{
+                            font-size: 12px;
+                        }
+                    }
+        
+                    .images{
+                        margin: 0 0 43px;
+        
+                        .item{
+                            width: 115px;
+                            padding-top: 90px;
+                            margin-right: 9px;
+                            margin: 0 9px 15px 0;
+        
+                            label.adicionar_imagem{
+                                height: 90px;
+                                font-size: 38px;
+                                border-radius: 12px;
+                            }
+                            .imagem{
+                                height: 90px;
+                                border-radius: 12px;
+
+                                &:before{
+                                    width: 27px;
+                                    height: 27px;
+                                    background-size: 13px !important;
+                                    border-radius: 5px;
+                                }
+    
+                                &[data-status="upload"]{
+                                    &:before{
+                                        background-size: 18px !important;
+                                    }
+                                }
+                            }
+                            p.nome{
+                                margin: 0 0 6px;
+                                font-size: 13px;
+                                line-height: 14px;
+                                padding: 6px 0 0;
+                            }
+                            button.referencia{
+                                padding: 6px 0;
+                                font-size: 13px;
+                                border-radius: 3px;
+                            }
+                        }
+                    }
+        
+                    textarea{
+                        height: 130px;
+                        border-radius: 6px;
+                        padding: 17px 24px;
+                        font-size: 15px;
+                        margin: 0 0 48px;
+                    }
+                }
+        
+                .lista_arquivos{
+                    margin: 0 0 36px;
+        
+                    .item{
+                        font-size: 15px;
+                        padding: 12px 30px 12px 0;
+        
+                        button.deletar{
+                            width: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @media (min-width: 1000px){
+        ion-content{
+            .content{
+                width: 640px;
+                max-width: none;
+                padding: 75px 0;
+            }
+        }
+    }
+}

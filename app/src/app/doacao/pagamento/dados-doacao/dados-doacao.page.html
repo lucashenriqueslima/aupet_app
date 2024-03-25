@@ -1,0 +1,77 @@
+<ion-content>
+    <app-header-simples title="Doação"></app-header-simples>
+
+    <div class="content">
+        <h2>Dados : </h2>
+        <div class="itens_content">
+            <div class="item">
+                <input type="text" placeholder=" " [(ngModel)]="dados.nome">
+                <label class="placeholder">Nome</label>
+            </div>
+            <div class="item">
+                <input type="text" mask="999.999.999-99" placeholder=" " [(ngModel)]="dados.cpf">
+                <label class="placeholder">CPF</label>
+            </div>
+            <div class="item">
+                <input type="email" placeholder=" " [(ngModel)]="dados.email">
+                <label class="placeholder">E-mail</label>
+            </div>
+            <div class="item">
+                <input type="text" mask="(99) 99999-9999" placeholder=" " [(ngModel)]="dados.telefone">
+                <label class="placeholder">Telefone</label>
+            </div>
+
+            <div class="item" *ngIf="ong?.campanhas?.length > 0">
+                <select [(ngModel)]="dados.id_campanha" (change)="selectCampanha(dados.id_campanha)">
+                    <option value=""></option>
+                    <option *ngFor="let campanha of ong.campanhas"  value="{{ campanha.id }}" >{{ campanha.nome }}</option>
+                </select>
+                <label class="placeholder">Campanha</label>
+            </div>
+
+        </div>
+        <div class="valor_pagamento">
+            <h3>Qual valor:</h3>
+            <div class="valores">
+                <div class="item">
+                    <input type="radio" name="valor" id="valor_1" value="10" [(ngModel)]="dados.transactionAmount">
+                    <label for="valor_1">R$ 10</label>
+                </div>
+                <div class="item">
+                    <input type="radio" name="valor" id="valor_2" value="25" [(ngModel)]="dados.transactionAmount">
+                    <label for="valor_2">R$ 25</label>
+                </div>
+                <div class="item">
+                    <input type="radio" name="valor" id="valor_3" value="50" [(ngModel)]="dados.transactionAmount">
+                    <label for="valor_3">R$ 50</label>
+                </div>
+                <div class="item">
+                    <input type="radio" name="valor" id="valor_4" value="0" [(ngModel)]="dados.transactionAmount">
+                    <label for="valor_4">Outro valor</label>
+                </div>
+            </div>
+            <div class="outro_valor">
+                <label for="outro_valor">Outro valor:</label>
+                <input type="text" id="outro_valor" placeholder="Digite aqui o valor" *ngIf="dados.transactionAmount == 0  disabled" [(ngModel)]="dados.transactionAmount2">
+            </div>
+        </div>
+
+
+
+        <div class="forma_pagamento">
+            <h3>Forma de pagamento:</h3>
+            <div class="forma">
+                <input type="radio" name="forma" id="forma_1" value="1" [(ngModel)]="dados.forma">
+                <label for="forma_1">Cartão<br>de crédito</label>
+            </div>
+            <div class="forma">
+                <input type="radio" name="forma" id="forma_2" value="2" [(ngModel)]="dados.forma">
+                <label for="forma_2">Boleto</label>
+            </div>
+        </div>
+
+        <button class="continuar" (click)="getDados()">Continuar</button>
+    </div>
+
+    <app-mobile-menu active_page="5" *ngIf="appService.ambiente == 'associado'"></app-mobile-menu>
+</ion-content>

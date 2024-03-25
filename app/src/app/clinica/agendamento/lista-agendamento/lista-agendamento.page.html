@@ -1,0 +1,58 @@
+<ion-content>
+    <div class="header_search">
+        <button class="voltar" routerLink="/clinica"><svg xmlns="http://www.w3.org/2000/svg" width="8.075" height="13.744" viewBox="0 0 8.075 13.744"> <g id="right-arrow" transform="translate(109.553 13.744) rotate(180)"> <g id="Grupo_3" data-name="Grupo 3" transform="translate(101.478)"> <path id="Caminho_2" data-name="Caminho 2" d="M109.333,6.336,103.217.22a.753.753,0,0,0-1.063,0l-.45.45a.753.753,0,0,0,0,1.063l5.136,5.136L101.7,12.011a.754.754,0,0,0,0,1.063l.45.45a.753.753,0,0,0,1.063,0L109.333,7.4a.759.759,0,0,0,0-1.067Z" transform="translate(-101.478)" fill="#fff"/> </g> </g> </svg> </button>
+        <h1>Agendamentos</h1>
+        <app-button-search (newItemEvent)="close_search($event)" (change)="searchTerm($event)"></app-button-search>
+        <img src="assets/img/login/logo.svg" alt="" class="logo">
+    </div>
+
+    <!-- <div class="tab_header">
+        <button (click)="mudar_tab(0)" [ngClass]="tab == 0 ? 'active' : ''">Agendados</button>
+        <button (click)="mudar_tab(1)" [ngClass]="tab == 1 ? 'active' : ''">Realizados</button>
+        <p class="resultado">{{data?.length}} resultados encontrados</p>
+    </div> -->
+
+    <div class="tab_header">
+        <button (click)="mudar_tab(0)" [ngClass]="tab == 0 ? 'active' : ''">Solicitados</button>
+        <button (click)="mudar_tab(1)" [ngClass]="tab == 1 ? 'active' : ''">Agendados</button>
+        <button (click)="mudar_tab(2)" [ngClass]="tab == 2 ? 'active' : ''">Finalizados</button>
+    </div>
+
+
+    <div class="tab_content agendado" *ngIf="tab == 0">
+        <div class="item" *ngFor="let item of data" [hidden]="item?.status !='Pendente'" routerLink="/{{appService.ambiente}}/agendamento/{{item.id}}/especialidade/{{item.id_especialidade}}">
+            <div class="image" style="background-image: url('{{ item.foto_pet }}')"></div>
+            <div class="text">
+                <p class="data">{{item.data_agendamento | date:'dd/MM/yyyy'}} às {{item.data_agendamento | date:'HH:mm'}}</p>
+                <h2>{{ item.pet }}</h2>
+                <p class="descricao">{{ item.servico }}, {{ item.descricao}}</p>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="5.679" height="9.667" viewBox="0 0 5.679 9.667"><g id="right-arrow" transform="translate(-101.478)"><g id="Grupo_3" data-name="Grupo 3" transform="translate(101.478)"><path id="Caminho_2" data-name="Caminho 2" d="M107,4.456l-4.3-4.3a.53.53,0,0,0-.748,0l-.317.317a.53.53,0,0,0,0,.748l3.613,3.613-3.617,3.617a.53.53,0,0,0,0,.748l.317.317a.53.53,0,0,0,.748,0L107,5.207a.534.534,0,0,0,0-.751Z" transform="translate(-101.478)" fill="#989898"/></g></g></svg>
+        </div>
+    </div>
+
+    <div class="tab_content agendado" *ngIf="tab == 1">
+        <div class="item" *ngFor="let item of data" [hidden]="item?.status !='Agendado'" routerLink="/{{appService.ambiente}}/agendamento/{{item.id}}/especialidade/{{item.id_especialidade}}">
+            <div class="image" style="background-image: url('{{ item.foto_pet }}')"></div>
+            <div class="text">
+                <p class="data">{{item.data_agendamento | date:'dd/MM/yyyy'}} às {{item.data_agendamento | date:'HH:mm'}}</p>
+                <h2>{{ item.pet }}</h2>
+                <p class="descricao">{{ item.servico }}, {{ item.descricao}}</p>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="5.679" height="9.667" viewBox="0 0 5.679 9.667"><g id="right-arrow" transform="translate(-101.478)"><g id="Grupo_3" data-name="Grupo 3" transform="translate(101.478)"><path id="Caminho_2" data-name="Caminho 2" d="M107,4.456l-4.3-4.3a.53.53,0,0,0-.748,0l-.317.317a.53.53,0,0,0,0,.748l3.613,3.613-3.617,3.617a.53.53,0,0,0,0,.748l.317.317a.53.53,0,0,0,.748,0L107,5.207a.534.534,0,0,0,0-.751Z" transform="translate(-101.478)" fill="#989898"/></g></g></svg>
+        </div>
+    </div>
+
+    <div class="tab_content finalizado" *ngIf="tab == 2">
+        <div class="item" *ngFor="let item of data" [hidden]="item?.status !='Concluido'" routerLink="/{{appService.ambiente}}/agendamento/{{item.id}}/especialidade/{{item.id_especialidade}}">
+            <div class="image" style="background-image: url('{{ item.foto_pet }}')"></div>
+            <div class="text">
+                <p class="data">{{item.data_agendamento | date:'dd/MM/yyyy'}} às {{item.data_agendamento | date:'HH:mm'}}</p>
+                <h2>{{ item.pet }}</h2>
+                <p class="descricao">{{ item.servico }}, {{ item.descricao}}</p>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="5.679" height="9.667" viewBox="0 0 5.679 9.667"><g id="right-arrow" transform="translate(-101.478)"><g id="Grupo_3" data-name="Grupo 3" transform="translate(101.478)"><path id="Caminho_2" data-name="Caminho 2" d="M107,4.456l-4.3-4.3a.53.53,0,0,0-.748,0l-.317.317a.53.53,0,0,0,0,.748l3.613,3.613-3.617,3.617a.53.53,0,0,0,0,.748l.317.317a.53.53,0,0,0,.748,0L107,5.207a.534.534,0,0,0,0-.751Z" transform="translate(-101.478)" fill="#989898"/></g></g></svg>
+        </div>
+    </div>
+
+</ion-content>

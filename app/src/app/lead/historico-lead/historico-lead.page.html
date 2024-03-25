@@ -1,0 +1,10 @@
+<ion-content>
+    <app-header-simples title="Histórico"></app-header-simples>
+    <div class="content" *ngIf="historico">
+        <div class="item" *ngFor="let item of historico">
+            <p class="data">{{item.create_at | date:'dd/MM/yyyy'}} às {{item.create_at | date:'HH:mm'}}</p>
+            <h2>{{ item.nome}} </h2>
+            <p class="acao">{{ item.atividade }}</p>
+        </div>
+    </div>
+</ion-content>

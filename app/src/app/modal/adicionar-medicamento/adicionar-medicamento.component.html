@@ -1,0 +1,72 @@
+<div class="pop_up_content">
+    <div class="content">
+        <h2>Adicionar Medicamento:</h2>
+        <div class="item">
+            <input type="text" placeholder=" " [(ngModel)]="data.nome">
+            <label class="placeholder">Nome do medicamento</label>
+        </div>
+        <div class="item">
+            <input type="date" placeholder=" " [(ngModel)]="data.dt_inicio">
+            <label class="placeholder">Data de início</label>
+        </div>
+        <div class="item">
+            <input type="time" placeholder=" " [(ngModel)]="data.hr_inicio">
+            <label class="placeholder">Hora de início</label>
+        </div>
+        <div class="item">
+            <select [attr.data-value]="data.id_tipo_tratamento" name="" [(ngModel)]="data.id_tipo_tratamento">
+                <option hidden value=""></option>
+                <option *ngFor="let item of tipo_tratamentos"  value="{{ item.id }}"> {{ item.tratamento}}</option>
+            </select>
+            <label class="placeholder">Tipo de tratamento</label>
+        </div>
+        <div class="item">
+            <select [attr.data-value]="data.id_tipo_dosagem" name="" [(ngModel)]="data.id_tipo_dosagem">
+                <option hidden value="" hidden></option>
+                <option value="injecao">Injeção</option>
+                <option value="pilula">Pilula</option>
+                <option value="gota">Gota</option>
+            </select>
+            <label class="placeholder">Tipo de dosagem</label>
+        </div>
+        <div class="item">
+            <input type="text" placeholder=" " [(ngModel)]="data.quantidade">
+            <label class="placeholder">Quantidade <small>(opcional)</small></label>
+        </div>
+        <div class="item">
+            <input type="text" list="frequencia" placeholder=" " [(ngModel)]="data.frequencia">
+            <label class="placeholder">Frequência</label>
+            <datalist id="frequencia">
+                <option value="semanal">semanal</option>
+                <option value="mensal">mensal</option>
+                <option value="trimestral">trimestral</option>
+              </datalist>
+        </div>
+        <div class="item">
+            <input type="text" placeholder=" " [(ngModel)]="data.nome_medico">
+            <label class="placeholder">Nome do médico <small>(opcional)</small></label>
+        </div>
+
+        <div class="item">
+            <input type="text" placeholder=" " [(ngModel)]="data.instrucao">
+            <label class="placeholder">Instrução <small>(opcional)</small></label>
+        </div>
+        <div class="item">
+            <input type="text" placeholder=" " [(ngModel)]="data.observacao">
+            <label class="placeholder">Observação <small>(opcional)</small></label>
+        </div>
+        <div class="item">
+            <input type="date" placeholder=" " [(ngModel)]="data.validade">
+            <label class="placeholder">Validade <small>(opcional)</small></label>
+        </div>
+        <div class="item">
+            <input type="text" placeholder=" " [(ngModel)]="data.lote">
+            <label class="placeholder">Lote <small>(opcional)</small></label>
+        </div>
+
+        <div class="buttons">
+            <button class="cancelar" (click)="dismiss()">cancelar</button>
+            <button class="confirm" (click)="salvar()">ok</button>
+        </div>
+    </div>
+</div>

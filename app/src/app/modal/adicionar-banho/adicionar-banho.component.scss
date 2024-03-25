@@ -1,0 +1,5 @@
+@import "./../../../mixins.scss";
+
+app-adicionar-banho{
+    @include modal_1;
+}

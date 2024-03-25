@@ -1,0 +1,51 @@
+@import "./../../../../mixins.scss";
+
+app-finalizado-pagamento{
+    ion-content{
+        .content{
+            width: 100%;
+            height: 100%;
+            background: white;
+            position: relative;
+            padding: 0 25px 100px;
+            @include flex-wrap;
+            align-content: center;
+            
+            svg{
+                width: 118px;
+                height: auto;
+                display: block;
+                margin: 0 auto 30px;
+            }
+            h1{
+                margin: 0 0 15px;
+                color: #4D4D4D;
+                font-size: 16px;
+                width: 100%;
+                text-align: center;
+                font-weight: bold;
+            }
+            p{
+                margin: 0;
+                color: #4D4D4D;
+                width: 100%;
+                text-align: center;
+                font-size: 14px;
+            }
+            .button_content{
+                position: absolute;
+                width: 100%;
+                left: 0;
+                bottom: 0;
+                padding: 0 25px 30px;
+
+                button.voltar_home{
+                    @include button_1;
+                    max-width: 500px;
+                    margin: 0 auto;
+                    display: block;
+                }
+            }
+        }
+    }
+}

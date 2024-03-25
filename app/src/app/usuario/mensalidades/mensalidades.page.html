@@ -1,0 +1,41 @@
+<ion-content>
+    <app-header-simples title="Mensalidades" link=""></app-header-simples>
+
+    <div class="content">
+        <div class="item" [attr.pago]="mensalidades[i]?.status_fatura == 'recebida'" *ngFor="let mensalidade of mensalidades; let i = index">
+            <p class="data">Vencimento: {{mensalidade?.data_fatura | date:'dd/MM/yyyy'}}</p>
+            <p class="nome">{{ mensalidade?.descricao }}</p>
+            <p class="valor">{{ mensalidade?.valor_mensalidade | currency:'BRL':true:'1.2-2'}}</p>
+
+            <div class="icone">
+                <svg class="aberto" xmlns="http://www.w3.org/2000/svg" width="16.176" height="17.547" viewBox="0 0 16.176 17.547"><g transform="translate(-20)"><g transform="translate(20)"><g transform="translate(0)"><path d="M384.894,14.721l1.861,1.552a.685.685,0,1,0,.878-1.053l-1.861-1.552a.685.685,0,1,0-.878,1.053Z" transform="translate(-372.151 -13.046)" fill="#dc8400"/><path d="M33.731,16.433a.683.683,0,0,0,.439-.159l1.861-1.552a.685.685,0,1,0-.878-1.053l-1.861,1.552a.685.685,0,0,0,.439,1.212Z" transform="translate(-32.598 -13.047)" fill="#dc8400"/><path d="M33.807,3.74A8.027,8.027,0,0,0,28.773,1.4V.685a.685.685,0,1,0-1.371,0V1.4a8.088,8.088,0,0,0-5.034,13.778,8.089,8.089,0,0,0,10.512.8.685.685,0,1,0-.813-1.1,6.708,6.708,0,1,1,1.909-2.178.685.685,0,1,0,1.2.661A8.092,8.092,0,0,0,33.807,3.74Z" transform="translate(-20)" fill="#dc8400"/><path d="M220.71,151.3a.685.685,0,0,0-.964.1l-2.161,2.671a1.372,1.372,0,1,0,1.065.863l2.161-2.671A.685.685,0,0,0,220.71,151.3Z" transform="translate(-209.283 -145.968)" fill="#dc8400"/></g></g></g></svg>
+                <svg class="pago" xmlns="http://www.w3.org/2000/svg" width="17.256" height="17.256" viewBox="0 0 17.256 17.256"><path d="M8.628,0a8.628,8.628,0,1,0,8.628,8.628A8.637,8.637,0,0,0,8.628,0Zm0,0" fill="#00d58d"/><path d="M149.566,166.556l-4.674,4.673a.718.718,0,0,1-1.017,0l-2.337-2.337a.719.719,0,0,1,1.017-1.017l1.828,1.828,4.165-4.165a.719.719,0,0,1,1.017,1.017Zm0,0" transform="translate(-136.565 -159.756)" fill="#fafafa"/></svg>
+            </div>
+        </div>
+
+        <!-- <div class="item" pago="true">
+            <p class="data">Vencimento: 28/11/2021</p>
+            <p class="nome">Plano Ambulatorial</p>
+            <p class="valor">R$ 234,00</p>
+
+            <div class="icone">
+                <svg class="aberto" xmlns="http://www.w3.org/2000/svg" width="16.176" height="17.547" viewBox="0 0 16.176 17.547"><g transform="translate(-20)"><g transform="translate(20)"><g transform="translate(0)"><path d="M384.894,14.721l1.861,1.552a.685.685,0,1,0,.878-1.053l-1.861-1.552a.685.685,0,1,0-.878,1.053Z" transform="translate(-372.151 -13.046)" fill="#dc8400"/><path d="M33.731,16.433a.683.683,0,0,0,.439-.159l1.861-1.552a.685.685,0,1,0-.878-1.053l-1.861,1.552a.685.685,0,0,0,.439,1.212Z" transform="translate(-32.598 -13.047)" fill="#dc8400"/><path d="M33.807,3.74A8.027,8.027,0,0,0,28.773,1.4V.685a.685.685,0,1,0-1.371,0V1.4a8.088,8.088,0,0,0-5.034,13.778,8.089,8.089,0,0,0,10.512.8.685.685,0,1,0-.813-1.1,6.708,6.708,0,1,1,1.909-2.178.685.685,0,1,0,1.2.661A8.092,8.092,0,0,0,33.807,3.74Z" transform="translate(-20)" fill="#dc8400"/><path d="M220.71,151.3a.685.685,0,0,0-.964.1l-2.161,2.671a1.372,1.372,0,1,0,1.065.863l2.161-2.671A.685.685,0,0,0,220.71,151.3Z" transform="translate(-209.283 -145.968)" fill="#dc8400"/></g></g></g></svg>
+                <svg class="pago" xmlns="http://www.w3.org/2000/svg" width="17.256" height="17.256" viewBox="0 0 17.256 17.256"><path d="M8.628,0a8.628,8.628,0,1,0,8.628,8.628A8.637,8.637,0,0,0,8.628,0Zm0,0" fill="#00d58d"/><path d="M149.566,166.556l-4.674,4.673a.718.718,0,0,1-1.017,0l-2.337-2.337a.719.719,0,0,1,1.017-1.017l1.828,1.828,4.165-4.165a.719.719,0,0,1,1.017,1.017Zm0,0" transform="translate(-136.565 -159.756)" fill="#fafafa"/></svg>
+            </div>
+        </div>
+
+        <div class="item" pago="true">
+            <p class="data">Vencimento: 28/11/2021</p>
+            <p class="nome">Plano Ambulatorial</p>
+            <p class="valor">R$ 234,00</p>
+
+            <div class="icone">
+                <svg class="aberto" xmlns="http://www.w3.org/2000/svg" width="16.176" height="17.547" viewBox="0 0 16.176 17.547"><g transform="translate(-20)"><g transform="translate(20)"><g transform="translate(0)"><path d="M384.894,14.721l1.861,1.552a.685.685,0,1,0,.878-1.053l-1.861-1.552a.685.685,0,1,0-.878,1.053Z" transform="translate(-372.151 -13.046)" fill="#dc8400"/><path d="M33.731,16.433a.683.683,0,0,0,.439-.159l1.861-1.552a.685.685,0,1,0-.878-1.053l-1.861,1.552a.685.685,0,0,0,.439,1.212Z" transform="translate(-32.598 -13.047)" fill="#dc8400"/><path d="M33.807,3.74A8.027,8.027,0,0,0,28.773,1.4V.685a.685.685,0,1,0-1.371,0V1.4a8.088,8.088,0,0,0-5.034,13.778,8.089,8.089,0,0,0,10.512.8.685.685,0,1,0-.813-1.1,6.708,6.708,0,1,1,1.909-2.178.685.685,0,1,0,1.2.661A8.092,8.092,0,0,0,33.807,3.74Z" transform="translate(-20)" fill="#dc8400"/><path d="M220.71,151.3a.685.685,0,0,0-.964.1l-2.161,2.671a1.372,1.372,0,1,0,1.065.863l2.161-2.671A.685.685,0,0,0,220.71,151.3Z" transform="translate(-209.283 -145.968)" fill="#dc8400"/></g></g></g></svg>
+                <svg class="pago" xmlns="http://www.w3.org/2000/svg" width="17.256" height="17.256" viewBox="0 0 17.256 17.256"><path d="M8.628,0a8.628,8.628,0,1,0,8.628,8.628A8.637,8.637,0,0,0,8.628,0Zm0,0" fill="#00d58d"/><path d="M149.566,166.556l-4.674,4.673a.718.718,0,0,1-1.017,0l-2.337-2.337a.719.719,0,0,1,1.017-1.017l1.828,1.828,4.165-4.165a.719.719,0,0,1,1.017,1.017Zm0,0" transform="translate(-136.565 -159.756)" fill="#fafafa"/></svg>
+            </div>
+        </div> -->
+    </div>
+
+    <app-mobile-menu active_page="0"></app-mobile-menu>
+</ion-content>
+

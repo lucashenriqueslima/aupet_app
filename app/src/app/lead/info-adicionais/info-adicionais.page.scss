@@ -1,0 +1,80 @@
+@import "../../../mixins.scss";
+
+app-info-adicionais {
+    ion-content{
+        .content{
+            @include content;
+            min-height: calc(100% - 25vw);
+            padding: 11.1vw 6.9vw 10vw;
+    
+            .dados_termo{
+                padding: 0 0 4.2vw;
+                @include flex-wrap;
+                justify-content: space-between;
+    
+                .item{
+                    margin: 0 0 4.2vw;
+                    width: 100%;
+
+                    &.half_item {
+                        width: calc((100% - 4.2vw)/2);
+                    }
+
+                    @include input_1;
+                }
+            }
+            .botoes{
+                button{
+                    margin: 5vw 0 0;
+                    @include button_1;
+                }
+            }
+        }
+    }
+
+    @media(min-width: 450px){
+        ion-content{
+            .content{
+                min-height: calc(100% - 112px);
+                padding: 50px 31px 45px;
+        
+                .dados_termo{
+                    padding: 0 0 19px;
+        
+                    .item{
+                        margin: 0 0 19px;
+                        
+                        &.half_item {
+                            width: calc((100% - 19px)/2);
+                        }
+                    }
+                }
+                .botoes{
+                    button{
+                        margin: 22px 0 0;
+                    }
+                }
+            }
+        }
+    }
+
+    @media(min-width: 1000px){
+        ion-content{
+            border-bottom: 30px solid #772e8a;
+
+            .content{
+                width: 800px;
+                max-width: initial;
+
+                .dados_termo{
+                    @include flex-wrap;
+                    justify-content: space-between;
+
+                    .item{
+                        width: calc((100% - 20px)/2) !important;
+                    }
+                }
+            }
+        }
+    }
+}

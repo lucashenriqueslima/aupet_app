@@ -1,0 +1,36 @@
+@import "./../../../mixins.scss";
+
+app-assinar-plano{
+    @include modal_1;
+
+    .assinar_content{
+        padding: 10px;
+
+        h3{
+            font-weight: bold;
+            line-height: 24px;
+            font-size: 20px;
+            color: #772E8A;
+            margin: 0 0 20px;
+        }
+        p{
+            font-size: 16px;
+            line-height: 22px;
+            color: #1D1D1D;
+            margin: 0;
+        }
+      
+        .button_assinsar{
+            padding: 40px 0 0;
+          button{
+            @include button_1;
+            margin: 0 0 10px;
+
+            &.cancelar{
+                background: #4A4A4A;
+                box-shadow: 1px 3px 15px #4a4a4a;
+            }
+          }
+        }
+    }
+}

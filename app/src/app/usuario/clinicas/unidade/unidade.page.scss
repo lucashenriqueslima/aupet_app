@@ -1,0 +1,266 @@
+@import './../../../../mixins.scss';
+
+app-unidade{
+    ion-content{
+        --background: white;
+        app-header-simples{ display: none; }
+    
+        .header_content{
+            height: 51.4vw;
+            background-color: #e4e4e4;
+            background-position: center;
+            background-size: cover;
+            border-radius: 0 0 9.7vw 9.7vw;
+            position: relative;
+    
+            button.voltar{
+                border: none;
+                width: 9.4vw;
+                height: 9.4vw;
+                border-radius: 50%;
+                background: #772E8A;
+                position: absolute;
+                top: 11.1vw;
+                left: 6.9vw;
+    
+                svg{
+                    width: 2.2vw;
+                    height: auto;
+                }
+            }
+        }
+        .dados{
+            padding: 6.9vw;
+    
+            h2{
+                margin: 0 0 5.6vw;
+                font-size: 5.6vw;
+                font-weight: bold;
+                color: #772E8A;
+            }
+            p.endereco{
+                padding: 0 0 0 5.6vw;
+                position: relative;
+                font-size: 3.3vw;
+                font-weight: 500;
+                line-height: 3.3vw;
+                color: #4D4D4D;
+                margin: 0 0 2.8vw;
+    
+                svg{
+                    width: 1.9vw;
+                    height: auto;
+                    position: absolute;
+                    left: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+            }
+            p.telefone{
+                padding: 0 0 0 5.6vw;
+                position: relative;
+                margin: 0;
+                font-size: 3.6vw;
+                line-height: 3.9vw;
+                font-weight: 600;
+                color: #000000;
+    
+                svg{
+                    width: 2.8vw;
+                    height: auto;
+                    position: absolute;
+                    left: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+            }
+            .descricao{
+                font-size: 3.6vw;
+                line-height: 5vw;
+                color: #4D4D4D;
+                margin: 9.7vw 0 0;
+            }
+        }
+        .galeria{
+            overflow: auto;
+            margin: 0 0 2.8vw;
+    
+            .galeria_content{
+                @include width_fitcontent;
+                display: flex;
+                padding: 4.2vw 2.8vw 2.8vw 6.9vw;
+    
+                .image{
+                    width: 27.8vw;
+                    height: 20.8vw;
+                    background-position: center;
+                    background-size: cover;
+                    margin-left: 1.4vw;
+                    border-radius: 1.4vw;
+                    cursor: pointer;
+                    overflow: hidden;
+
+                    *{ cursor: pointer; }
+
+                    ion-img-viewer{
+                        width: 100%;
+                        height: 100%;
+                        position: relative;
+
+                        img{
+                            position: absolute;
+                            left: 50%;
+                            top: 50%;
+                            transform: translate(-50%, -50%);
+                            width: auto;
+                            height: auto;
+                            min-width: 100%;
+                            min-height: 100%;
+                        }
+
+                    }
+                }
+            }
+        }
+        .content_button{
+            padding: 26.4vw 6.9vw 25vw;
+    
+            button.agendar_servico{
+                @include button_1;
+            }
+        }
+    }
+
+    @media (min-width: 450px){
+        ion-content{
+            .header_content{
+                width: 450px;
+                height: 231px;
+                border-radius: 0 0 44px 44px;
+                margin: 0 auto;
+        
+                button.voltar{
+                    width: 42px;
+                    height: 42px;
+                    top: 50px;
+                    left: 31px;
+        
+                    svg{
+                        width: 10px;
+                    }
+                }
+            }
+            .dados{
+                padding: 31px;
+                max-width: 500px;
+                margin: 0 auto;
+
+                h2{
+                    margin: 0 0 25px;
+                    font-size: 25px;
+                    text-align: center;
+                }
+                p.endereco{
+                    padding: 0 0 0 25px;
+                    font-size: 15px;
+                    line-height: 15px;
+                    @include width_fitcontent;
+                    margin: 0 auto 13px;
+        
+                    svg{
+                        width: 9px;
+                    }
+                }
+                p.telefone{
+                    padding: 0 0 0 25px;
+                    font-size: 16px;
+                    line-height: 18px;
+                    @include width_fitcontent;
+                    margin: 0 auto;
+        
+                    svg{
+                        width: 13px;
+                    }
+                }
+                .descricao{
+                    font-size: 16px;
+                    line-height: 22px;
+                    margin: 44px 0 0;
+                    text-align: center;
+                }
+            }
+            .galeria{
+                margin: 0 0 13px;
+        
+                .galeria_content{
+                    width: 100%;
+                    max-width: 500px;
+                    margin: 0 auto;
+                    padding: 0;
+                    @include flex-wrap;
+        
+                    .image{
+                        width: 156px;
+                        height: 117px;
+                        border-radius: 6px;
+                        margin: 0 5px 10px;
+                    }
+                }
+            }
+            .content_button{
+                padding: 50px 30px 100px;
+
+                button{
+                    max-width: 500px;
+                    margin: 0 auto;
+                    display: block;
+                }
+            }
+        }
+    }
+    @media (min-width: 1000px){
+        ion-content{
+            border-bottom: 30px solid #772e8a;
+            
+            app-header-simples{ display: block; }
+        
+            .header_content{
+                width: 495px;
+                height: 255px;
+                border-radius: 0 0 30px 30px;
+
+                button.voltar{ display: none; }
+            }
+            .dados{
+                padding: 30px 0 35px;
+                max-width: 615px;
+
+                h2{
+                    font-size: 22px;
+                }
+                .descricao{
+                    font-size: 14px;
+                    line-height: 20px;
+                    margin: 20px 0 0;
+                }
+            }
+            .galeria{
+                .galeria_content{
+                    max-width: 615px;
+
+                    .image{
+                        width: 195px;
+                        height: 145px;
+                    }
+                }
+            }
+            .content_button{
+                padding: 30px 30px 75px;
+
+                button.agendar_servico{
+                    max-width: 600px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,29 @@
+<ion-content>
+    <app-header-simples title="Extrato financeiro"></app-header-simples>
+
+    <div class="header_icon">
+        <button class="voltar" routerLink="/consultor"><svg xmlns="http://www.w3.org/2000/svg" width="8.075" height="13.744" viewBox="0 0 8.075 13.744"> <g id="right-arrow" transform="translate(109.553 13.744) rotate(180)"> <g id="Grupo_3" data-name="Grupo 3" transform="translate(101.478)"> <path id="Caminho_2" data-name="Caminho 2" d="M109.333,6.336,103.217.22a.753.753,0,0,0-1.063,0l-.45.45a.753.753,0,0,0,0,1.063l5.136,5.136L101.7,12.011a.754.754,0,0,0,0,1.063l.45.45a.753.753,0,0,0,1.063,0L109.333,7.4a.759.759,0,0,0,0-1.067Z" transform="translate(-101.478)" fill="#fff"/> </g> </g> </svg> </button>
+        <h1>Extrato financeiro</h1>
+    </div>
+
+    <div class="icon_name">
+        <div class="icone">
+            <svg id="money" xmlns="http://www.w3.org/2000/svg" width="65.588" height="65.588" viewBox="0 0 65.588 65.588"> <path id="Caminho_618" data-name="Caminho 618" d="M55.956,9.632A32.756,32.756,0,1,0,9.632,55.956,32.756,32.756,0,1,0,55.956,9.632ZM32.794,61.745A28.951,28.951,0,1,1,61.745,32.794,28.984,28.984,0,0,1,32.794,61.745Z" transform="translate(0 0)" fill="#772e8a"/> <path id="Caminho_619" data-name="Caminho 619" d="M85.98,61a24.98,24.98,0,1,0,24.98,24.98A25.008,25.008,0,0,0,85.98,61Zm0,46.116A21.137,21.137,0,1,1,107.116,85.98,21.161,21.161,0,0,1,85.98,107.116Z" transform="translate(-53.186 -53.186)" fill="#772e8a"/> <path id="Caminho_620" data-name="Caminho 620" d="M196.372,132.376a1.922,1.922,0,0,0,3.843,0,7.087,7.087,0,0,0-3.02-5.613,10.56,10.56,0,0,0-4.666-1.919v-2.075a1.922,1.922,0,0,0-3.843,0v2.075a10.56,10.56,0,0,0-4.666,1.919,6.727,6.727,0,0,0,0,11.227,10.561,10.561,0,0,0,4.666,1.919v7.61c-2.214-.541-3.843-1.977-3.843-3.614a1.922,1.922,0,1,0-3.843,0,7.087,7.087,0,0,0,3.02,5.613,10.561,10.561,0,0,0,4.666,1.919v2.094a1.922,1.922,0,0,0,3.843,0v-2.094a10.559,10.559,0,0,0,4.666-1.919,6.727,6.727,0,0,0,0-11.227,10.56,10.56,0,0,0-4.666-1.919v-7.61C194.743,129.3,196.372,130.74,196.372,132.376Zm-11.529,0c0-1.637,1.629-3.073,3.843-3.614v7.228C186.472,135.449,184.843,134.013,184.843,132.376Zm11.529,11.529c0,1.636-1.629,3.073-3.843,3.614v-7.228C194.743,140.832,196.372,142.269,196.372,143.905Z" transform="translate(-157.814 -105.366)" fill="#772e8a"/> </svg>
+        </div>
+    </div>
+
+    <div class="list_item">
+        <div class="item" *ngFor="let item of extratos">
+            <p class="data">{{item?.activated_at | date:'dd/MM/yyyy'}} às {{item?.activated_at | date:'HH:mm'}}</p>
+            <p class="valor">Valor pago: <span>R$ {{ item?.bonificacao }}</span></p>
+        </div>
+    </div>
+
+    <!-- <div class="list_item" *ngIf="!extratos.bonificacao">
+        <div class="item">
+            <p class="valor">Não Possui Propostas Ativadas</p>
+        </div>
+    </div> -->
+
+
+</ion-content>

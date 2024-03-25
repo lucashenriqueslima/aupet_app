@@ -1,0 +1,13 @@
+<div class="pop_up_content">
+  <div class="content">
+      <h2>Referêcia:</h2>
+      <ion-img-viewer [src]="data?.item?.imagem_exemplo" alt="" [title]="data?.item?.legenda" scheme="dark"  text="Imagem enviada"></ion-img-viewer>
+    <br>
+    <br>
+      <h2>Foto:</h2>
+      <ion-img-viewer [src]="data?.item?.imagem" alt="" [title]="data?.item?.legenda" scheme="dark"  text="Imagem enviada"></ion-img-viewer>
+      <div class="buttons">
+          <button class="cancelar" (click)="dismiss()">fechar</button>
+      </div>
+  </div>
+</div>

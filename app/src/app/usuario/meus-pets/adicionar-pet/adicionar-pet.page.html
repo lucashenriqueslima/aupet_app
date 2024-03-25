@@ -1,0 +1,71 @@
+<ion-content>
+    <app-header-simples title="{{ route.snapshot.params.id ? 'Atualizar Pet' : 'Cadastrar pet'}}"></app-header-simples>
+
+    <div class="content">
+        <div class="foto_content">
+            <div class="adicionar_foto" (click)="inputfoto()">
+                <svg (click)="inputfoto()" xmlns="http://www.w3.org/2000/svg" width="22" height="49" viewBox="0 0 22 49"> <text id="_" data-name="+" transform="translate(11 38)" fill="#fff" font-size="36" font-family="OpenSans-Regular, Open Sans"><tspan x="-10.292" y="0">+</tspan></text> </svg>
+                <p>Adicionar<br>foto</p>
+            </div>
+            <div (click)="inputfoto()" *ngIf="data.foto" class="foto" style="background-image: url('{{ data.foto }}');"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="43" height="43" viewBox="0 0 43 43"><defs><filter id="a" x="0" y="0" width="43" height="43" filterUnits="userSpaceOnUse"><feOffset dy="3" input="SourceAlpha"/><feGaussianBlur stdDeviation="3" result="b"/><feFlood flood-opacity="0.161"/><feComposite operator="in" in2="b"/><feComposite in="SourceGraphic"/></filter></defs><g transform="translate(-275.034 -239.034)"><g transform="matrix(1, 0, 0, 1, 275.03, 239.03)" filter="url(#a)"><circle cx="12.5" cy="12.5" r="12.5" transform="translate(9 6)" fill="#fff"/></g><g transform="translate(291.828 252.828)"><g transform="translate(0)"><path d="M8.659.539a1.84,1.84,0,0,0-2.6,0L.913,5.682a.359.359,0,0,0-.092.158l-.808,2.9a.359.359,0,0,0,.444.442l2.9-.824a.359.359,0,0,0,.156-.6L1.687,5.925,5.95,1.662,7.535,3.247,4.272,6.5a.359.359,0,0,0,.507.509l3.88-3.869a1.84,1.84,0,0,0,0-2.6Zm-6.083,7.3-1.7.483.476-1.709Zm5.575-5.2-.107.107L6.458,1.154l.107-.107A1.122,1.122,0,0,1,8.151,2.633Z" transform="translate(0)" fill="#772e8a"/></g></g></g></svg></div>
+        </div>
+
+        <div class="item_list">
+            <div class="item item_full">
+                <input type="text" placeholder=" " [(ngModel)]='data.nome'>
+                <label class="placeholder">Nome do pet <sup>*</sup></label>
+            </div>
+            <div class="item">
+                <select [attr.data-value]="data.sexo" [(ngModel)]='data.sexo'>
+                    <option value="undefined" hidden ></option>
+                    <option value="Macho">Macho</option>
+                    <option value="Fêmea">Fêmea</option>
+                </select>
+                <label class="placeholder">Sexo <sup>*</sup></label>
+            </div>
+            
+            <div class="item">
+                <select [attr.data-value]="data.id_especie" [(ngModel)]='data.id_especie' placeholder="Espécie" (change)="selectRaca(data.id_especie)">
+                    <option value="undefined" hidden></option>
+                    <option *ngFor="let especie of especie" value="{{especie.id}}">{{especie.titulo}}</option>
+                </select>
+                <label class="placeholder">Espécie <sup>*</sup></label>
+            </div>
+            <div class="item">
+                <select [attr.data-value]="data.id_raca" [(ngModel)]='data.id_raca'>
+                    <option value="undefined" hidden></option>
+                    <option *ngFor="let racas of raca" value="{{racas.id}}" >{{racas.titulo}}</option>
+                </select>
+                <label class="placeholder">Raça <sup>*</sup></label>
+            </div>
+
+            <div class="item">
+                <select [attr.data-value]="data.porte" [(ngModel)]='data.porte'>
+                    <option value="undefined" hidden ></option>
+                    <option value="Grande">Grande</option>
+                    <option value="Médio">Médio</option>
+                    <option value="Pequeno">Pequeno</option>
+                </select>
+                <label class="placeholder">Porte <sup>*</sup></label>
+            </div>
+
+            <div class="item">
+                <input type="tel" mask="99.99" placeholder=" " [(ngModel)]='data.peso'>
+                <label class="placeholder">Peso (kg)</label>
+            </div>
+            <div class="item">
+                <input type="text" placeholder=" " [(ngModel)]='data.cor'>
+                <label class="placeholder">Cor</label>
+            </div>
+            <div class="item">
+                <input type="number" placeholder=" " maxlength="2" [(ngModel)]='data.idade'>
+                <label class="placeholder">idade</label>
+            </div>
+
+
+        </div>
+        <button class="cadastrar" [attr.data-load]="load ? 'on' : ''" (click)="request()">{{ route.snapshot.params.id ? 'Atualizar Dados' : 'Cadastrar Agora'}}</button>
+    </div>
+
+    <app-mobile-menu active_page="3"></app-mobile-menu>
+</ion-content>

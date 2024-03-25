@@ -1,0 +1,76 @@
+@import "./../../../../mixins.scss";
+
+app-finalizado-doacao{
+    ion-content{
+        .content{
+            width: 100%;
+            max-width: initial;
+            height: 100%;
+            background: white;
+            position: relative;
+            padding: 0 6.9vw 27.8vw;
+            @include flex-wrap;
+            align-content: center;
+            margin: 0 auto;
+
+            svg{
+                width: 32.8vw;
+                height: auto;
+                display: block;
+                margin: 0 auto 8.3vw;
+            }
+            h1{
+                margin: 0 0 4.2vw;
+                color: #4D4D4D;
+                font-size: 4.4vw;
+                width: 100%;
+                text-align: center;
+                font-weight: bold;
+            }
+            p{
+                margin: 0;
+                color: #4D4D4D;
+                width: 100%;
+                text-align: center;
+                font-size: 3.9vw;
+            }
+            .button_content{
+                position: absolute;
+                width: 100%;
+                max-width: 450px;
+                margin: 0 auto;
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: 0;
+                padding: 0 6.9vw 8.3vw;
+    
+                button.voltar_home{
+                    @include button_1;
+                }
+            }
+        }
+    }
+
+    @media (min-width: 450px){
+        ion-content{
+            .content{
+                padding: 0 31px 125px;
+                
+                svg{
+                    width: 148px;
+                    margin: 0 auto 37px;
+                }
+                h1{
+                    margin: 0 0 19px;
+                    font-size: 20px;
+                }
+                p{
+                    font-size: 18px;
+                }
+                .button_content{
+                    padding: 0 31px 37px;
+                }
+            }
+        }
+    }
+}

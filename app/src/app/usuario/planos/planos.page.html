@@ -1,0 +1,40 @@
+<ion-content>
+    <app-header-simples title="Planos"></app-header-simples>
+
+    <div class="planos_header">
+        <div class="item_content">
+            <div *ngFor="let plano of planos; index as i" class="item {{planosCores[i]}}" [ngClass]="plano_selected == i ? 'active' : ''" (click)='change_plano(i)'>
+                <svg id="Grupo_91" data-name="Grupo 91" xmlns="http://www.w3.org/2000/svg" width="61.365" height="41.404" viewBox="0 0 61.365 41.404"> <path id="Caminho_56" data-name="Caminho 56" d="M707.38,2800.673s-.622-5.894-7.786-5.813-9.544,6.407-10,7.293-1.027.3-1.027.3a15.117,15.117,0,0,0-3.271-2.974c-3.839-2.623-8.751-1.478-10.2-1.019a1.056,1.056,0,0,1-1.523-.955c-.721-10.887-8.688-11.428-8.688-11.428-5.786-.64-7.624,2.965-7.408,5.452a5.816,5.816,0,0,0,2.663,4.542c1.108.757,4.231,1.223,5.549.615a1.974,1.974,0,0,1,2.08.025,4.234,4.234,0,0,1,1.117,4.2s-1.929,4.831-3.713,6.669a4.183,4.183,0,0,1-3.731,1.388,21.221,21.221,0,0,0-4.091-.487c-2.073.307-1.757,2.686-1.757,2.686-.712,1.163-.694,4.867-.694,4.867.5,6.02,4.038,7.246,4.038,7.246a3.282,3.282,0,0,0,2.559,2.992,33.565,33.565,0,0,0,8.309.09,31.028,31.028,0,0,1,9.273.37c.586.171.487,0,.487,0-4.082-4.542-3.663-12.843-3.663-12.843l-1.5-5.056a.694.694,0,0,1,.122-.771.659.659,0,0,1,.689-.135s4.758,2.447,5.84,2.96,1.442-.135,1.442-.135c2.92-2.722,9.379-2.413,9.379-2.413l3.812-4.116s2.44-3.15,2.508-1.1a6.416,6.416,0,0,0,.7,3.046,5,5,0,0,0,4.2,1.983C708.75,2807.369,707.38,2800.673,707.38,2800.673Zm-48.559,12.619a1.689,1.689,0,1,1,2.347-1.2A1.886,1.886,0,0,1,658.821,2813.292Zm2.128,10.7v-1.172s6.2.991,7.985-2.722l1.063.45S668.519,2824.961,660.949,2823.988Z" transform="translate(-654.893 -2786.008)" fill="#fff"/> <path id="Caminho_57" data-name="Caminho 57" d="M907.385,3114.052s1.839-.068,2.5,0,.689-.69.689-.69-.473-1.311-2.906-1.46a2.5,2.5,0,0,0-2.731,2.154s-.107.9.731.712S906.277,3113.957,907.385,3114.052Z" transform="translate(-879.353 -3078.554)" fill="#fff"/> <path id="Caminho_58" data-name="Caminho 58" d="M1011.321,3089.819a5.358,5.358,0,0,1,3.7-1.226c1.334.126.876-.833.876-.833a2.946,2.946,0,0,0-2.481-1.082c-1.636.094-2.873,2.237-2.873,2.237s-.27.473.081.764A.7.7,0,0,0,1011.321,3089.819Z" transform="translate(-974.065 -3055.913)" fill="#fff"/> <ellipse id="Elipse_31" data-name="Elipse 31" cx="2.253" cy="1.62" rx="2.253" ry="1.62" transform="translate(32.045 38.313) rotate(-17.394)" fill="#fff"/> <path id="Caminho_59" data-name="Caminho 59" d="M1083.464,3103.387s6.507-3.388,11.049-3.713,6.128.883,6.128.883.306.5,0,.793-1.082.036-1.082.036a12.168,12.168,0,0,0-5.479.117c-3.551.712-9.985,2.461-9.985,2.461a.8.8,0,0,1-.739,0C1083.031,3103.748,1083.464,3103.387,1083.464,3103.387Z" transform="translate(-1039.412 -3067.534)" fill="#fff"/> <path id="Caminho_60" data-name="Caminho 60" d="M1085.94,3150.633c.054,0,7.354-1.893,12.166-1.172,2.469.595,2.668,1.406,2.361,1.839s-1.135,0-1.135,0-1.334-.973-8.093-.595c-5.3.378-5.389.378-5.389.378s-.577.081-.559-.108S1085.94,3150.633,1085.94,3150.633Z" transform="translate(-1041.258 -3112.13)" fill="#fff"/> </svg>
+                <div>Plano<br>{{plano.titulo}}</div>
+
+                <div class="plano_contratado" *ngIf="hasPlano(plano?.id)"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26"><g transform="translate(-79 -77)"><g transform="translate(79 77)" fill="#00d58d" stroke="#fff" stroke-width="2"><circle cx="13" cy="13" r="13" stroke="none"/><circle cx="13" cy="13" r="12" fill="none"/></g><path d="M4.691,9.734a.625.625,0,0,1-.884,0L.275,6.2a.938.938,0,0,1,0-1.327l.442-.442a.938.938,0,0,1,1.327,0l2.2,2.2L10.206.681a.938.938,0,0,1,1.327,0l.442.442a.938.938,0,0,1,0,1.327Zm0,0" transform="translate(86 84.594)" fill="#fff"/></g></svg></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="planos_content">
+        <div *ngFor="let plano of planos; index as i">
+            <div class="item {{planosCores[i]}}" *ngIf="plano_selected == i">
+                <div class="header">
+                    <p class="nome">Plano {{plano.titulo}} </p>
+                    <p class="valor">{{plano.valor | currency:'BRL':true:'1.2-2'}}</p>
+                </div>
+                <div class="content">
+                    <div class="info" [attr.active]="planoBeneficio(plano, beneficio) == 'true'? 'true':'false'" *ngFor="let beneficio of beneficios; index as i">
+                        <p class="nome">{{beneficio.nome}}</p>
+                        <div class="status">
+                            <svg class="on" xmlns="http://www.w3.org/2000/svg" width="20.396" height="15.837" viewBox="0 0 20.396 15.837"> <path id="check" d="M7.81,15.938a1.041,1.041,0,0,1-1.472,0L.458,10.057a1.561,1.561,0,0,1,0-2.209l.736-.736a1.562,1.562,0,0,1,2.209,0l3.671,3.671L16.993.864a1.562,1.562,0,0,1,2.209,0l.736.736a1.561,1.561,0,0,1,0,2.209Zm0,0" transform="translate(0 -0.406)" fill="#00d58d"/> </svg>
+                            <svg class="off" xmlns="http://www.w3.org/2000/svg" width="14" height="1" viewBox="0 0 14 1"><line id="Linha_15" data-name="Linha 15" x2="14" transform="translate(0 0.5)" fill="none" stroke="#000" stroke-width="1"/></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="button_content" *ngIf="route.snapshot.params.id == undefined">
+                    <button class="assinar" (click)="assinarPlano(plano?.id)">Assinar este plano</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <app-mobile-menu active_page="2"></app-mobile-menu>
+</ion-content>

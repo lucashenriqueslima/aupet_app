@@ -1,0 +1,27 @@
+@import "./../../../mixins.scss";
+app-altera-dados-pet {
+    @include modal_2;
+    .pop_up_content {
+        .content {
+            .list_item {
+                padding: 6.9vw 6.9vw 1px;
+                .item {
+                    @include input_1;
+                    margin: 0 0 4.2vw;
+                }
+            }
+        }
+    }
+    @media (min-width: 450px) {
+        .pop_up_content {
+            .content {
+                .list_item {
+                    padding: 30px 30px 1px;
+                    .item {
+                        margin: 0 0 18px;
+                    }
+                }
+            }
+        }
+    }
+}
